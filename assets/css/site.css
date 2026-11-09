@@ -867,3 +867,8 @@ body.hero-in .chat-fab{opacity:0;pointer-events:none;transform:translateY(20px)}
 .split .ln{padding:.14em .12em .24em 0!important;margin:-.14em -.12em -.24em 0!important}
 main,.sec,.band,.ftr{overflow-x:clip}
 @media (max-width:899px){.hv-offers-in{scroll-padding-left:20px}}
+/* pont de survol entre « Nos offres » et son sous-menu (évite la fermeture en traversant l'espace) */
+.drop{position:relative}
+.drop::after{content:"";position:absolute;left:-30px;right:-30px;top:100%;height:30px}
+.drop-panel{transition:opacity 220ms ease 60ms,transform 220ms ease 60ms,visibility 0s linear 280ms!important}
+.drop:hover .drop-panel,.drop:focus-within .drop-panel{visibility:visible;transition-delay:0s!important}
