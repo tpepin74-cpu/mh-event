@@ -989,3 +989,21 @@ html.rm .reveal-img,html.no-js .reveal-img{clip-path:none}
 .hdr .logo-img{position:absolute;left:0;top:14px;height:128px!important;width:auto;max-width:none}
 .hdr.hide{transform:translateY(calc(-100% - 70px))}
 @media (max-width:899px){.hdr .logo{width:150px}.hdr .logo-img{height:128px!important;top:10px}.hv-body,.hero-body{padding-top:170px!important}}
+
+/* Bordeaux écran (brief : #5A1626 en print, #7A1F35 à l'écran) ; interligne 1,6 */
+:root{--bordeaux:#7A1F35;--bordeaux-deep:#5A1626;--bordeaux-ink:#47101D;--em:var(--bordeaux)}
+body{line-height:1.6}
+.t-lead{line-height:1.6}
+
+/* Ils nous font confiance : logos clients en figue noire, grille à filets fins */
+.clients{background:var(--pierre)}
+.logos-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
+@media (min-width:700px){.logos-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:1100px){.logos-grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.logos-grid li{display:grid;place-items:center;aspect-ratio:3/2;padding:clamp(14px,2vw,28px);border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.logos-grid img{max-width:100%;max-height:clamp(38px,4.4vw,62px);width:auto;height:auto;opacity:.78;transition:opacity 260ms ease,transform 400ms var(--ease-out)}
+@media (hover:hover){.logos-grid li:hover img{opacity:1;transform:scale(1.04)}}
+/* Brief §12 : titres en capitales espacées (Hanken), un mot en Cormorant italique ; filet doré de 2 px */
+.t-h2{font-family:var(--sans)!important;font-weight:300!important;text-transform:uppercase;letter-spacing:.07em!important;font-size:clamp(28px,3.3vw,52px)!important;line-height:1.1!important}
+.t-h2 em{font-size:1.18em;letter-spacing:0!important;text-transform:none}
+.rule::before,.rule::after{height:2px}
