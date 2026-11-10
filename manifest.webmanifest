@@ -1,1 +1,1 @@
-{"name": "MH Event", "short_name": "MH Event", "start_url": "/", "display": "standalone", "background_color": "#F4F1EA", "theme_color": "#101585", "lang": "fr", "icons": [{"src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png"}]}
+{"name": "MH Event", "short_name": "MH Event", "start_url": "/", "display": "standalone", "background_color": "#EDE6DA", "theme_color": "#5A1626", "lang": "fr", "icons": [{"src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png"}]}
