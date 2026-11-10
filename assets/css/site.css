@@ -983,5 +983,9 @@ html.rm .reveal-img,html.no-js .reveal-img{clip-path:none}
 .post .frame,.act .frame{border-radius:0!important}
 @media (min-width:900px){#location .grid-2{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}}
 .hv-lead{max-width:58ch!important}
-/* logo d'en-tête agrandi de 40 % (46 → 64 px) */
-.hdr .logo-img{height:64px!important;width:auto}
+/* logo d'en-tête : 128 px, il déborde sous la barre (ancré en haut, la barre garde 84 px) */
+.hdr,.hdr-in{overflow:visible}
+.hdr .logo{position:relative;align-self:stretch;width:clamp(150px,13vw,206px);flex:none;z-index:2}
+.hdr .logo-img{position:absolute;left:0;top:14px;height:128px!important;width:auto;max-width:none}
+.hdr.hide{transform:translateY(calc(-100% - 70px))}
+@media (max-width:899px){.hdr .logo{width:150px}.hdr .logo-img{height:128px!important;top:10px}.hv-body,.hero-body{padding-top:170px!important}}
