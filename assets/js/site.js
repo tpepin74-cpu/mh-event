@@ -259,7 +259,7 @@ els.forEach(function(e){var w=e.classList.contains('echo')&&e.previousElementSib
   var NS='http://www.w3.org/2000/svg';
   var svg=document.createElementNS(NS,'svg');svg.setAttribute('width','0');svg.setAttribute('height','0');svg.setAttribute('aria-hidden','true');svg.style.position='absolute';document.body.appendChild(svg);
   var uid=0;
-  function liquid(img,from,dur){
+  function liquid(img,from,dur){return;
     return;
     if(reduce||!img)return;
     var id='mhliq'+(uid++),f=document.createElementNS(NS,'filter');f.setAttribute('id',id);f.setAttribute('x','-10%');f.setAttribute('y','-10%');f.setAttribute('width','120%');f.setAttribute('height','120%');
