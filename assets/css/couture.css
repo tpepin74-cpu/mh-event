@@ -322,3 +322,11 @@ body.hero-in .chat-fab{opacity:0;pointer-events:none}
   .hv-actions .btn{width:100%;min-width:0}
   .hv-pause{display:none!important}
 }
+
+/* Photos toujours visibles : aucune image ne dépend plus d'une animation JavaScript
+   (navigateurs intégrés aux messageries, Safari ancien, économie de données…) */
+.reveal-img{clip-path:none!important}
+.reveal-img img,.px img{transform:none!important}
+figure[data-fade],.ed-card[data-fade],.arch-wrap[data-fade],[data-fade]:has(img),
+.gal figure,.post,.act,.pole,.tile,.place,.rise:has(img){opacity:1!important;transform:none!important;clip-path:none!important}
+img{opacity:1!important}
