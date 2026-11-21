@@ -112,12 +112,14 @@ figure{margin:0}
 figcaption{margin-top:14px;font:italic 400 16px/1.4 var(--serif);color:var(--txt)}
 
 /* Superposition de deux photos */
-.duo{position:relative;aspect-ratio:5/6;width:100%}
-.duo .b,.duo .f{position:absolute;overflow:hidden;background:var(--pierre)}
-.duo .b{left:0;top:8%;width:62%;height:86%}
-.duo .f{right:0;top:0;width:68%;height:86%}
-.duo img{width:100%;height:100%;object-fit:cover}
-.duo.rev .b{left:auto;right:0}.duo.rev .f{right:auto;left:0}
+/* Duo éditorial : deux photos côte à côte, sans chevauchement, petite photo décalée vers le bas */
+.duo{display:grid;grid-template-columns:.62fr 1fr;gap:clamp(14px,2vw,28px);align-items:end;width:100%}
+.duo .b,.duo .f{position:relative;overflow:hidden;background:var(--pierre)}
+.duo .b{aspect-ratio:3/4;margin-bottom:clamp(-64px,-6vw,-28px)}
+.duo .f{aspect-ratio:4/5}
+.duo img{width:100%;height:100%;object-fit:cover;display:block}
+.duo.rev{grid-template-columns:1fr .62fr}.duo.rev .f{order:-1}
+.duo{padding-bottom:clamp(28px,6vw,64px)}
 
 /* Photo pleine largeur */
 .bleed{position:relative;height:clamp(420px,82vh,900px);overflow:hidden}
@@ -229,6 +231,17 @@ body.menu-open .tabbar{opacity:0;pointer-events:none}
 .entries{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:10px}
 .entries .btn{min-width:220px}
 @media (max-width:760px){.entries{width:100%;max-width:330px}.entries .btn{width:100%;min-width:0}.v-pause{display:none}}
+/* Accueil : logo au centre exact de la vidéo, accroche et trois entrées en vert cyprès dessous */
+.hero-v .hero-body{position:absolute;inset:0;padding:0 var(--gut);display:block}
+.hero-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;width:clamp(200px,24vw,340px);line-height:0}
+.hero-logo img{width:100%;height:auto;filter:drop-shadow(0 2px 18px rgba(20,12,15,.35))}
+.hero-cta{position:absolute;left:var(--gut);right:var(--gut);top:calc(50% + clamp(200px,24vw,340px)*.313 + clamp(24px,3.5vh,44px));display:grid;justify-items:center;text-align:center;gap:18px}
+.hero .btn.green{background:var(--cypres);border-color:var(--cypres);color:#fff}
+.hero .btn.green:hover{background:#fff;border-color:#fff;color:var(--cypres)}
+.entries .btn.green{min-width:200px}
+body:has(.hero-v).hero-in .hdr .logo{opacity:0;pointer-events:none}
+.hdr .logo{transition:opacity .4s var(--ease)}
+@media (max-width:760px){.hero-logo{width:clamp(170px,52vw,240px);top:42%}.hero-cta{top:calc(42% + min(52vw,240px)*.313 + 28px);gap:14px}.hero-cta .lead{font-size:15px}.entries{margin-inline:auto;gap:10px}.entries .btn.green{min-height:46px}}
 
 /* Fil d'Ariane discret */
 .crumbs{display:flex;gap:10px;justify-content:center;font:500 10px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:rgba(246,241,232,.8)}
@@ -504,3 +517,5 @@ body.ev.hero-in .ev-index{opacity:0;pointer-events:none}
 
 /* 404 */
 .nf{min-height:80svh;display:grid;place-items:center;text-align:center;padding:160px var(--gut) 80px}
+.hero-v::after{background:radial-gradient(ellipse 60% 55% at 50% 52%,rgba(20,12,15,.38) 0%,rgba(20,12,15,.12) 70%,rgba(20,12,15,0) 100%),linear-gradient(180deg,rgba(20,12,15,.32) 0%,rgba(20,12,15,0) 26%,rgba(20,12,15,0) 50%,rgba(20,12,15,.52) 100%)}
+.hero-v .hero-cta .lead{max-width:60ch}
