@@ -591,3 +591,9 @@ body.ev .bc-dark{color:var(--ev-tx)}
 .on-dark .t-xl,.on-dark .t-h2,.on-dark .t-h3,.on-dark .rows h3,.bleed .cap .t-h2,.hero .t-xl,.cta-band .t-h2,.cta-band .t-h3{color:var(--pierre)}
 body.ev .t-xl,body.ev .t-h2,body.ev .t-h3{color:var(--ev-fg)}
 .ev-a .ev-hero .t-xl{color:var(--pierre)}
+/* Duos photo sans contour ; titres entièrement en vert sur fonds clairs */
+.duo .b,.duo .f{border:0}
+.t-xl em,.t-h2 em,.t-h3 em{color:var(--cypres)}
+.on-dark .t-xl em,.on-dark .t-h2 em,.on-dark .t-h3 em,.bleed .cap .t-h2 em,.hero .t-xl em,.cta-band .t-h2 em{color:var(--pierre)}
+body.ev .t-xl em,body.ev .t-h2 em,body.ev .t-h3 em{color:var(--ev-ac)}
+.ev-a .ev-hero .t-xl em{color:var(--pierre)}
