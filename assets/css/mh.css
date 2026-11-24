@@ -597,3 +597,21 @@ body.ev .t-xl,body.ev .t-h2,body.ev .t-h3{color:var(--ev-fg)}
 .on-dark .t-xl em,.on-dark .t-h2 em,.on-dark .t-h3 em,.bleed .cap .t-h2 em,.hero .t-xl em,.cta-band .t-h2 em{color:var(--pierre)}
 body.ev .t-xl em,body.ev .t-h2 em,body.ev .t-h3 em{color:var(--ev-ac)}
 .ev-a .ev-hero .t-xl em{color:var(--pierre)}
+/* Titres principaux en bordeaux (fonds clairs) */
+.t-xl,.t-h2,.t-h3,.rows h3,.vg .meta h3,.prose h2,.prose h3,.t-xl em,.t-h2 em,.t-h3 em{color:var(--bordeaux)}
+.on-dark .t-xl,.on-dark .t-h2,.on-dark .t-h3,.on-dark .rows h3,.bleed .cap .t-h2,.hero .t-xl,
+.on-dark .t-xl em,.on-dark .t-h2 em,.on-dark .t-h3 em,.bleed .cap .t-h2 em,.hero .t-xl em{color:var(--pierre)}
+body.ev .t-xl,body.ev .t-h2,body.ev .t-h3{color:var(--ev-fg)}
+body.ev .t-xl em,body.ev .t-h2 em,body.ev .t-h3 em{color:var(--ev-ac)}
+.ev-a .ev-hero .t-xl,.ev-a .ev-hero .t-xl em{color:var(--pierre)}
+/* Survol des boutons et liens : vert cyprès */
+.btn:hover,.btn.line:hover,.hdr.solid .btn:hover,.hdr.light .btn:hover{background:var(--cypres);border-color:var(--cypres);color:var(--pierre)}
+.hero .btn:hover,.hero .btn.line:hover,.hero .btn.green:hover,.on-dark .btn:hover,.on-dark .btn.line:hover,.cta-band .btn:hover,.hdr .btn:hover{background:var(--cypres);border-color:var(--cypres);color:#fff}
+.link{transition:background-size .5s var(--ease),color .3s ease}
+.link:hover,.card:hover .more,.prose a:hover{color:var(--cypres)}
+.card .more{transition:color .3s ease}
+.filters button:hover,.quick button:hover{border-color:var(--cypres);color:var(--cypres)}
+.bc a:hover{color:var(--cypres)}.bc-light a:hover{color:#fff;opacity:1}
+.related a:hover{color:var(--cypres)}
+body.ev main .link:hover{color:var(--ev-fg)}
+.on-dark .link:hover,.bg-cypres .link:hover,.cta-band .link:hover,.ftr .link:hover{color:#fff}
