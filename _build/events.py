@@ -141,7 +141,7 @@ def plate(e):
 
 def vignette(e):
     bg, fg, ac, tx = TH[e["th"]]
-    bg = {"ivoire": "#DCCDB3", "or": "#C9A45C"}.get(e["th"], bg)
+    bg = {"ivoire": "#DCCDB3", "or": "#C9A45C", "pierre": "#5A1626"}.get(e["th"], bg)
     st = '<span class="st">À venir</span>' if e["time"] == "avenir" else ""
     cat = {"entreprises": "Entreprise", "hotels": "Hôtel", "particuliers": "Particulier"}[e["cat"]]
     p = e["ph"][0][0]

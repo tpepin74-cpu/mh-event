@@ -12,12 +12,25 @@ AUD = {"entreprises": ("Entreprises", "entreprises/"), "hotels": ("Hôtels", "ho
 def dv(t):
     return "devis/?type=" + quote(t)
 
-def vign_block(slugs, title="Ils nous ont fait <em>confiance</em>", label="Réalisations"):
-    if not slugs:
-        return ""
+def pick4(slugs, cat, path=""):
+    """Toujours 4 réalisations : celles choisies, puis celles du même service, puis du même type de client."""
+    out = [x for x in slugs if x in EV]
+    for e in EVENTS:
+        if len(out) >= 4: break
+        if path and e.get("svc") == path and e["slug"] not in out: out.append(e["slug"])
+    for e in EVENTS:
+        if len(out) >= 4: break
+        if e["cat"] == cat and e["slug"] not in out: out.append(e["slug"])
+    for e in EVENTS:
+        if len(out) >= 4: break
+        if e["slug"] not in out: out.append(e["slug"])
+    return out[:4]
+
+def vign_block(slugs, cat, path="", title="Nos <em>réalisations</em>", label="Réalisations"):
+    sl = pick4(slugs, cat, path)
     return (f'<section class="sec bg-pierre"><div class="wrap"><div class="stack" style="margin-bottom:clamp(40px,5vw,64px)">'
             f'<p class="label fade">{label}</p><h2 class="t-h2 fade">{title}</h2></div>'
-            f'<div class="vign three">{"".join(vignette(EV[s]) for s in slugs)}</div>'
+            f'<div class="vign four">{"".join(vignette(EV[x]) for x in sl)}</div>'
             f'<div class="actions fade" style="margin-top:40px"><a class="link" href="realisations/">Toutes les réalisations</a></div></div></section>')
 
 def strip_tags(s):
@@ -54,7 +67,7 @@ def service_page(path, S):
  {faq(S["faq"])}
 </div></section>'''
     rel = f'<section class="sec tight" style="padding-top:0"><div class="wrap">{links_row(S["related"])}</div></section>'
-    body = (hero + intro + form + cta_band(S["band"], devis) + S.get("extra", "") + vign_block(S.get("real", []))
+    body = (hero + intro + form + cta_band(S["band"], devis) + S.get("extra", "") + vign_block(S.get("real", []), S["aud"], path)
             + faqs + rel + cta(S["cta_t"], S["cta_p"], devis=devis))
     page(path, S["title"], S["desc"], body, crumbs=crumbs, tab=S["aud"], tone="light",
          jsonld=[service_ld(S, path), faq_ld(S["faq"])])
@@ -73,7 +86,7 @@ def hub_page(path, H):
 </div></section>'''
     lg = (f'<section class="sec tight"><div class="wrap"><p class="label center fade" style="margin-bottom:40px">Ils nous font confiance</p>{logos(H["logos"])}</div></section>'
           if H.get("logos") else "")
-    body = (hero + intro + svc + cta_band(H["band"], devis) + vign_block(H["real"], title=H.get("real_h", "Ils nous ont fait <em>confiance</em>"))
+    body = (hero + intro + svc + cta_band(H["band"], devis) + vign_block(H["real"], H["tab"], title=H.get("real_h", "Nos <em>réalisations</em>"))
             + lg + cta(H["cta_t"], H["cta_p"], devis=devis))
     page(path, H["title"], H["desc"], body, crumbs=[(path, H["crumb"])], tab=H["tab"], tone="light",
          jsonld=[{"@context": "https://schema.org", "@type": "CollectionPage", "name": H["title"], "description": H["desc"], "url": DOMAIN + path,
