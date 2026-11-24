@@ -95,9 +95,64 @@ def hub_page(path, H):
 
 # ================================================================ ACCUEIL
 def home():
-    # Dedicated editorial homepage; the other pages retain their own layouts.
-    from home_editorial import build_home
-    build_home()
+    hero = f'''<section class="hero hero-v" aria-labelledby="h-title">
+ <div class="hero-media"><video autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg" aria-hidden="true"><source src="assets/video/hero.mp4" type="video/mp4"></video></div>
+ <div class="hero-body">
+  <h1 class="hero-logo" id="h-title"><img src="assets/img/logo-pierre.webp" width="1000" height="626" alt="MH Event, agence événementielle à Nîmes, Aix-en-Provence, Marseille et Saint-Tropez"></h1>
+  <div class="hero-cta">
+   <p class="lead">Séminaires, team building, journées bien-être, soirées et mariages.</p>
+   <div class="entries"><a class="btn green" href="entreprises/">Une entreprise</a><a class="btn green" href="particuliers/">Un particulier</a><a class="btn green" href="hotels/">Un hôtel</a></div>
+  </div>
+ </div>
+ <button class="v-pause" type="button" aria-pressed="false" aria-label="Mettre la vidéo en pause"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z" fill="currentColor"/></svg></button>
+ <a class="hero-down" href="#suite" aria-label="Découvrir la suite">{DOWN}</a>
+</section>'''
+    body = hero + f'''
+<section class="sec" id="suite"><div class="wrap intro">
+ <div class="txt">{head_block("Agence événementielle · Provence &amp; Gard", "Une seule <em>signature</em>", "Corporate ou privé, chaque événement est conçu et piloté par Mathilde Heyral, de la première idée au dernier invité, à Aix-en-Provence, Marseille, Nîmes et Saint-Tropez.")}
+  <div class="actions fade"><a class="link" href="agence/">Découvrir l'agence</a></div></div>
+ {duo("mariage-mariage-chateau-robe-blanche-bouquet", "Mariée et son bouquet devant un château", "lancement-soiree-inauguration-entreprise-cabries-paca-1", "Soirée d'inauguration à Cabriès")}
+</div></section>
+
+<section class="sec flush"><div class="wrap">
+ <div class="stack center" style="margin-bottom:clamp(56px,7vw,110px)"><p class="label fade">Vous êtes</p><h2 class="t-h2 fade">Trois façons <em>de recevoir</em></h2></div>
+ {doors([
+   ("entreprises/", "afterwork-soiree-entrepeneurs-encheres-pasino-aix", "Dîner de gala au Pasino d'Aix-en-Provence", "Une entreprise", "Séminaires, soirées, inaugurations, team building."),
+   ("hotels/", "hotel-pianiste-soiree-opera-hotel-blanc", "Soirée Opéra et champagne en hôtel", "Un hôtel", "Soirées vitrines, soirées séminaires, Déjeuner Corpo."),
+   ("particuliers/", "mariage-maries-danse-ouverture-bal-mariage-gard", "Ouverture de bal d'un mariage dans le Gard", "Un particulier", "Mariage, coordination du jour J, anniversaires."),
+ ])}
+</div></section>
+
+{bleed("tb-team-building-marche-des-senteurs-mh-event-avril-2026", "La Marche des senteurs dans les calanques", "Team building", "Des équipes <em>soudées</em>", ("entreprises/team-building/", "Voir les quinze activités"))}
+
+<section class="sec"><div class="wrap intro rev">
+ <div class="txt">{head_block("Séminaires &amp; bien-être", "Respirer <em>ensemble</em>", "Yoga face à la mer, relaxation sonore, massages : des journées qui soudent autant qu'elles reposent.")}
+  <div class="actions fade"><a class="link" href="entreprises/journee-bien-etre/">Les journées bien-être</a><a class="link" href="entreprises/seminaire/">Organiser un séminaire</a></div></div>
+ {duo("bienetre-cours-yoga-evenement-bien-etre", "Cours de yoga en terrasse face aux collines", "seminaire-mh-event-organisation-seminaire-montpellier", "Séminaire sous chapiteau près de Montpellier", rev=True)}
+</div></section>
+
+{cta_band("Un devis gratuit, une réponse sous 48 heures.", "devis/")}
+
+<section class="sec bg-pierre"><div class="wrap">
+ <div class="stack center" style="margin-bottom:clamp(48px,6vw,88px)"><p class="label fade">Réalisations</p><h2 class="t-h2 fade">Ils nous font <em>confiance</em></h2></div>
+ {logos(["golden-tulip","pasino-grand","odalys-euromed","entent","golfe-saint-tropez","reseau-entreprendre","gepa","cci-pays-arles"])}
+ <div class="actions center fade" style="margin-top:clamp(48px,6vw,80px);justify-content:center"><a class="btn line" href="realisations/">Toutes les réalisations</a></div>
+</div></section>
+
+<section class="sec"><div class="wrap intro">
+ <figure class="fade">{ph("mathilde-portrait-mathilde-heyral-mh-event", "Mathilde Heyral, fondatrice de MH Event", "p")}<figcaption>Mathilde Heyral, fondatrice</figcaption></figure>
+ <div class="txt">{head_block("Une seule interlocutrice", "Le sens <em>du détail</em>", "Danseuse classique, cheffe hôtesse au Grand Prix de France de F1, juriste : Mathilde garde de ce parcours une double exigence, l'émotion pour vos invités, la rigueur pour vous.")}
+  <p class="sig fade">Mathilde Heyral</p></div>
+</div></section>
+
+<section class="sec flush"><div class="wrap">
+ <figure class="quote fade"><div class="rule" aria-hidden="true"><i></i></div><blockquote>« Mathilde transforme chaque moment en une expérience unique, fluide et parfaitement orchestrée. »</blockquote>
+ <figcaption class="who">Lucie Lauzel · avis Google · <a href="https://share.google/i5QVzxkjr3eyGyZ6x" target="_blank" rel="noopener" style="color:var(--bordeaux)">5,0 sur 35 avis</a></figcaption></figure>
+</div></section>
+{cta(dark=True, devis="devis/")}'''
+    page("", "MH Event · Agence événementielle à Aix, Marseille, Nîmes",
+         "Agence événementielle haut de gamme à Aix-en-Provence, Marseille, Nîmes et Saint-Tropez : séminaires, team building, soirées en hôtel, hôtesses et mariages.",
+         body, jsonld=[AGENCY, {"@context": "https://schema.org", "@type": "WebSite", "name": "MH Event", "url": DOMAIN}])
 
 # ================================================================ ENTREPRISES
 def entreprises():
