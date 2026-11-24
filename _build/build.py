@@ -181,11 +181,7 @@ def menu(cur):
     items = []
     for href, label, subs in NAV:
         ac = ' aria-current="page"' if href == cur or (href and cur.startswith(href)) else ""
-        sub = ""
-        if subs:
-            AC = ' aria-current="page"'
-            sub = '<div class="m-sub">' + "".join(f'<a href="{h}"{AC if cur.startswith(h) else ""}>{l}</a>' for h, l in subs) + "</div>"
-        items.append(f'<li><a href="{href or "index.html"}"{ac}>{label}</a>{sub}</li>')
+        items.append(f'<li><a href="{href or "index.html"}"{ac}>{label}</a></li>')  # sans sous-menus
     return f'''<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
  <div class="m-media"><video muted loop playsinline preload="none" data-src="assets/video/hero.mp4" poster="assets/img/hero-poster.jpg" aria-hidden="true"></video><img class="m-logo" src="assets/img/logo-pierre.webp" width="1000" height="626" alt=""></div>
  <div class="m-panel">
