@@ -288,6 +288,7 @@ def page(path, title, desc, body, crumbs=None, tab=None, light=False, bodycls=""
     out = (head(title, desc, path, head_extra) + f"\n<body{cls}>\n" + header(light) + "\n" + after +
            f'<main id="main">\n{bc}{body}\n</main>\n' + footer() + "\n" + menu(cur) + "\n" + tabbar(t0) + "\n" + CHAT +
            f'\n<script src="assets/js/mh.js?v={_v("assets/js/mh.js")}" defer></script>\n<script src="assets/js/chat.js?v={_v("assets/js/chat.js")}" defer></script>\n</body>\n</html>\n')
+    out = out.replace('assets/video/hero.mp4"', f'assets/video/hero.mp4?v={_v("assets/video/hero.mp4")}"').replace('assets/img/hero-poster.jpg"', f'assets/img/hero-poster.jpg?v={_v("assets/img/hero-poster.jpg")}"')
     out = relink(out, prefix)
     if os.path.dirname(fname):
         os.makedirs(os.path.dirname(fname), exist_ok=True)
