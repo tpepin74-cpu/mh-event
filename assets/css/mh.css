@@ -524,3 +524,7 @@ main .label:has(+ h1){display:inline-block;width:fit-content;justify-self:center
   font-size:clamp(13px,1vw,15px);letter-spacing:.3em;padding:12px 20px 11px 22px;line-height:1.2}
 .ev-b .ev-hero .label:has(+ h1){justify-self:start}
 body.ev-dark main .label:has(+ h1){box-shadow:0 0 0 1px rgba(237,230,218,.45)}
+
+/* Titres et sous-titres : une seule police, tout en capitales, même taille (plus de mot en italique) */
+.t-xl em,.t-h2 em,.t-h3 em,.vg .plate .wm em,.prose h2 em,.prose h3 em{font-style:normal;text-transform:uppercase;letter-spacing:inherit;font-size:inherit;font-weight:inherit}
+.prose h3{text-transform:uppercase;letter-spacing:.05em}
