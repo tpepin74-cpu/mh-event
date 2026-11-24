@@ -586,3 +586,8 @@ body.ev .bc-dark{color:var(--ev-tx)}
 /* Lisibilité des héros photo des pages de services */
 .hero.short::after{background:linear-gradient(180deg,rgba(20,12,15,.55) 0%,rgba(20,12,15,.30) 30%,rgba(20,12,15,.38) 60%,rgba(20,12,15,.62) 100%)}
 .bc-light{text-shadow:0 1px 12px rgba(20,12,15,.55)}.bc-light a{opacity:.95}
+/* Titres principaux : texte en vert cyprès, mot d'accent en bordeaux (fonds clairs uniquement) */
+.t-xl,.t-h2,.t-h3,.rows h3,.vg .meta h3,.prose h2,.prose h3{color:var(--cypres)}
+.on-dark .t-xl,.on-dark .t-h2,.on-dark .t-h3,.on-dark .rows h3,.bleed .cap .t-h2,.hero .t-xl,.cta-band .t-h2,.cta-band .t-h3{color:var(--pierre)}
+body.ev .t-xl,body.ev .t-h2,body.ev .t-h3{color:var(--ev-fg)}
+.ev-a .ev-hero .t-xl{color:var(--pierre)}
