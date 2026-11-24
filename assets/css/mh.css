@@ -518,3 +518,9 @@ body.ev.hero-in .ev-index{opacity:0;pointer-events:none}
 .nf{min-height:80svh;display:grid;place-items:center;text-align:center;padding:160px var(--gut) 80px}
 .hero-v::after{background:radial-gradient(ellipse 60% 55% at 50% 52%,rgba(20,12,15,.38) 0%,rgba(20,12,15,.12) 70%,rgba(20,12,15,0) 100%),linear-gradient(180deg,rgba(20,12,15,.32) 0%,rgba(20,12,15,0) 26%,rgba(20,12,15,0) 50%,rgba(20,12,15,.52) 100%)}
 .hero-v .hero-cta .lead{max-width:60ch}
+
+/* En-têtes de page : premier mot plus grand, sur fond bordeaux */
+main .label:has(+ h1){display:inline-block;width:fit-content;justify-self:center;background:var(--bordeaux)!important;color:var(--pierre)!important;
+  font-size:clamp(13px,1vw,15px);letter-spacing:.3em;padding:12px 20px 11px 22px;line-height:1.2}
+.ev-b .ev-hero .label:has(+ h1){justify-self:start}
+body.ev-dark main .label:has(+ h1){box-shadow:0 0 0 1px rgba(237,230,218,.45)}
