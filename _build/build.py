@@ -72,6 +72,10 @@ NAV = [
 TABS = [("hotels", "hotels.html", "Hôtels"), ("entreprises", "entreprises.html", "Entreprise"),
         ("particuliers", "particuliers.html", "Particulier"), ("realisations", "realisations.html", "Réalisations")]
 
+import hashlib
+def _v(path):
+    return hashlib.md5(open(path, "rb").read()).hexdigest()[:8]
+
 def head(title, desc, canon, extra=""):
     return f'''<!DOCTYPE html>
 <html lang="fr">
@@ -90,7 +94,7 @@ def head(title, desc, canon, extra=""):
 <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/hanken-grotesk-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/img/logo-bordeaux.webp" as="image">
-<link rel="stylesheet" href="assets/css/mh.css">
+<link rel="stylesheet" href="assets/css/mh.css?v={_v("assets/css/mh.css")}">
 <script>window.__mhT0=Date.now();(function(h){{h.classList.add("js");try{{if(!sessionStorage.getItem("mh-v")){{h.classList.add("ld-first");sessionStorage.setItem("mh-v","1")}}}}catch(e){{h.classList.add("ld-first")}}}})(document.documentElement)</script>
 {extra}</head>'''
 
@@ -159,7 +163,7 @@ def page(fname, title, desc, body, cur=None, tab=None, light=False, bodycls="", 
     cls = f' class="{bodycls}"' if bodycls else ""
     out = (head(title, desc, canon, extra_head) + f"\n<body{cls}>\n" + header(light) + "\n" + after +
            f'<main id="main">\n{body}\n</main>\n' + footer() + "\n" + menu(cur or fname) + "\n" + tabbar(tab) + "\n" + CHAT +
-           '\n<script src="assets/js/mh.js" defer></script>\n<script src="assets/js/chat.js" defer></script>\n</body>\n</html>\n')
+           f'\n<script src="assets/js/mh.js?v={_v("assets/js/mh.js")}" defer></script>\n<script src="assets/js/chat.js?v={_v("assets/js/chat.js")}" defer></script>\n</body>\n</html>\n')
     open(fname, "w", encoding="utf-8").write(out)
     PAGES.append(fname)
 
