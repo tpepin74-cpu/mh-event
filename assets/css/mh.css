@@ -235,8 +235,8 @@ body.menu-open .tabbar{opacity:0;pointer-events:none}
 .hero-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;width:clamp(200px,24vw,340px);line-height:0}
 .hero-logo img{width:100%;height:auto;filter:drop-shadow(0 2px 18px rgba(20,12,15,.35))}
 .hero-cta{position:absolute;left:var(--gut);right:var(--gut);top:calc(50% + clamp(200px,24vw,340px)*.313 + clamp(24px,3.5vh,44px));display:grid;justify-items:center;text-align:center;gap:18px}
-.hero .btn.green{background:var(--cypres);border-color:var(--cypres);color:#fff}
-.hero .btn.green:hover{background:#fff;border-color:#fff;color:var(--cypres)}
+.hero .btn.green{background:#5A1626;border-color:#5A1626;color:#fff}
+.hero .btn.green:hover{background:#fff;border-color:#fff;color:#5A1626}
 .entries .btn.green{min-width:200px}
 body:has(.hero-v).hero-in .hdr .logo{opacity:0;pointer-events:none}
 .hdr .logo{transition:opacity .4s var(--ease)}
