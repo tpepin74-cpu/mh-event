@@ -14,35 +14,35 @@ TH = {
 
 # slug, titre, ligne, catégorie, temps, date, lieu, logo, marque (texte), photos [(nom, alt)], contexte, dispositif, chiffres, citation, thème, variante
 EVENTS = [
- dict(slug="golden-night", t="Golden Night", wm=None, logo="golden-tulip", cat="hotels", time="passes", date="Depuis le 4 juin 2026", lieu="Golden Tulip Marseille Euromed",
+ dict(slug="golden-night-golden-tulip-marseille", t="Golden Night", wm=None, logo="golden-tulip", cat="hotels", time="passes", date="Depuis le 4 juin 2026", lieu="Golden Tulip Marseille Euromed",
       ph=[("hotel-comedy-show-marseille-juin-2026", "Comedy Club de la première Golden Night"), ("hotel-comedy-club-malik-fares", "Humoriste sur scène lors d'une Golden Night"),
           ("hotel-applaudissement-rires-groupe-soiree-evenement", "Public qui rit et applaudit"), ("hotel-groupement-personnes-soiree-evenement-hotel-marseille", "Public réuni dans les salons de l'hôtel")],
       ctx="Redynamiser l'hôtel, créer du passage, faire revenir une clientèle locale. La réponse&nbsp;: une soirée gratuite, ouverte au public, chaque mois sur un thème différent.",
       dis=["Programmation mensuelle", "Comedy Club, murder party, soirée jazz, blind test", "Dîner bien-être « Green &amp; Care »", "Artistes, régie et accueil"],
       facts=[("4 juin 2026", "Première soirée"), ("1 / mois", "Ouverte au public"), ("4", "Humoristes sur scène")],
       quote=("Hier c'était top.", "La cliente, le lendemain de la première"), th="figue", v="a"),
- dict(slug="golden-plus", t="Golden + concept", wm=None, logo="golden-tulip", cat="hotels", time="avenir", date="Décembre 2026 – juin 2027", lieu="Golden Tulip Marseille Euromed",
+ dict(slug="golden-plus-concept", t="Golden + concept", wm=None, logo="golden-tulip", cat="hotels", time="avenir", date="Décembre 2026 – juin 2027", lieu="Golden Tulip Marseille Euromed",
       ph=[("hotel-soiree-guinguette-terrasse-hotel-marseille-dynamisation", "Guinguette en terrasse d'hôtel à Marseille"), ("hotel-soiree-saxophone-lounge-hotel-marseille-dynamisation-1", "Soirée saxophone Lounge")],
       ctx="Après les Golden Night, la programmation de l'hiver passe sous une marque propre à l'hôtel.",
       dis=["Golden Ski", "Golden Casino", "Golden Gatsby", "Golden Piano-bar", "Golden Guinguette"], facts=[], quote=None, th="or", v="c"),
- dict(slug="escale-mediterraneenne", t="Escale Méditerranéenne", wm=None, logo="golden-tulip", cat="hotels", time="passes", date="Déjeuner Corpo", lieu="Golden Tulip Marseille Euromed",
+ dict(slug="escale-mediterraneenne-golden-tulip", t="Escale Méditerranéenne", wm=None, logo="golden-tulip", cat="hotels", time="passes", date="Déjeuner Corpo", lieu="Golden Tulip Marseille Euromed",
       ph=[("dejeuner-img-9036", "Invités réunis lors de l'Escale Méditerranéenne"), ("dejeuner-img-9064", "Invitées souriantes en marinière"), ("dejeuner-img-9052", "Buffet en terrasse"),
           ("dejeuner-img-9067", "Accueil des invités avec un sac cadeau"), ("dejeuner-img-9076", "Salle de séminaire de l'hôtel"), ("dejeuner-img-9081", "Échanges en terrasse")],
       ctx="Un déjeuner-parcours pour faire découvrir l'hôtel à des professionnels locaux&nbsp;: un passeport, quatre escales et un jeu concours.",
       dis=["Passeport et quatre escales", "Jeu concours", "Tout le staff en marinière", "Collecte des contacts, avec accord RGPD"],
       facts=[("4", "Escales"), ("2 h", "De parcours")], quote=None, th="pierre", v="b"),
- dict(slug="odalys-euromed", t="Odalys Euromed", wm=None, logo="odalys-euromed", cat="hotels", time="passes", date="Depuis janvier 2025", lieu="Marseille",
+ dict(slug="odalys-euromed-marseille", t="Odalys Euromed", wm=None, logo="odalys-euromed", cat="hotels", time="passes", date="Depuis janvier 2025", lieu="Marseille",
       ph=[("hotel-soiree-inauguration-hotel-odalys-euromed-janvier-2025", "Inauguration de l'hôtel Odalys Euromed"), ("hotel-soiree-live-painting-hotel-odalys-euromed-marseille", "Soirée live painting"),
           ("hotel-discussion-invites-evenements-hotel-odalys-euromed", "Invités en conversation"), ("dejeuner-dejeuner-corporate-kermesse-odalys-avril-2025", "Kermesse avec CDS Groupe"),
           ("hotel-live-painting-raphael-federici-saxophoniste", "Live painting et saxophoniste")],
       ctx="De l'inauguration de l'hôtel en janvier 2025 aux soirées qui le font vivre&nbsp;: live painting, lobby transformé en station de ski, Kermesse avec CDS Groupe.",
       dis=["Soirée d'inauguration", "Live painting et saxophone", "Lobby en station de ski, soirée raclette", "Kermesse avec CDS Groupe"],
       facts=[], quote=None, th="bordeaux", v="b"),
- dict(slug="soiree-feria-sowell", t="Soirée Feria", wm=None, logo="sowell", cat="hotels", time="passes", date="Soirée en hôtel", lieu="Hôtel SoWell · Nîmes",
+ dict(slug="soiree-feria-sowell-nimes", t="Soirée Feria au SoWell", wm=None, logo="sowell", cat="hotels", time="passes", date="Soirée en hôtel", lieu="Hôtel SoWell · Nîmes",
       ph=[("hotel-soiree-feria-groupe-live-hotel-sowell-nimes", "Groupe live devant l'hôtel SoWell à Nîmes")],
       ctx="Une soirée aux couleurs de la feria, avec un groupe live, pour ouvrir l'hôtel aux Nîmois.",
       dis=["Groupe live", "Ambiance feria", "Soirée ouverte au public"], facts=[], quote=None, th="bordeaux", v="a"),
- dict(slug="dejeuner-odalys-aix", t="Déjeuner corporate", wm=None, logo="odalys-city", cat="hotels", time="passes", date="Juin 2026", lieu="Odalys · Aix-en-Provence",
+ dict(slug="dejeuner-corporate-odalys-aix", t="Déjeuner corporate Odalys", wm=None, logo="odalys-city", cat="hotels", time="passes", date="Juin 2026", lieu="Odalys · Aix-en-Provence",
       ph=[("dejeuner-dejeuner-corporate-hotel-odalys-aix-juin-2026", "Patio dressé pour le déjeuner corporate"), ("dejeuner-dejeuner-affaire-discussions-hotel-juin-2026", "Invités en discussion"),
           ("dejeuner-animation-molkky-exterieur-hotesse-evenement", "Mölkky dans la cour de l'hôtel")],
       ctx="Un déjeuner pour faire découvrir l'hôtel à des professionnels d'Aix-en-Provence, entre patio, salles et jeux en extérieur.",
@@ -51,7 +51,7 @@ EVENTS = [
       ph=[("dejeuner-img-9081", "Terrasse du Golden Tulip Marseille Euromed")],
       ctx="Un Déjeuner Corpo printanier&nbsp;: une cueillette de tulipes au cœur de l'hôtel.",
       dis=["Cueillette de tulipes dans l'hôtel", "Format Déjeuner Corpo"], facts=[], quote=None, th="pierre", v="c"),
- dict(slug="o-delice-ligue-football", t="Soirée Ô Délice", wm="Ligue de la Méditerranée|de Football", logo=None, cat="entreprises", time="passes", date="Septembre 2026", lieu="Odalys City Centre Euromed · Marseille",
+ dict(slug="soiree-o-delice-ligue-football", t="Soirée Ô Délice", wm="Ligue de la Méditerranée|de Football", logo=None, cat="entreprises", time="passes", date="Septembre 2026", lieu="Odalys City Centre Euromed · Marseille",
       ph=[("hotel-pianiste-soiree-opera-hotel-blanc", "Soprano et pianiste en soirée"), ("hotel-chanteur-opera-soiree-hotel-mh-event", "Chanteur lyrique en soirée")],
       ctx="La première soirée de la saison du Club des partenaires de la Ligue&nbsp;: une quarantaine de convives et un mini-concert lyrique.",
       dis=["Mini-concert de la soprano Barbara Bourdarel", "Au piano, Alain Pietka", "Cocktail signé Maison Nans Traiteur"],
@@ -63,43 +63,43 @@ EVENTS = [
           ("lancement-inauguration-machine-industrielle-societe-entent-vitrolles-paca-7", "Une invitée devant le mur de photos")],
       ctx="ENTENT inaugure PULSE, sa nouvelle machine industrielle, au cœur de son site de Vitrolles. Un atelier transformé en lieu de réception.",
       dis=["Scénographie de l'atelier", "Accueil des invités", "Cadeaux", "Coordination le jour J"], facts=[], quote=None, th="figue", v="a"),
- dict(slug="inauguration-maison-elise-p", t="Inauguration", wm="Maison|Elise P", logo=None, cat="entreprises", time="passes", date="Nouveaux locaux", lieu="Cabriès · Bouches-du-Rhône",
+ dict(slug="inauguration-maison-elise-p-cabries", t="Inauguration Maison Elise P", wm="Maison|Elise P", logo=None, cat="entreprises", time="passes", date="Nouveaux locaux", lieu="Cabriès · Bouches-du-Rhône",
       ph=[("lancement-soiree-inauguration-entreprise-cabries-paca-3", "Invités en blanc dans la cour"), ("lancement-soiree-inauguration-entreprise-cabries-paca-1", "Invités réunis devant la maison"),
           ("lancement-soiree-inauguration-entreprise-cabries-paca", "Invités dans les nouveaux locaux"), ("lancement-soiree-inauguration-entreprise-cabries-paca-4", "Embrassades entre invitées"),
           ("lancement-soiree-inauguration-entreprise-cabries-paca-5", "La cour pendant la soirée"), ("lancement-soiree-inauguration-entreprise-cabries-paca-2", "Invitées en conversation")],
       ctx="La Maison Elise P ouvre ses nouveaux locaux à Cabriès&nbsp;: une soirée en blanc, entre la boutique et la cour provençale.",
       dis=["Soirée d'inauguration", "Accueil des invités", "Coordination le jour J"], facts=[], quote=None, th="ivoire", v="c"),
- dict(slug="gepa-aix", t="Événement GEPA", wm=None, logo="gepa", cat="entreprises", time="passes", date="Mars 2026", lieu="Aix-en-Provence",
+ dict(slug="evenement-gepa-aix-en-provence", t="Événement GEPA", wm=None, logo="gepa", cat="entreprises", time="passes", date="Mars 2026", lieu="Aix-en-Provence",
       ph=[("afterwork-evenement-gepa-aix-mars-2026-accueil", "Entrée de l'événement GEPA à Aix-en-Provence"), ("hotesses-hote-hotesse-evenement-gepa-aix-mars-2026", "Hôte et hôtesse à l'accueil")],
       ctx="Le Groupement des Entrepreneurs du Pays d'Aix réunit ses membres&nbsp;: MH Event signe l'accueil.",
       dis=["Accueil et émargement", "Hôtes et hôtesses", "Orientation des invités"], facts=[], quote=None, th="bordeaux", v="b"),
- dict(slug="gala-pasino-aix", t="Dîner de gala", wm=None, logo="pasino-grand", cat="entreprises", time="passes", date="Gala et vente aux enchères", lieu="Pasino · Aix-en-Provence",
+ dict(slug="diner-gala-pasino-aix-en-provence", t="Dîner de gala au Pasino", wm=None, logo="pasino-grand", cat="entreprises", time="passes", date="Gala et vente aux enchères", lieu="Pasino · Aix-en-Provence",
       ph=[("afterwork-soiree-entrepeneurs-encheres-pasino-aix", "Dîner de gala et vente aux enchères au Pasino"), ("hotesses-hotesses-mh-event-pasino-aix-tenues-noires", "Hôtesses en tenue noire au Pasino")],
       ctx="Un dîner de gala d'entrepreneurs suivi d'une vente aux enchères, dans la grande salle du Pasino d'Aix-en-Provence.",
       dis=["Hôtesses en tenue noire", "Accueil et placement", "Coordination de la soirée"], facts=[], quote=None, th="figue", v="c"),
- dict(slug="conference-afterwork-wiko", t="Conférence & afterwork", wm="Wiko|conférence", logo=None, cat="entreprises", time="passes", date="Conférence et afterwork", lieu="Aix-en-Provence",
+ dict(slug="conference-afterwork-wiko-aix", t="Conférence et afterwork Wiko", wm="Wiko|conférence", logo=None, cat="entreprises", time="passes", date="Conférence et afterwork", lieu="Aix-en-Provence",
       ph=[("afterwork-conference-wiko-afterwork-aix", "Conférence devant le public à Aix-en-Provence"), ("afterwork-intervention-fondateur-wiko-conference-image-de-marque", "Intervention sur l'image de marque")],
       ctx="Une conférence sur l'image de marque, prolongée par un afterwork entre les invités.",
       dis=["Conférence", "Afterwork", "Accueil des invités"], facts=[], quote=None, th="ivoire", v="a"),
- dict(slug="conference-michel-biet", t="Conférence", wm=None, logo="michel-biet", cat="entreprises", time="passes", date="Conférence", lieu="Avignon",
+ dict(slug="conference-michel-biet-avignon", t="Conférence Michel Biet", wm=None, logo="michel-biet", cat="entreprises", time="passes", date="Conférence", lieu="Avignon",
       ph=[("afterwork-conference-michel-biet-avignon", "Michel Biet sur scène à Avignon")],
       ctx="Une conférence de Michel Biet à Avignon, de l'accueil à la scène.",
       dis=["Accueil des invités", "Régie de la conférence"], facts=[], quote=None, th="pierre", v="b"),
- dict(slug="soiree-reseau-entreprendre", t="Soirée Réseau Entreprendre", wm=None, logo="reseau-entreprendre", cat="entreprises", time="passes", date="Soirée", lieu="Marseille",
+ dict(slug="soiree-reseau-entreprendre-marseille", t="Soirée Réseau Entreprendre", wm=None, logo="reseau-entreprendre", cat="entreprises", time="passes", date="Soirée", lieu="Marseille",
       ph=[("hotesses-hotesses-soiree-reseau-entreprendre-marseille", "Hôtesses MH Event à la soirée Réseau Entreprendre")],
       ctx="Une soirée du Réseau Entreprendre à Marseille, avec l'accueil des Angelines.",
       dis=["Hôtesses d'accueil", "Accueil et vestiaire"], facts=[], quote=None, th="cypres", v="a"),
- dict(slug="fin-annee-alcrys", t="Soirée de fin d'année", wm=None, logo="alcrys", cat="entreprises", time="passes", date="Décembre 2025", lieu="Soirée d'entreprise",
+ dict(slug="soiree-fin-annee-alcrys", t="Soirée de fin d'année Alcrys", wm=None, logo="alcrys", cat="entreprises", time="passes", date="Décembre 2025", lieu="Soirée d'entreprise",
       ph=[("hotel-soiree-fin-annee-entreprise-alcrys-decembre-2025", "Soirée de fin d'année Alcrys")],
       ctx="La soirée de fin d'année des équipes Alcrys, pour clore 2025 ensemble.",
       dis=["Soirée de fin d'année", "Coordination de la soirée"], facts=[], quote=None, th="bordeaux", v="c"),
- dict(slug="rencontres-nautisme-saint-tropez", t="Rencontres économiques du nautisme", wm=None, logo="golfe-saint-tropez", cat="entreprises", time="passes", date="2025", lieu="Golfe de Saint-Tropez",
+ dict(slug="rencontres-economiques-nautisme-saint-tropez", t="Rencontres économiques du nautisme", wm=None, logo="golfe-saint-tropez", cat="entreprises", time="passes", date="2025", lieu="Golfe de Saint-Tropez",
       ph=[("institution-discours-scene-scenographie-golfe-saint-tropez", "Scène et scénographie des Rencontres"), ("hotesses-hotesses-mh-event-tenue-marin", "Hôtesses en marinière"),
           ("hotesses-hotesses-marinieres-nautique-saint-tropez-rencontres-economiques", "Hôtesse en marinière à l'accueil")],
       ctx="« Moment historique pour le golfe de Saint-Tropez »&nbsp;: seize intervenants et cinq heures de débats autour de la filière nautique.",
       dis=["Scénographie de la scène", "Hôtesses en marinière", "Accueil des intervenants et du public"],
       facts=[("16", "Intervenants"), ("5 h", "De débats")], quote=None, th="ivoire", v="c"),
- dict(slug="li-rescountre-d-aqui-arles", t="Li Rescountre d'Aqui", wm=None, logo="cci-pays-arles", cat="entreprises", time="passes", date="Salon", lieu="Arles",
+ dict(slug="salon-li-rescountre-d-aqui-arles", t="Li Rescountre d'Aqui", wm=None, logo="cci-pays-arles", cat="entreprises", time="passes", date="Salon", lieu="Arles",
       ph=[("institution-evenement-institutionnel-salon-arles-li-rescountre-dacqui", "Exposants et visiteurs du salon à Arles"), ("institution-salon-arles-atelier-culinaire", "Atelier culinaire du salon"),
           ("institution-mh-event-article-journal-presse-organisation", "Article de presse sur le salon")],
       ctx="Un salon dédié au circuit court en pays d'Arles, avec la CCI&nbsp;: producteurs, acheteurs, ateliers culinaires.",
@@ -108,26 +108,29 @@ EVENTS = [
       ph=[("institution-inauguration-ouverture-salon-gastronomie-chateauneuf", "Inauguration du salon de la gastronomie")],
       ctx="L'ouverture officielle du salon de la gastronomie, ruban et élus réunis.",
       dis=["Cérémonie d'inauguration", "Accueil des officiels"], facts=[], quote=None, th="cypres", v="a"),
- dict(slug="mariage-domaine-aix", t="Mariage en Provence", wm="Mariage|à Aix", logo=None, cat="particuliers", time="passes", date="Juillet 2025", lieu="Domaine près d'Aix-en-Provence",
+ dict(slug="mariage-domaine-aix-en-provence", t="Mariage dans un domaine à Aix", wm="Mariage|à Aix", logo=None, cat="particuliers", time="passes", date="Juillet 2025", lieu="Domaine près d'Aix-en-Provence",
       ph=[("mariage-organisation-mariage-domaine-aix-juillet-2025", "Tables dressées dans la cour du domaine"), ("mariage-ceremonie-mariage-juillet-2025", "Cérémonie de mariage"),
           ("mariage-mariee-et-demoiselles-dhonneur-noir-et-blanc", "La mariée et ses demoiselles d'honneur"), ("mariage-dressage-table-blanc-fruits-fleurs-mariage", "Table dressée en blanc")],
       ctx="Un mariage d'été dans un domaine provençal&nbsp;: cérémonie à l'ombre, dîner dans la cour.",
       dis=["Organisation complète", "Cérémonie", "Dîner dans la cour", "Coordination le jour J"], facts=[], quote=None, th="ivoire", v="b"),
- dict(slug="mariage-gruissan", t="Mariage face à la mer", wm="Mariage|à Gruissan", logo=None, cat="particuliers", time="passes", date="2024", lieu="Gruissan",
+ dict(slug="mariage-gruissan", t="Mariage à Gruissan", wm="Mariage|à Gruissan", logo=None, cat="particuliers", time="passes", date="2024", lieu="Gruissan",
       ph=[("mariage-photo-maries-mariage-gruissan-2024", "Les mariés face à la mer"), ("mariage-installation-tables-mariage-gruissan", "Installation des tables"), ("mariage-mariage-vin-honneur-gruissan", "Vin d'honneur")],
       ctx="Un mariage les pieds presque dans l'eau, du vin d'honneur au dîner.",
       dis=["Installation des tables", "Vin d'honneur", "Coordination le jour J"], facts=[], quote=None, th="pierre", v="a"),
- dict(slug="bal-masque-h9ritage", t="Bal masqué", wm="H9RITAGE|bal masqué", logo=None, cat="particuliers", time="passes", date="10 septembre 2026", lieu="Château de Valmousse · Lambesc",
+ dict(slug="bal-masque-h9ritage-valmousse", t="Bal masqué H9RITAGE", wm="H9RITAGE|bal masqué", logo=None, cat="particuliers", time="passes", date="10 septembre 2026", lieu="Château de Valmousse · Lambesc",
       ph=[("prive-bal-masque-evement-prive", "Couple masqué devant une voiture ancienne")],
       ctx="H9RITAGE, le cercle privé cofondé par Mathilde avec la créatrice Margaux Avila, fait revivre l'art de recevoir à la française.",
       dis=["Bal masqué", "Défilé", "Partenariats joaillerie et automobile"], facts=[], quote=None, th="figue", v="b"),
- dict(slug="anniversaire-30-ans-mer", t="Trente ans en mer", wm="Anniversaire|30 ans", logo=None, cat="particuliers", time="passes", date="Anniversaire", lieu="Marseille",
+ dict(slug="anniversaire-30-ans-bateau-marseille", t="Anniversaire 30 ans en bateau", wm="Anniversaire|30 ans", logo=None, cat="particuliers", time="passes", date="Anniversaire", lieu="Marseille",
       ph=[("prive-anniversaire-30-ans-bateau-marseille", "Anniversaire de 30 ans en bateau au large de Marseille")],
       ctx="Un anniversaire en bateau, au large de Marseille.",
       dis=["Privatisation du bateau", "Organisation de la journée"], facts=[], quote=None, th="cypres", v="c"),
 ]
+SVC_LABEL = {h: l for k in SVC for h, l in SVC[k]}
+SVC_OF = {'golden-night-golden-tulip-marseille': 'hotels/animation-dynamisation/', 'golden-plus-concept': 'hotels/animation-dynamisation/', 'escale-mediterraneenne-golden-tulip': 'hotels/dejeuner-corpo/', 'odalys-euromed-marseille': 'hotels/animation-dynamisation/', 'soiree-feria-sowell-nimes': 'hotels/animation-dynamisation/', 'dejeuner-corporate-odalys-aix': 'hotels/dejeuner-corpo/', 'golden-tulip-festival': 'hotels/dejeuner-corpo/', 'soiree-o-delice-ligue-football': 'entreprises/soiree-entreprise/', 'inauguration-pulse-entent': 'entreprises/inauguration/', 'inauguration-maison-elise-p-cabries': 'entreprises/inauguration/', 'evenement-gepa-aix-en-provence': 'entreprises/hotes-hotesses/', 'diner-gala-pasino-aix-en-provence': 'entreprises/soiree-entreprise/', 'conference-afterwork-wiko-aix': 'entreprises/conference-salon-afterwork/', 'conference-michel-biet-avignon': 'entreprises/conference-salon-afterwork/', 'soiree-reseau-entreprendre-marseille': 'entreprises/hotes-hotesses/', 'soiree-fin-annee-alcrys': 'entreprises/christmas-party/', 'rencontres-economiques-nautisme-saint-tropez': 'entreprises/conference-salon-afterwork/', 'salon-li-rescountre-d-aqui-arles': 'entreprises/conference-salon-afterwork/', 'salon-gastronomie-chateauneuf': 'entreprises/conference-salon-afterwork/', 'mariage-domaine-aix-en-provence': 'particuliers/mariage/', 'mariage-gruissan': 'particuliers/coordination-jour-j/', 'bal-masque-h9ritage-valmousse': 'particuliers/anniversaire-fete-privee/', 'anniversaire-30-ans-bateau-marseille': 'particuliers/anniversaire-fete-privee/'}
 for e in EVENTS:
-    e["file"] = f'realisation-{e["slug"]}.html'
+    e["file"] = f'realisations/{e["slug"]}/'
+    e["svc"] = SVC_OF[e["slug"]]
 
 def plate(e):
     if e["logo"]:
@@ -213,10 +216,18 @@ def build_events():
  <a href="{nxt["file"]}"><span class="label">Suivant</span><span class="t-h3">{nxt["t"]}</span></a>
 </nav>'''
         end = f'''<section class="ev-chap"><div class="wrap cta"><p class="label fade">Réalisations</p><h2 class="t-h2 fade">Le prochain, <em>c'est</em> le vôtre</h2>
- <div class="actions fade" style="justify-content:center"><a class="btn" href="devis.html">Demander un devis</a><a class="link" href="realisations.html">Tous les événements</a></div></div></section>'''
+ <div class="actions fade" style="justify-content:center"><a class="btn" href="devis.html">Demander un devis</a><a class="link" href="realisations.html">Tous les événements</a></div>
+ <p class="fade" style="margin-top:8px">Le service : <a class="link" href="{e["svc"]}">{SVC_LABEL[e["svc"]]}</a></p></div></section>'''
         style = f'<style>body.ev{{--ev-bg:{bg};--ev-fg:{fg};--ev-ac:{ac};--ev-tx:{tx}}}</style>\n'
         body = hero + chap1 + chap2 + chap3 + q + end + nav
         after = '<div class="ev-progress" aria-hidden="true"></div>\n' + index + "\n"
         cls = f"ev ev-{e['v']}" + (" ev-dark" if dark else "")
-        page(e["file"], f'{e["t"]} · {e["lieu"]} · Réalisations MH Event', f'{e["t"]}, {e["lieu"]} : un événement imaginé et orchestré par MH Event.',
-             body, cur="realisations.html", tab="realisations", light=(e["v"] != "a"), bodycls=cls, extra_head=style, after=after)
+        import re as _re
+        desc = _re.sub(r"<[^>]+>|&nbsp;", " ", e["ctx"]).replace("  ", " ").strip()
+        desc = f'{e["t"]}, {e["lieu"]} ({e["date"]}). ' + desc
+        if len(desc) > 158:
+            desc = desc[:155].rsplit(" ", 1)[0] + "…"
+        _tt = f'{e["t"]} · {e["lieu"]} | MH Event'
+        page(e["file"], _tt if len(_tt) <= 62 else f'{e["t"]} | Réalisation MH Event', desc,
+             body, crumbs=[("realisations/", "Réalisations"), (e["file"], e["t"])], tab="realisations", light=(e["v"] != "a"),
+             bodycls=cls, extra_head=style, after=after, tone=("light" if e["v"] == "a" else "dark"))

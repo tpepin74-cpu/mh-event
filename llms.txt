@@ -8,25 +8,41 @@
 - Soirées séminaires (prix indicatifs HT) : Kermesse 1 590 €, Quiz/Blind test/Casino dès 1 790 €, Velvet Lounge 1 850 €, Piano Club 2 400 €, Cluedo géant ~2 600 €, Nuit andalouse 2 850 €, Le Vernissage 3 100 €, Opéra et champagne 3 650 €, Hiver blanc 4 300 €, Gatsby ~5 000 €.
 - Déjeuner Corpo : déjeuner immersif de 2 h à 2 h 30 pour 50 professionnels, trois packs de 2 400 à 3 900 € HT.
 - Team building (HT/pers.) : Speed Meeting dès 28 €, Olympiades dès 30 €, Relaxation sonore dès 30 €, Breathwork dès 39 €, Marche des senteurs dès 39 € (Nîmes) ou 45 € (Pont du Gard), La Fabrique des couleurs dès 45 €, Instant Zen dès 47 €, Aix-périence dès 50 €, Route des Crocodiles dès 50 €, Circuit des poètes dès 55 €, Manade Aubanel 57/70/80 €, Parcours gourmand Aix dès 70 €. Activités nîmoises conçues avec l'Office de Tourisme de Nîmes (partenaire depuis 2026).
-- Hôtesses (les Angelines) : 27 € HT de l'heure, déplacement en sus.
+- Hôtesses (les Angelines) : 26 € HT de l'heure en journée, 32,50 € HT la nuit, 4 h minimum, déplacement en sus.
 - Mariages (MH Wedding, Gard & Provence) : coordination du jour J ou organisation complète dès 3 500 € ; devis et planning en anglais.
 - Fondatrice : Mathilde Heyral — danseuse formée au Royal Ballet d'Anvers, ancienne cheffe hôtesse (Grand Prix de France de F1, Dior, FDJ), master en droit des affaires, ancienne formatrice en marchés publics à la Métropole Aix-Marseille-Provence.
 - Société : SAS HACHEVOT, SIREN 982 226 383.
 
 ## Pages
 - [Accueil](https://mh-event.fr/)
-- [Entreprises : séminaires, journées bien-être, soirées, inaugurations](https://mh-event.fr/entreprises)
-- [Entreprises · Team building, quinze créations dès 28 € HT](https://mh-event.fr/entreprises-team-building)
-- [Entreprises · Hôtes & hôtesses (les Angelines)](https://mh-event.fr/entreprises-hotes-hotesses)
-- [Hôtels : soirées vitrines, soirées séminaires, Déjeuner Corpo](https://mh-event.fr/hotels)
-- [Hôtels · Team building](https://mh-event.fr/hotels-team-building)
-- [Hôtels · Hôtes & hôtesses](https://mh-event.fr/hotels-hotes-hotesses)
-- [Particuliers : mariages, anniversaires, fêtes privées](https://mh-event.fr/particuliers)
-- [Particuliers · Mariages & privé (MH Wedding)](https://mh-event.fr/particuliers-mariages)
-- [Particuliers · Hôtes & hôtesses](https://mh-event.fr/particuliers-hotes-hotesses)
-- [Réalisations](https://mh-event.fr/realisations)
-- [L'agence · Mathilde Heyral](https://mh-event.fr/agence-mathilde-heyral)
-- [Blog](https://mh-event.fr/blog)
-- [Questions fréquentes](https://mh-event.fr/faq)
-- [Demander un devis](https://mh-event.fr/devis)
-- [Contact](https://mh-event.fr/contact)
+- [Entreprises](https://mh-event.fr/entreprises/)
+  - [Séminaires & conventions](https://mh-event.fr/entreprises/seminaire/)
+  - [Soirées & galas](https://mh-event.fr/entreprises/soiree-entreprise/)
+  - [Christmas party](https://mh-event.fr/entreprises/christmas-party/)
+  - [Inaugurations & lancements](https://mh-event.fr/entreprises/inauguration/)
+  - [Journées bien-être](https://mh-event.fr/entreprises/journee-bien-etre/)
+  - [Conférences, salons & afterworks](https://mh-event.fr/entreprises/conference-salon-afterwork/)
+  - [Team building](https://mh-event.fr/entreprises/team-building/)
+  - [Hôtes & hôtesses](https://mh-event.fr/entreprises/hotes-hotesses/)
+    - [Team building à Nîmes](https://mh-event.fr/entreprises/team-building/nimes/)
+    - [Team building à Aix-en-Provence](https://mh-event.fr/entreprises/team-building/aix-en-provence/)
+    - [Team building au Pont du Gard](https://mh-event.fr/entreprises/team-building/pont-du-gard/)
+    - [Team building en Camargue](https://mh-event.fr/entreprises/team-building/camargue/)
+- [Hôtels](https://mh-event.fr/hotels/)
+  - [Animation & dynamisation](https://mh-event.fr/hotels/animation-dynamisation/)
+  - [Soirées séminaires](https://mh-event.fr/hotels/soirees-seminaires/)
+  - [Déjeuner Corpo](https://mh-event.fr/hotels/dejeuner-corpo/)
+  - [Séminaires découverte](https://mh-event.fr/hotels/seminaires-decouverte/)
+  - [Team building](https://mh-event.fr/hotels/team-building/)
+  - [Hôtes & hôtesses](https://mh-event.fr/hotels/hotes-hotesses/)
+- [Particuliers](https://mh-event.fr/particuliers/)
+  - [Wedding planner](https://mh-event.fr/particuliers/mariage/)
+  - [Coordination du jour J](https://mh-event.fr/particuliers/coordination-jour-j/)
+  - [Anniversaires & fêtes](https://mh-event.fr/particuliers/anniversaire-fete-privee/)
+  - [Hôtes & hôtesses](https://mh-event.fr/particuliers/hotes-hotesses/)
+- [Réalisations](https://mh-event.fr/realisations/)
+- [L'agence · Mathilde Heyral](https://mh-event.fr/agence/)
+- [Blog](https://mh-event.fr/blog/)
+- [Questions fréquentes](https://mh-event.fr/faq/)
+- [Demande de devis](https://mh-event.fr/devis/)
+- [Contact](https://mh-event.fr/contact/)

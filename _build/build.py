@@ -59,36 +59,104 @@ CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width
 DOWN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg>'
 
 # ---------------------------------------------------------------- gabarit commun
+DOMAIN = "https://mh-event.fr/"
+
+# Anciennes adresses (fichiers .html) -> nouvelles adresses en dossiers
+ROUTES = {
+ "index.html": "", "entreprises.html": "entreprises/", "entreprises-team-building.html": "entreprises/team-building/",
+ "entreprises-hotes-hotesses.html": "entreprises/hotes-hotesses/", "hotels.html": "hotels/", "hotels-team-building.html": "hotels/team-building/",
+ "hotels-hotes-hotesses.html": "hotels/hotes-hotesses/", "particuliers.html": "particuliers/", "particuliers-mariages.html": "particuliers/mariage/",
+ "particuliers-hotes-hotesses.html": "particuliers/hotes-hotesses/", "realisations.html": "realisations/", "agence-mathilde-heyral.html": "agence/",
+ "blog.html": "blog/", "faq.html": "faq/", "contact.html": "contact/", "devis.html": "devis/", "mentions-legales.html": "mentions-legales/",
+ "blog-soirees-dynamisation-hotel.html": "blog/soirees-dynamisation-hotel/", "blog-team-building-nimes.html": "blog/team-building-nimes/",
+ "blog-seminaire-pont-du-gard.html": "blog/seminaire-pont-du-gard/",
+ "team-building.html": "entreprises/team-building/", "hotesses-angelines.html": "entreprises/hotes-hotesses/",
+ "mariages-evenements-prives.html": "particuliers/mariage/", "journal.html": "blog/",
+ "journal-soirees-dynamisation-hotel.html": "blog/soirees-dynamisation-hotel/", "journal-team-building-nimes.html": "blog/team-building-nimes/",
+ "journal-seminaire-pont-du-gard.html": "blog/seminaire-pont-du-gard/",
+ "realisation-anniversaire-30-ans-mer.html": "realisations/anniversaire-30-ans-bateau-marseille/",
+ "realisation-bal-masque-h9ritage.html": "realisations/bal-masque-h9ritage-valmousse/",
+ "realisation-conference-afterwork-wiko.html": "realisations/conference-afterwork-wiko-aix/",
+ "realisation-conference-michel-biet.html": "realisations/conference-michel-biet-avignon/",
+ "realisation-dejeuner-odalys-aix.html": "realisations/dejeuner-corporate-odalys-aix/",
+ "realisation-escale-mediterraneenne.html": "realisations/escale-mediterraneenne-golden-tulip/",
+ "realisation-fin-annee-alcrys.html": "realisations/soiree-fin-annee-alcrys/",
+ "realisation-gala-pasino-aix.html": "realisations/diner-gala-pasino-aix-en-provence/",
+ "realisation-gepa-aix.html": "realisations/evenement-gepa-aix-en-provence/",
+ "realisation-golden-night.html": "realisations/golden-night-golden-tulip-marseille/",
+ "realisation-golden-plus.html": "realisations/golden-plus-concept/",
+ "realisation-golden-tulip-festival.html": "realisations/golden-tulip-festival/",
+ "realisation-inauguration-maison-elise-p.html": "realisations/inauguration-maison-elise-p-cabries/",
+ "realisation-inauguration-pulse-entent.html": "realisations/inauguration-pulse-entent/",
+ "realisation-li-rescountre-d-aqui-arles.html": "realisations/salon-li-rescountre-d-aqui-arles/",
+ "realisation-mariage-domaine-aix.html": "realisations/mariage-domaine-aix-en-provence/",
+ "realisation-mariage-gruissan.html": "realisations/mariage-gruissan/",
+ "realisation-o-delice-ligue-football.html": "realisations/soiree-o-delice-ligue-football/",
+ "realisation-odalys-euromed.html": "realisations/odalys-euromed-marseille/",
+ "realisation-rencontres-nautisme-saint-tropez.html": "realisations/rencontres-economiques-nautisme-saint-tropez/",
+ "realisation-salon-gastronomie-chateauneuf.html": "realisations/salon-gastronomie-chateauneuf/",
+ "realisation-soiree-feria-sowell.html": "realisations/soiree-feria-sowell-nimes/",
+ "realisation-soiree-reseau-entreprendre.html": "realisations/soiree-reseau-entreprendre-marseille/",
+}
+
+SVC = {  # services par type de client : (adresse, libellé court)
+ "entreprises": [("entreprises/seminaire/", "Séminaires & conventions"), ("entreprises/soiree-entreprise/", "Soirées & galas"),
+                 ("entreprises/christmas-party/", "Christmas party"), ("entreprises/inauguration/", "Inaugurations & lancements"),
+                 ("entreprises/journee-bien-etre/", "Journées bien-être"), ("entreprises/conference-salon-afterwork/", "Conférences, salons & afterworks"),
+                 ("entreprises/team-building/", "Team building"), ("entreprises/hotes-hotesses/", "Hôtes & hôtesses")],
+ "hotels": [("hotels/animation-dynamisation/", "Animation & dynamisation"), ("hotels/soirees-seminaires/", "Soirées séminaires"),
+            ("hotels/dejeuner-corpo/", "Déjeuner Corpo"), ("hotels/seminaires-decouverte/", "Séminaires découverte"),
+            ("hotels/team-building/", "Team building"), ("hotels/hotes-hotesses/", "Hôtes & hôtesses")],
+ "particuliers": [("particuliers/mariage/", "Wedding planner"), ("particuliers/coordination-jour-j/", "Coordination du jour J"),
+                  ("particuliers/anniversaire-fete-privee/", "Anniversaires & fêtes"), ("particuliers/hotes-hotesses/", "Hôtes & hôtesses")],
+}
+TB_CITIES = [("entreprises/team-building/nimes/", "Team building à Nîmes"), ("entreprises/team-building/aix-en-provence/", "Team building à Aix-en-Provence"),
+             ("entreprises/team-building/pont-du-gard/", "Team building au Pont du Gard"), ("entreprises/team-building/camargue/", "Team building en Camargue")]
+
 NAV = [
- ("index.html", "Accueil", []),
- ("entreprises.html", "Entreprises", [("entreprises-team-building.html", "Team building"), ("entreprises-hotes-hotesses.html", "Hôtes & hôtesses")]),
- ("hotels.html", "Hôtels", [("hotels-team-building.html", "Team building"), ("hotels-hotes-hotesses.html", "Hôtes & hôtesses")]),
- ("particuliers.html", "Particuliers", [("particuliers-mariages.html", "Mariages & privé"), ("particuliers-hotes-hotesses.html", "Hôtes & hôtesses")]),
- ("realisations.html", "Réalisations", []),
- ("agence-mathilde-heyral.html", "L'agence", []),
- ("blog.html", "Blog", []),
- ("contact.html", "Contact", []),
+ ("", "Accueil", []),
+ ("entreprises/", "Entreprises", SVC["entreprises"]),
+ ("hotels/", "Hôtels", SVC["hotels"]),
+ ("particuliers/", "Particuliers", SVC["particuliers"]),
+ ("realisations/", "Réalisations", []),
+ ("agence/", "L'agence", []),
+ ("blog/", "Blog", []),
+ ("contact/", "Contact", []),
 ]
-TABS = [("hotels", "hotels.html", "Hôtels"), ("entreprises", "entreprises.html", "Entreprise"),
-        ("particuliers", "particuliers.html", "Particulier"), ("realisations", "realisations.html", "Réalisations")]
+TABS = [("hotels", "hotels/", "Hôtels"), ("entreprises", "entreprises/", "Entreprise"),
+        ("particuliers", "particuliers/", "Particulier"), ("realisations", "realisations/", "Réalisations")]
 
 import hashlib
 def _v(path):
     return hashlib.md5(open(path, "rb").read()).hexdigest()[:8]
 
+def ld(obj):
+    return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + "</script>"
+
+AGENCY = {
+ "@context": "https://schema.org", "@type": "ProfessionalService", "@id": DOMAIN + "#agence", "name": "MH Event",
+ "description": "Agence événementielle haut de gamme : séminaires, team building, soirées d'entreprise, animation d'hôtels, hôtes et hôtesses, mariages.",
+ "url": DOMAIN, "telephone": "+33614466183", "email": "contact@mh-event.fr", "image": DOMAIN + "assets/img/og.jpg", "logo": DOMAIN + "assets/img/logo-bordeaux.webp",
+ "founder": {"@type": "Person", "name": "Mathilde Heyral"},
+ "address": {"@type": "PostalAddress", "streetAddress": "7 rue Tédenat", "postalCode": "30900", "addressLocality": "Nîmes", "addressRegion": "Occitanie", "addressCountry": "FR"},
+ "areaServed": ["Nîmes", "Aix-en-Provence", "Marseille", "Saint-Tropez", "Montpellier", "Avignon", "Arles", "Gard", "Provence-Alpes-Côte d'Azur"],
+ "sameAs": ["https://www.instagram.com/mathilde_heyral_event/", "https://www.linkedin.com/company/mh-event-mathildeheyral/"],
+}
+
 def head(title, desc, canon, extra=""):
     return f'''<!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-root="@">
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
-<link rel="canonical" href="https://mh-event.fr/{canon}">
+<link rel="canonical" href="{DOMAIN}{canon}">
 <meta name="theme-color" content="#F6F1E8">
-<meta property="og:type" content="website"><meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="MH Event">
-<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:image" content="{SITE}assets/img/og.jpg">
+<meta property="og:type" content="website"><meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="MH Event"><meta property="og:url" content="{DOMAIN}{canon}">
+<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:image" content="{DOMAIN}assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon-48.png" type="image/png"><link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -105,24 +173,25 @@ def header(light=False):
  <div class="hdr-in">
   <button class="menu-btn" type="button" data-menu aria-controls="menu" aria-label="Ouvrir le menu"><i></i><b>Menu</b></button>
   <a class="logo" href="index.html" aria-label="MH Event, accueil"><img class="lw" src="assets/img/logo-pierre.webp" width="1000" height="626" alt="MH Event"><img class="lb" src="assets/img/logo-bordeaux.webp" width="1000" height="626" alt=""></a>
-  <div class="hdr-r"><a href="contact.html">Contact</a><a class="btn" href="devis.html">Devis</a></div>
+  <div class="hdr-r"><a href="contact/">Contact</a><a class="btn" href="devis/">Devis</a></div>
  </div>
 </header>'''
 
 def menu(cur):
     items = []
     for href, label, subs in NAV:
-        ac = ' aria-current="page"' if href == cur or any(s[0] == cur for s in subs) else ""
+        ac = ' aria-current="page"' if href == cur or (href and cur.startswith(href)) else ""
         sub = ""
         if subs:
-            sub = '<div class="m-sub">' + "".join(f'<a href="{h}">{l}</a>' for h, l in subs) + "</div>"
-        items.append(f'<li><a href="{href}"{ac}>{label}</a>{sub}</li>')
+            AC = ' aria-current="page"'
+            sub = '<div class="m-sub">' + "".join(f'<a href="{h}"{AC if cur.startswith(h) else ""}>{l}</a>' for h, l in subs) + "</div>"
+        items.append(f'<li><a href="{href or "index.html"}"{ac}>{label}</a>{sub}</li>')
     return f'''<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
  <div class="m-media"><video muted loop playsinline preload="none" data-src="assets/video/hero.mp4" poster="assets/img/hero-poster.jpg" aria-hidden="true"></video><img class="m-logo" src="assets/img/logo-pierre.webp" width="1000" height="626" alt=""></div>
  <div class="m-panel">
   <div class="m-top"><span class="label">MH Event · Nîmes, Aix, Marseille</span><button class="m-close" type="button" data-menu-close aria-label="Fermer le menu">{CLOSE}</button></div>
   <ul class="m-nav">{"".join(items)}</ul>
-  <div class="m-foot"><a class="btn" href="devis.html">Demander un devis</a><a href="{TEL}">{PHONE}</a><a href="mailto:{MAIL}">{MAIL}</a></div>
+  <div class="m-foot"><a class="btn" href="devis/">Demander un devis</a><a href="{TEL}">{PHONE}</a><a href="mailto:{MAIL}">{MAIL}</a></div>
  </div>
 </div>'''
 
@@ -134,6 +203,10 @@ def tabbar(active):
     return f'<nav class="tabbar" aria-label="Accès rapide">{"".join(out)}</nav>'
 
 def footer():
+    cols = ""
+    for key, title, hub in (("entreprises", "Entreprises", "entreprises/"), ("hotels", "Hôtels", "hotels/"), ("particuliers", "Particuliers", "particuliers/")):
+        extra = "".join(f'<li><a href="{h}">{l}</a></li>' for h, l in (TB_CITIES if key == "entreprises" else []))
+        cols += f'<div><p class="ftr-h"><a href="{hub}">{title}</a></p><ul>' + "".join(f'<li><a href="{h}">{l}</a></li>' for h, l in SVC[key]) + extra + "</ul></div>"
     return f'''<footer class="ftr">
  <div class="wrap">
   <div class="ftr-top">
@@ -144,7 +217,9 @@ def footer():
    </div>
   </div>
   <hr>
-  <nav class="ftr-links" aria-label="Liens utiles"><a href="faq.html">FAQ</a><a href="realisations.html">Réalisations</a><a href="blog.html">Blog</a><a href="mentions-legales.html">Mentions légales</a></nav>
+  <nav class="ftr-svc" aria-label="Nos services">{cols}</nav>
+  <hr>
+  <nav class="ftr-links" aria-label="Liens utiles"><a href="faq/">FAQ</a><a href="realisations/">Réalisations</a><a href="blog/">Blog</a><a href="mentions-legales/">Mentions légales</a></nav>
   <div class="ftr-bot"><span>© <span data-year>2026</span> MH Event · SAS HACHEVOT</span><a href="{TEL}">{PHONE}</a><a href="mailto:{MAIL}">{MAIL}</a><span>7 rue Tédenat, 30900 Nîmes</span></div>
  </div>
 </footer>'''
@@ -158,22 +233,76 @@ CHAT = f'''<button class="chat-fab" type="button" data-chat aria-controls="chat"
  <form class="chat-form"><label class="sr" for="chat-in">Votre question</label><input class="input" id="chat-in" type="text" autocomplete="off" placeholder="Posez votre question…"><button class="btn" type="submit" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
 </section>'''
 
-def page(fname, title, desc, body, cur=None, tab=None, light=False, bodycls="", extra_head="", after=""):
-    canon = "" if fname == "index.html" else fname.replace(".html", "")
+_ATTR = re.compile(r'(\s(?:href|src|poster|data-src)=")([^"]*)(")')
+_SRCSET = re.compile(r'(\ssrcset=")([^"]*)(")')
+
+def _fix(url, prefix):
+    if not url or url.startswith(("http:", "https:", "mailto:", "tel:", "#", "data:", "/", "javascript:")):
+        return url
+    path, sep, frag = url.partition("#")
+    path, qs, q = path.partition("?")
+    path = ROUTES.get(path, path)
+    if path == "":
+        path = "index.html" if prefix == "" else ""
+    out = prefix + path
+    if out == "":
+        out = "./"
+    return out + (qs + q if qs else "") + (sep + frag if sep else "")
+
+def relink(html, prefix):
+    html = _ATTR.sub(lambda m: m.group(1) + _fix(m.group(2), prefix) + m.group(3), html)
+    html = _SRCSET.sub(lambda m: m.group(1) + ", ".join(_fix(x.strip().split(" ")[0], prefix) + " " + " ".join(x.strip().split(" ")[1:]) for x in m.group(2).split(",")) + m.group(3), html)
+    return html.replace('data-root="@"', f'data-root="{prefix}"')
+
+def crumbs_html(crumbs, tone):
+    items = [("index.html", "Accueil")] + crumbs
+    parts = []
+    for i, (h, l) in enumerate(items):
+        if i == len(items) - 1:
+            parts.append(f'<span aria-current="page">{l}</span>')
+        else:
+            parts.append(f'<a href="{h}">{l}</a>')
+    return f'<nav class="bc bc-{tone}" aria-label="Fil d’Ariane">' + '<span class="sep" aria-hidden="true">/</span>'.join(parts) + "</nav>"
+
+def crumbs_ld(crumbs):
+    items = [(DOMAIN, "Accueil")] + [(DOMAIN + (h if h != "index.html" else ""), l) for h, l in crumbs]
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList",
+            "itemListElement": [{"@type": "ListItem", "position": i, "name": re.sub("<[^>]+>", "", l), "item": u} for i, (u, l) in enumerate(items, 1)]}
+
+def faq_ld(qs):
+    return {"@context": "https://schema.org", "@type": "FAQPage",
+            "mainEntity": [{"@type": "Question", "name": re.sub("<[^>]+>", "", q), "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}} for q, a in qs]}
+
+def page(path, title, desc, body, crumbs=None, tab=None, light=False, bodycls="", extra_head="", after="", jsonld=None, tone="dark"):
+    """path : adresse en dossier ('' = accueil, 'entreprises/seminaire/')."""
+    fname = path if path.endswith(".html") else (path + "index.html" if path else "index.html")
+    depth = path.count("/")
+    prefix = "../" * depth
+    if fname == "404.html":
+        prefix = "/mh-event/"
+    lds = list(jsonld or [])
+    bc = ""
+    if crumbs:
+        lds.append(crumbs_ld(crumbs))
+        bc = crumbs_html(crumbs, tone)
+    head_extra = extra_head + "".join(ld(o) for o in lds)
     cls = f' class="{bodycls}"' if bodycls else ""
-    out = (head(title, desc, canon, extra_head) + f"\n<body{cls}>\n" + header(light) + "\n" + after +
-           f'<main id="main">\n{body}\n</main>\n' + footer() + "\n" + menu(cur or fname) + "\n" + tabbar(tab) + "\n" + CHAT +
+    cur = path
+    t0 = tab
+    out = (head(title, desc, path, head_extra) + f"\n<body{cls}>\n" + header(light) + "\n" + after +
+           f'<main id="main">\n{bc}{body}\n</main>\n' + footer() + "\n" + menu(cur) + "\n" + tabbar(t0) + "\n" + CHAT +
            f'\n<script src="assets/js/mh.js?v={_v("assets/js/mh.js")}" defer></script>\n<script src="assets/js/chat.js?v={_v("assets/js/chat.js")}" defer></script>\n</body>\n</html>\n')
+    out = relink(out, prefix)
+    if os.path.dirname(fname):
+        os.makedirs(os.path.dirname(fname), exist_ok=True)
     open(fname, "w", encoding="utf-8").write(out)
-    PAGES.append(fname)
+    PAGES.append(path)
 
 PAGES = []
 
 # ---------------------------------------------------------------- blocs
 def hero_photo(name, alt, label, title, lead="", crumbs=None, pos=None, short=True, actions=""):
     cr = ""
-    if crumbs:
-        cr = '<nav class="crumbs" aria-label="Fil d\'Ariane">' + '<span aria-hidden="true">◆</span>'.join(f'<a href="{h}">{l}</a>' for h, l in crumbs) + "</nav>"
     i = img(name, alt, "100vw", eager=True)
     if pos:
         i = i.replace("<img ", f'<img style="object-position:{pos}" ', 1)
@@ -236,3 +365,22 @@ def logos(names):
         w, h = Image.open(f"{IMG}/clients/{n}.webp").size
         out.append(f'<li><img src="{IMG}/clients/{n}.webp" width="{w}" height="{h}" alt="{esc(lab[n])}" loading="lazy" decoding="async"></li>')
     return '<ul class="logos fade">' + "".join(out) + "</ul>"
+
+def hero_actions(devis):
+    return f'<div class="actions hero-act"><a class="btn" href="{devis}">Demander un devis</a><a class="btn line" href="{TEL}">Appeler Mathilde</a></div>'
+
+def cards(items, label=None):
+    """items : (adresse, image, alt, titre, phrase)"""
+    out = []
+    for href, name, alt, title, p in items:
+        out.append(f'<a class="card fade" href="{href}">{ph(name, alt, "s", "(min-width:960px) 30vw, (min-width:600px) 45vw, 100vw")}'
+                   f'<h3 class="t-h3">{title}</h3><p>{p}</p><span class="more">Découvrir</span></a>')
+    return '<div class="cards">' + "".join(out) + "</div>"
+
+def cta_band(text, devis, btn="Demander un devis"):
+    return (f'<section class="cta-band"><div class="wrap"><p class="fade">{text}</p>'
+            f'<div class="actions fade"><a class="btn" href="{devis}">{btn}</a><a class="tel" href="{TEL}">ou appelez le {PHONE}</a></div></div></section>')
+
+def links_row(items, label="À découvrir aussi"):
+    return (f'<nav class="related fade" aria-label="{label}"><p class="label">{label}</p><ul>' +
+            "".join(f'<li><a href="{h}">{l}</a></li>' for h, l in items) + "</ul></nav>")
