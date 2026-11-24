@@ -19,7 +19,7 @@ def home():
     body = hero + f'''
 <section class="sec" id="suite"><div class="wrap intro">
  <div class="txt">{head_block("La maison", "Une seule <em>signature</em>", "Corporate ou privé, chaque événement est conçu et piloté par Mathilde Heyral, de la première idée au dernier invité.")}
-  <div class="actions fade"><a class="link" href="agence-mathilde-heyral.html">L'agence</a></div></div>
+  <div class="actions fade"><a class="link" href="agence-mathilde-heyral.html">Découvrir l'agence</a></div></div>
  {duo("mariage-mariage-chateau-robe-blanche-bouquet", "Mariée et son bouquet devant un château", "lancement-soiree-inauguration-entreprise-cabries-paca-1", "Soirée d'inauguration à Cabriès")}
 </div></section>
 

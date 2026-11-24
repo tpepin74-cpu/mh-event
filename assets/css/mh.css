@@ -97,7 +97,7 @@ html.ld-skip .loader{display:none}
 .on-dark .btn:hover,.hero .btn:hover{background:transparent;color:var(--pierre)}
 .on-dark .btn.line,.hero .btn.line{background:transparent;color:var(--pierre)}
 .on-dark .btn.line:hover,.hero .btn.line:hover{background:var(--pierre);color:var(--bordeaux)}
-.link{display:inline-block;font:500 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--bordeaux);padding-bottom:9px;
+.link{display:inline-block;font:400 15px/1.2 var(--sans);letter-spacing:.02em;color:var(--bordeaux);padding-bottom:8px;
   background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;transition:background-size .5s var(--ease)}
 .link:hover{background-size:36% 1px}
 .on-dark .link{color:var(--pierre)}
@@ -113,13 +113,12 @@ figcaption{margin-top:14px;font:italic 400 16px/1.4 var(--serif);color:var(--txt
 
 /* Superposition de deux photos */
 /* Duo éditorial : deux photos côte à côte, sans chevauchement, petite photo décalée vers le bas */
-.duo{display:grid;grid-template-columns:.62fr 1fr;gap:clamp(14px,2vw,28px);align-items:end;width:100%}
-.duo .b,.duo .f{position:relative;overflow:hidden;background:var(--pierre)}
-.duo .b{aspect-ratio:3/4;margin-bottom:clamp(-64px,-6vw,-28px)}
-.duo .f{aspect-ratio:4/5}
+/* Duo : grande photo à gauche, petite à droite, légèrement superposée, bord vert cyprès */
+.duo{position:relative;width:100%;aspect-ratio:100/86}
+.duo .b,.duo .f{position:absolute;overflow:hidden;background:var(--pierre);border:clamp(4px,.45vw,6px) solid var(--cypres)}
+.duo .f{left:0;top:0;width:61%;aspect-ratio:4/5;z-index:1}
+.duo .b{right:0;bottom:0;width:44%;aspect-ratio:3/4;z-index:2}
 .duo img{width:100%;height:100%;object-fit:cover;display:block}
-.duo.rev{grid-template-columns:1fr .62fr}.duo.rev .f{order:-1}
-.duo{padding-bottom:clamp(28px,6vw,64px)}
 
 /* Photo pleine largeur */
 .bleed{position:relative;height:clamp(420px,82vh,900px);overflow:hidden}
