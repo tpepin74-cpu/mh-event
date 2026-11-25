@@ -114,19 +114,15 @@ def home():
         ("Le dérapage", "du budget", "« La facture n'aura rien à voir avec le devis. »", "pb-budget"),
         ("Votre image", "en jeu", "« Devant mes invités, je n'ai pas le droit à l'erreur. »", "pb-image"),
     ]
-    nf = len(fears)
-    fx_bg = "".join(f'<div class="fx-bg{" on" if i == 0 else ""}">{img(im, "", "100vw")}</div>' for i, (_, _, _, im) in enumerate(fears))
-    fx_sl = "".join(
-        f'<li class="fx-s{" on" if i == 0 else ""}"><p class="fx-w"><span class="fx-m"><span class="fx-i">{w}</span></span>{f"<i>{w2}</i>" if w2 else ""}</p><p class="fx-q">{q}</p></li>'
-        for i, (w, w2, q, _) in enumerate(fears))
-    fx_dots = "".join(f'<li{" class=\"on\"" if i == 0 else ""}><span>{i+1:02d}</span></li>' for i in range(nf))
-    pains_html = f'''<section class="fx" id="problematiques" style="--n:{nf}" aria-labelledby="pb-t"><div class="fx-st">
- <div class="fx-h"><p class="label">Choisir une agence événementielle</p><h2 class="fx-t" id="pb-t">Vos <em>problématiques</em></h2></div>
- <div class="fx-p">
- <div class="fx-bgs" aria-hidden="true">{fx_bg}</div>
- <ol class="fx-list">{fx_sl}</ol>
- <div class="fx-bar" aria-hidden="true"><i></i></div>
- </div>
+    acc = "".join(
+        f'<li class="acc-i{" on" if i == 0 else ""}" tabindex="0" aria-expanded="{"true" if i == 0 else "false"}">{img(im, "", "(min-width:900px) 60vw, 100vw")}'
+        f'<span class="acc-v" aria-hidden="true">{w}</span>'
+        f'<div class="acc-c"><p class="acc-w"><span>{w}</span>{f" <i>{w2}</i>" if w2 else ""}</p><p class="acc-q">{q}</p></div><b class="acc-p" aria-hidden="true"></b></li>'
+        for i, (w, w2, q, im) in enumerate(fears))
+    pains_html = f'''<section class="sec pbv bg-figue on-dark" id="problematiques" aria-labelledby="pb-t"><div class="wrap">
+ <div class="pbv-h"><p class="label fade">Choisir une agence événementielle</p><h2 class="t-xl" id="pb-t">Nous connaissons <em>vos problématiques</em></h2><p class="lead fade">Ce sont les craintes que l'on entend à chaque premier rendez-vous.</p></div>
+ <ul class="acc">{acc}</ul>
+ <p class="pb-end fade">Ces craintes, nous les connaissons par cœur. <em>Et nous avons les solutions.</em></p>
 </div></section>'''
 
     picks = [e for e in EVENTS if e["slug"] in ("golden-night-golden-tulip-marseille", "diner-gala-pasino-aix-en-provence", "mariage-domaine-aix-en-provence")]
@@ -140,7 +136,10 @@ def home():
     body = hero + f'''
 <nav class="snav" aria-label="Sections de la page"><ol>{"".join(f'<li><a href="#{i}"><span>{t}</span></a></li>' for i, t in [("suite","Vos besoins"),("problematiques","Vos problématiques"),("solutions","Nos solutions"),("confiance","Ils nous font confiance"),("intervention","Où nous intervenons"),("questions","Vos questions")])}</ol></nav>
 <section class="sec you" id="suite"><div class="wrap">
- <div class="stack center you-h"><p class="label fade">Vous êtes au bon endroit</p><h2 class="t-xl fade">Vous cherchez une agence événementielle <em>qui ne laisse rien au hasard.</em></h2><div class="rule fade" aria-hidden="true"><i></i></div><p class="lead fade">Dirigeant, responsable RH ou communication, directeur d'hôtel, futurs mariés : vous avez un événement à réussir à Nîmes, Aix-en-Provence, Marseille ou Saint-Tropez, et pas le droit à l'erreur. Il vous faut une agence qui comprenne vos enjeux, pas un catalogue.</p></div>
+ <div class="band">
+  <div class="band-t"><p class="label">Vos besoins</p><h2 class="band-h">Vous cherchez une agence événementielle <em>qui ne laisse rien au hasard.</em></h2><p class="lead">Dirigeant, responsable RH ou communication, directeur d'hôtel, futurs mariés : vous avez un événement à réussir à Nîmes, Aix-en-Provence, Marseille ou Saint-Tropez, et pas le droit à l'erreur.</p><p class="band-k">Il vous faut une agence qui comprenne vos enjeux, pas un catalogue.</p></div>
+  <div class="band-m"><video class="lazy-v" muted loop playsinline preload="none" poster="assets/img/besoins-poster.webp" width="640" height="800" aria-hidden="true"><source data-src="assets/video/besoins.mp4" type="video/mp4"></video></div>
+ </div>
  {doors([
    ("entreprises/", "afterwork-soiree-entrepeneurs-encheres-pasino-aix", "Dîner de gala au Pasino d'Aix-en-Provence", "Événements d'entreprise", "Fédérer vos équipes, remercier vos clients, marquer une inauguration, sans y passer vos soirées."),
    ("hotels/", "hotel-pianiste-soiree-opera-hotel-blanc", "Soirée Opéra et champagne en hôtel", "Animation d'hôtels", "Remplir vos salons, attirer une clientèle locale et faire parler de votre établissement."),
@@ -149,13 +148,10 @@ def home():
 </div></section>
 
 {pains_html}
-<section class="sec pb pb-out bg-bordeaux on-dark"><div class="wrap">
- <p class="pb-end fade">Ces peurs sont légitimes. <em>C'est précisément pour les faire disparaître que MH Event existe.</em></p>
-</div></section>
 
 <section class="sec" id="solutions"><div class="wrap intro">
  <figure class="fade">{ph("mathilde-portrait-mathilde-heyral-mh-event", "Mathilde Heyral, fondatrice de MH Event", "p")}<figcaption>Mathilde Heyral, fondatrice</figcaption></figure>
- <div class="txt">{head_block("Notre réponse", "Une agence événementielle à taille humaine, <em>tout sur mesure</em>", "Danseuse classique, cheffe hôtesse au Grand Prix de France de F1, juriste : Mathilde a construit MH Event pour répondre précisément à ces difficultés.")}
+ <div class="txt">{head_block("Nos solutions", "Une agence événementielle à taille humaine, <em>tout sur mesure</em>", "Danseuse classique, cheffe hôtesse au Grand Prix de France de F1, juriste : Mathilde a construit MH Event pour répondre précisément à ces difficultés.")}
   {rows([
     ("Vous déléguez tout", "Lieu, prestataires, planning, accueil : Mathilde coordonne et vous tient informé, sans vous noyer."),
     ("Rien n'est sur catalogue", "Thème, scénographie, artistes, tenues des hôtesses : chaque événement est pensé pour votre public."),

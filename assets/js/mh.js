@@ -150,6 +150,7 @@
   /* Images : rideau + léger zoom arrière */
   q(".door .ph, .card .ph, .intro figure .ph, .vg .tile").forEach(function(p){ p.classList.add("cur"); var w=p.parentElement; w._cur=p; io.observe(w) });
   /* Listes : cascade */
+  q(".band").forEach(function(b){ var w=b.parentElement.parentElement; w._cur=b; io.observe(w) });
   q(".doors, .cards, .vign, .rows, .cityg, .faq, .figs, .logos").forEach(function(l){ l.classList.add("casc"); [].forEach.call(l.children,function(c,i){ c.style.setProperty("--k",i%6) }); io.observe(l) });
 
   /* Chiffres clés : compteur */
@@ -186,9 +187,39 @@
     document.body.classList.toggle("snav-on",act>=0&&!document.body.classList.contains("menu-open"));
     var r=nav.getBoundingClientRect(), x=r.left+r.width/2, y=r.top+r.height/2, dark=false;
     nav.style.pointerEvents="none"; var el=document.elementFromPoint(x,y); nav.style.pointerEvents="";
-    while(el&&el!==document.body){ if(el.classList&&(el.classList.contains("on-dark")||el.classList.contains("fx")||el.classList.contains("fx-st")||el.classList.contains("cta-band")||el.tagName==="FOOTER")){ dark=true; break } el=el.parentElement }
+    while(el&&el!==document.body){ if(el.classList&&(el.classList.contains("on-dark")||el.classList.contains("fx")||el.classList.contains("fx-st")||el.classList.contains("band")||el.classList.contains("cta-band")||el.tagName==="FOOTER")){ dark=true; break } el=el.parentElement }
     nav.classList.toggle("light",dark);
   }
   window.addEventListener("scroll",function(){ if(!tick){ tick=true; requestAnimationFrame(upd) } },{passive:true});
   window.addEventListener("resize",upd); upd();
+})();
+
+/* ---------- Vidéos légères : chargement et lecture seulement à l'écran ---------- */
+(function(){
+  var vids=[].slice.call(document.querySelectorAll("video.lazy-v")); if(!vids.length) return;
+  var RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function load(v){ if(v.dataset.ok) return; var s=v.querySelector("source[data-src]"); if(s){ s.src=s.getAttribute("data-src"); v.load() } v.dataset.ok=1 }
+  if(RM||!("IntersectionObserver" in window)) return;
+  var o=new IntersectionObserver(function(es){ es.forEach(function(e){ var v=e.target; if(e.isIntersecting){ load(v); var p=v.play(); if(p&&p.catch) p.catch(function(){}) } else v.pause() }) },{rootMargin:"200px 0px"});
+  vids.forEach(function(v){ o.observe(v) });
+})();
+
+/* ---------- Accueil : problématiques en vignettes (défilement auto, survol, clic, clavier) ---------- */
+(function(){
+  var acc=document.querySelector(".acc"); if(!acc) return;
+  var it=[].slice.call(acc.querySelectorAll(".acc-i")), cur=0, T=5500, timer=null, inView=false;
+  var RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  acc.style.setProperty("--acc-t",T+"ms");
+  function set(i){ if(i===cur) return; it[cur].classList.remove("on"); it[cur].setAttribute("aria-expanded","false"); cur=i; it[i].classList.add("on"); it[i].setAttribute("aria-expanded","true");
+    if(acc.classList.contains("run")){ acc.classList.remove("run"); void acc.offsetWidth; acc.classList.add("run") } }
+  function start(){ stop(); if(RM||!inView) return; acc.classList.add("run"); acc.classList.remove("hold"); timer=setInterval(function(){ set((cur+1)%it.length) },T) }
+  function stop(){ if(timer){ clearInterval(timer); timer=null } }
+  it.forEach(function(el,i){
+    el.addEventListener("mouseenter",function(){ if(window.matchMedia("(hover:hover)").matches){ set(i); stop(); acc.classList.add("hold") } });
+    el.addEventListener("click",function(){ set(i); start() });
+    el.addEventListener("focus",function(){ set(i); stop(); acc.classList.add("hold") });
+    el.addEventListener("keydown",function(e){ if(e.key==="ArrowRight"||e.key==="ArrowDown"){ e.preventDefault(); it[(i+1)%it.length].focus() } if(e.key==="ArrowLeft"||e.key==="ArrowUp"){ e.preventDefault(); it[(i-1+it.length)%it.length].focus() } });
+  });
+  acc.addEventListener("mouseleave",start);
+  if("IntersectionObserver" in window){ new IntersectionObserver(function(es){ inView=es[0].isIntersecting; if(inView){ acc.classList.add("in"); start() } else stop() },{threshold:.3}).observe(acc) } else { acc.classList.add("in") }
 })();
