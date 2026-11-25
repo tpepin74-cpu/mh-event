@@ -291,4 +291,7 @@
   if(!("IntersectionObserver" in window)){ d.forEach(function(x){ x.classList.add("mat-on") }); return }
   var o=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("mat-on"); o.unobserve(e.target) } }) },{threshold:.2});
   d.forEach(function(x){ o.observe(x) });
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var tk=false; function par(){ tk=false; var vh=window.innerHeight; d.forEach(function(x){ var r=x.getBoundingClientRect(); if(r.bottom<0||r.top>vh) return; var c=(r.top+r.height/2-vh/2)/vh; x.style.setProperty("--py",(c*-60).toFixed(1)+"px") }) }
+  window.addEventListener("scroll",function(){ if(!tk){ tk=true; requestAnimationFrame(par) } },{passive:true}); par();
 })();
