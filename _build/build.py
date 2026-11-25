@@ -32,14 +32,9 @@ def ph(name, alt, shape="p", sizes="(min-width:960px) 45vw, 100vw", eager=False,
         i = i.replace("<img ", f'<img style="object-position:{pos}" ', 1)
     return f'<div class="ph {shape}">{i}</div>'
 
-def duo(front, alt_f, back, alt_b, rev=False, video=None):
-    if video:
-        fr = (f'<video class="lazy-v" muted loop playsinline preload="none" poster="assets/img/{video}-poster.webp" width="640" height="800" aria-label="{esc(alt_f)}">'
-              f'<source data-src="assets/video/{video}.mp4" type="video/mp4"></video>')
-    else:
-        fr = img(front, alt_f, "(min-width:960px) 34vw, 68vw")
+def duo(front, alt_f, back, alt_b, rev=False):
     return (f'<div class="duo{" rev" if rev else ""}"><div class="b">{img(back, alt_b, "(min-width:960px) 30vw, 62vw")}</div>'
-            f'<div class="f">{fr}</div></div>')
+            f'<div class="f">{img(front, alt_f, "(min-width:960px) 34vw, 68vw")}</div></div>')
 
 def esc(s):
     return H.escape(s, quote=True)
