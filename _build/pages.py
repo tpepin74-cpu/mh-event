@@ -95,64 +95,101 @@ def hub_page(path, H):
 
 # ================================================================ ACCUEIL
 def home():
-    hero = f'''<section class="hero hero-v" aria-labelledby="h-title">
+    CITIES = ["Nîmes", "Aix-en-Provence", "Marseille", "Saint-Tropez", "Montpellier", "Avignon", "Arles"]
+    hero = f'''<section class="hero hero-v hero-home" aria-labelledby="h-title">
  <div class="hero-media"><video autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg" aria-hidden="true"><source src="assets/video/hero.mp4" type="video/mp4"></video></div>
- <div class="hero-body">
-  <h1 class="hero-logo" id="h-title"><img src="assets/img/logo-pierre.webp" width="1000" height="626" alt="MH Event, agence événementielle à Nîmes, Aix-en-Provence, Marseille et Saint-Tropez"></h1>
-  <div class="hero-cta">
-   <p class="lead">Séminaires, team building, journées bien-être, soirées et mariages.</p>
-   <div class="entries"><a class="btn green" href="entreprises/">Une entreprise</a><a class="btn green" href="particuliers/">Un particulier</a><a class="btn green" href="hotels/">Un hôtel</a></div>
-  </div>
- </div>
+ <div class="hero-body"><div class="hh">
+  <h1 class="hh-h" id="h-title"><span class="hh-t"><span>Agence</span> <span>événementielle</span></span> <span class="hh-c">{"".join(f'<span>{c}</span>' for c in CITIES)}</span></h1>
+  <p class="lead">Séminaires, team building, journées bien-être, soirées, hôtels et mariages.</p>
+  <div class="entries"><a class="btn green" href="entreprises/">Une entreprise</a><a class="btn green" href="hotels/">Un hôtel</a><a class="btn green" href="particuliers/">Un particulier</a></div>
+ </div></div>
  <button class="v-pause" type="button" aria-pressed="false" aria-label="Mettre la vidéo en pause"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z" fill="currentColor"/></svg></button>
  <a class="hero-down" href="#suite" aria-label="Découvrir la suite">{DOWN}</a>
 </section>'''
-    body = hero + f'''
-<section class="sec" id="suite"><div class="wrap intro">
- <div class="txt">{head_block("Agence événementielle · Provence &amp; Gard", "Une seule <em>signature</em>", "Corporate ou privé, chaque événement est conçu et piloté par Mathilde Heyral, de la première idée au dernier invité, à Aix-en-Provence, Marseille, Nîmes et Saint-Tropez.")}
-  <div class="actions fade"><a class="link" href="agence/">Découvrir l'agence</a></div></div>
- {duo("mariage-mariage-chateau-robe-blanche-bouquet", "Mariée et son bouquet devant un château", "lancement-soiree-inauguration-entreprise-cabries-paca-1", "Soirée d'inauguration à Cabriès")}
-</div></section>
 
-<section class="sec flush"><div class="wrap">
- <div class="stack center" style="margin-bottom:clamp(56px,7vw,110px)"><p class="label fade">Vous êtes</p><h2 class="t-h2 fade">Trois façons <em>de recevoir</em></h2></div>
+    pains = [
+        ("« Je n'ai pas le temps de tout coordonner. »", "Lieu, traiteur, artistes, horaires, invités : l'organisation déborde vite sur votre vrai métier."),
+        ("« Toutes les agences proposent la même chose. »", "Des formules sur catalogue, qui ne parlent ni de votre marque, ni de vos invités, ni de votre histoire."),
+        ("« Je ne sais jamais qui fait quoi. »", "Un commercial vend, un chef de projet exécute, et personne ne décroche le jour J quand il faut décider vite."),
+        ("« Le budget finit toujours par déraper. »", "Des devis flous, des options découvertes trop tard, des suppléments que personne n'avait annoncés."),
+    ]
+    pains_html = '<ol class="pains">' + "".join(f'<li class="fade"><span class="n">{i:02d}</span><p class="q">{q}</p><p>{t}</p></li>' for i, (q, t) in enumerate(pains, 1)) + '</ol>'
+
+    picks = [e for e in EVENTS if e["slug"] in ("golden-night-golden-tulip-marseille", "diner-gala-pasino-aix-en-provence", "mariage-domaine-aix-en-provence")]
+    qs = [
+        ("Dans quelles villes intervient votre agence événementielle ?", "Basée à Nîmes, l'agence organise vos événements à Aix-en-Provence, Marseille, Nîmes, Saint-Tropez, Montpellier, Avignon et Arles, partout en Provence et dans le Gard, et se déplace dans toute la France."),
+        ("Quels événements organisez-vous ?", "Pour les entreprises : séminaires, team building, journées bien-être, soirées, Christmas party, inaugurations, conférences et hôtes et hôtesses. Pour les hôtels : soirées vitrines, Déjeuner Corpo et animations. Pour les particuliers : mariages, coordination du jour J et fêtes privées."),
+        ("Le devis est-il payant ?", "Non. Le devis est gratuit, détaillé poste par poste et sans engagement. Mathilde vous répond sous 24 à 48 h ouvrées."),
+        ("Qui sera mon interlocuteur ?", "Mathilde Heyral, fondatrice de MH Event, du premier appel jusqu'au dernier invité. Pas d'intermédiaire entre vous et la personne qui pilote votre événement."),
+        ("Proposez-vous une organisation complète ou à la carte ?", "Les deux : une organisation clé en main, ou seulement les prestations dont vous avez besoin (lieu, hôtesses, animation, coordination)."),
+    ]
+    body = hero + f'''
+<section class="sec you" id="suite"><div class="wrap">
+ <div class="stack center you-h"><p class="label fade">Vous êtes au bon endroit</p><h2 class="t-xl fade">Vous cherchez une agence événementielle <em>qui ne laisse rien au hasard.</em></h2><div class="rule fade" aria-hidden="true"><i></i></div><p class="lead fade">Dirigeant, responsable RH ou communication, directeur d'hôtel, futurs mariés : vous avez un événement à réussir à Nîmes, Aix-en-Provence, Marseille ou Saint-Tropez, et pas le droit à l'erreur. Il vous faut une agence qui comprenne vos enjeux, pas un catalogue.</p></div>
  {doors([
-   ("entreprises/", "afterwork-soiree-entrepeneurs-encheres-pasino-aix", "Dîner de gala au Pasino d'Aix-en-Provence", "Une entreprise", "Séminaires, soirées, inaugurations, team building."),
-   ("hotels/", "hotel-pianiste-soiree-opera-hotel-blanc", "Soirée Opéra et champagne en hôtel", "Un hôtel", "Soirées vitrines, soirées séminaires, Déjeuner Corpo."),
-   ("particuliers/", "mariage-maries-danse-ouverture-bal-mariage-gard", "Ouverture de bal d'un mariage dans le Gard", "Un particulier", "Mariage, coordination du jour J, anniversaires."),
+   ("entreprises/", "afterwork-soiree-entrepeneurs-encheres-pasino-aix", "Dîner de gala au Pasino d'Aix-en-Provence", "Événements d'entreprise", "Fédérer vos équipes, remercier vos clients, marquer une inauguration, sans y passer vos soirées."),
+   ("hotels/", "hotel-pianiste-soiree-opera-hotel-blanc", "Soirée Opéra et champagne en hôtel", "Animation d'hôtels", "Remplir vos salons, attirer une clientèle locale et faire parler de votre établissement."),
+   ("particuliers/", "mariage-maries-danse-ouverture-bal-mariage-gard", "Ouverture de bal d'un mariage dans le Gard", "Mariages &amp; fêtes privées", "Un mariage ou une fête qui vous ressemble, que vous vivez au lieu de la gérer."),
  ])}
 </div></section>
 
-{bleed("tb-team-building-marche-des-senteurs-mh-event-avril-2026", "La Marche des senteurs dans les calanques", "Team building", "Des équipes <em>soudées</em>", ("entreprises/team-building/", "Voir les quinze activités"))}
-
-<section class="sec"><div class="wrap intro rev">
- <div class="txt">{head_block("Séminaires &amp; bien-être", "Respirer <em>ensemble</em>", "Yoga face à la mer, relaxation sonore, massages : des journées qui soudent autant qu'elles reposent.")}
-  <div class="actions fade"><a class="link" href="entreprises/journee-bien-etre/">Les journées bien-être</a><a class="link" href="entreprises/seminaire/">Organiser un séminaire</a></div></div>
- {duo("bienetre-cours-yoga-evenement-bien-etre", "Cours de yoga en terrasse face aux collines", "seminaire-mh-event-organisation-seminaire-montpellier", "Séminaire sous chapiteau près de Montpellier", rev=True)}
-</div></section>
-
-{cta_band("Un devis gratuit, une réponse sous 48 heures.", "devis/")}
-
 <section class="sec bg-pierre"><div class="wrap">
- <div class="stack center" style="margin-bottom:clamp(48px,6vw,88px)"><p class="label fade">Réalisations</p><h2 class="t-h2 fade">Ils nous font <em>confiance</em></h2></div>
- {logos(["golden-tulip","pasino-grand","odalys-euromed","entent","golfe-saint-tropez","reseau-entreprendre","gepa","cci-pays-arles"])}
- <div class="actions center fade" style="margin-top:clamp(48px,6vw,80px);justify-content:center"><a class="btn line" href="realisations/">Toutes les réalisations</a></div>
+ {head_block("Ce que l'on entend souvent", "Trouver la bonne agence événementielle, <em>c'est souvent</em>…", "Avant de nous appeler, nos clients nous racontent presque toujours les mêmes difficultés.", center=True)}
+ {pains_html}
 </div></section>
 
 <section class="sec"><div class="wrap intro">
  <figure class="fade">{ph("mathilde-portrait-mathilde-heyral-mh-event", "Mathilde Heyral, fondatrice de MH Event", "p")}<figcaption>Mathilde Heyral, fondatrice</figcaption></figure>
- <div class="txt">{head_block("Une seule interlocutrice", "Le sens <em>du détail</em>", "Danseuse classique, cheffe hôtesse au Grand Prix de France de F1, juriste : Mathilde garde de ce parcours une double exigence, l'émotion pour vos invités, la rigueur pour vous.")}
+ <div class="txt">{head_block("Notre réponse", "Une agence événementielle à taille humaine, <em>tout sur mesure</em>", "Danseuse classique, cheffe hôtesse au Grand Prix de France de F1, juriste : Mathilde a construit MH Event pour répondre précisément à ces difficultés.")}
+  {rows([
+    ("Vous déléguez tout", "Lieu, prestataires, planning, accueil : Mathilde coordonne et vous tient informé, sans vous noyer."),
+    ("Rien n'est sur catalogue", "Thème, scénographie, artistes, tenues des hôtesses : chaque événement est pensé pour votre public."),
+    ("Une seule personne, du début à la fin", "Celle qui écoute votre projet est celle qui le pilote le jour J."),
+    ("Un budget clair dès le départ", "Devis gratuit, détaillé poste par poste, sans engagement et sans surprise."),
+  ])}
   <p class="sig fade">Mathilde Heyral</p></div>
 </div></section>
 
 <section class="sec flush"><div class="wrap">
- <figure class="quote fade"><div class="rule" aria-hidden="true"><i></i></div><blockquote>« Mathilde transforme chaque moment en une expérience unique, fluide et parfaitement orchestrée. »</blockquote>
- <figcaption class="who">Lucie Lauzel · avis Google · <a href="https://share.google/i5QVzxkjr3eyGyZ6x" target="_blank" rel="noopener" style="color:var(--bordeaux)">5,0 sur 35 avis</a></figcaption></figure>
+ <div class="stack center" style="margin-bottom:clamp(48px,6vw,88px)"><p class="label fade">Nos solutions</p><h2 class="t-h2 fade">Les prestations de notre agence <em>événementielle</em></h2></div>
+ {cards([
+   ("entreprises/seminaire/", "seminaire-mh-event-organisation-seminaire-montpellier", "Séminaire sous chapiteau près de Montpellier", "Séminaires", "Lieu, hébergement, programme et temps forts, clés en main."),
+   ("entreprises/team-building/", "tb-team-building-marche-des-senteurs-mh-event-avril-2026", "La Marche des senteurs dans les calanques", "Team building", "Quinze activités, du littoral aux manades de Camargue."),
+   ("entreprises/soiree-entreprise/", "hotel-soiree-fin-annee-entreprise-alcrys-decembre-2025", "Soirée de fin d'année d'entreprise", "Soirées &amp; inaugurations", "Galas, Christmas party, lancements et inaugurations."),
+   ("entreprises/journee-bien-etre/", "bienetre-cours-yoga-evenement-bien-etre", "Cours de yoga en terrasse", "Journées bien-être", "Yoga, relaxation sonore, Pilates : des équipes qui respirent."),
+   ("hotels/animation-dynamisation/", "hotel-soiree-saxophone-lounge-hotel-marseille-dynamisation", "Soirée saxophone lounge en hôtel à Marseille", "Animation d'hôtels", "Soirées vitrines et Déjeuner Corpo pour faire venir du monde."),
+   ("particuliers/mariage/", "mariage-organisation-mariage-domaine-aix-juillet-2025", "Mariage dans un domaine près d'Aix", "Mariages", "Organisation complète ou coordination du jour J."),
+ ])}
 </div></section>
-{cta(dark=True, devis="devis/")}'''
-    page("", "MH Event · Agence événementielle à Aix, Marseille, Nîmes",
-         "Agence événementielle haut de gamme à Aix-en-Provence, Marseille, Nîmes et Saint-Tropez : séminaires, team building, soirées en hôtel, hôtesses et mariages.",
-         body, jsonld=[AGENCY, {"@context": "https://schema.org", "@type": "WebSite", "name": "MH Event", "url": DOMAIN}])
+
+{cta_band("Un devis gratuit, détaillé, sous 48 heures.", "devis/")}
+
+<section class="sec bg-pierre proof"><div class="wrap">
+ {head_block("Ils nous font confiance", "Les réalisations de l'agence, <em>de Marseille à Nîmes</em>", "Hôtels, grandes entreprises, réseaux d'entrepreneurs, collectivités et futurs mariés : quelques réalisations récentes.", center=True)}
+ <ul class="figs fade"><li><b>5,0</b><span>sur 35 avis Google</span></li><li><b>{len(EVENTS)}</b><span>réalisations à découvrir</span></li><li><b>48 h</b><span>pour recevoir votre devis</span></li></ul>
+ <div class="vign">{"".join(vignette(e) for e in picks)}</div>
+ <div style="margin-top:clamp(64px,8vw,120px)">{logos(["golden-tulip","pasino-grand","odalys-euromed","entent","golfe-saint-tropez","reseau-entreprendre","gepa","cci-pays-arles"])}</div>
+ <figure class="quote fade" style="margin-top:clamp(64px,8vw,120px)"><div class="rule" aria-hidden="true"><i></i></div><blockquote>« Mathilde transforme chaque moment en une expérience unique, fluide et parfaitement orchestrée. »</blockquote>
+ <figcaption class="who">Lucie Lauzel · avis Google · <a href="https://share.google/i5QVzxkjr3eyGyZ6x" target="_blank" rel="noopener" style="color:var(--bordeaux)">5,0 sur 35 avis</a></figcaption></figure>
+ <div class="actions center fade" style="margin-top:clamp(48px,6vw,80px);justify-content:center"><a class="btn line" href="realisations/">Toutes les réalisations</a></div>
+</div></section>
+
+<section class="sec seo"><div class="wrap">
+ {head_block("Partout dans le Sud", "Agence événementielle à Nîmes, Aix-en-Provence, <em>Marseille et Saint-Tropez</em>", "MH Event est une agence événementielle basée à Nîmes. Elle organise les événements d'entreprise, les animations d'hôtels et les mariages dans les grandes villes du Sud de la France.", center=True)}
+ <ul class="cityg"><li class="fade"><h3>Agence événementielle à Nîmes</h3><p>Le siège de l'agence, rue Tédenat. Partenaire de l'Office de Tourisme et des Congrès de Nîmes, MH Event y a créé des <a href="entreprises/team-building/nimes/">team building exclusifs</a>.</p></li><li class="fade"><h3>Agence événementielle à Aix-en-Provence</h3><p>Dîner de gala au Pasino, événement GEPA, déjeuners corporate et <a href="entreprises/team-building/aix-en-provence/">parcours dans le centre historique</a>.</p></li><li class="fade"><h3>Agence événementielle à Marseille</h3><p>Golden Night au Golden Tulip Marseille Euromed, soirées Odalys Euromed, Réseau Entreprendre : l'agence anime les <a href="hotels/animation-dynamisation/">hôtels</a> et les réseaux d'affaires.</p></li><li class="fade"><h3>Agence événementielle à Saint-Tropez</h3><p>Les Rencontres économiques du nautisme du Golfe de Saint-Tropez : scénographie, accueil et <a href="entreprises/hotes-hotesses/">hôtesses</a>.</p></li><li class="fade"><h3>Agence événementielle à Montpellier</h3><p><a href="entreprises/seminaire/">Séminaires</a> sous chapiteau et mariages en domaine dans l'Hérault.</p></li><li class="fade"><h3>Agence événementielle à Avignon</h3><p>Conférences et afterworks d'entreprise, comme la conférence Michel Biet.</p></li><li class="fade"><h3>Agence événementielle à Arles</h3><p>Le salon Li Rescountre d'Aqui avec la CCI Pays d'Arles, et des <a href="entreprises/team-building/camargue/">immersions en manade en Camargue</a>.</p></li></ul>
+ <div class="seo-in">
+ <div class="prose fade">
+   <h2>Une agence événementielle pour les entreprises, les hôtels et les particuliers</h2>
+   <p>Pour les entreprises, l'agence conçoit des <a href="entreprises/seminaire/">séminaires</a>, des <a href="entreprises/team-building/">team building</a> à Nîmes, Aix-en-Provence, en <a href="entreprises/team-building/camargue/">Camargue</a> ou au <a href="entreprises/team-building/pont-du-gard/">Pont du Gard</a>, des <a href="entreprises/soiree-entreprise/">soirées d'entreprise</a>, des <a href="entreprises/inauguration/">inaugurations</a> et met à disposition des <a href="entreprises/hotes-hotesses/">hôtes et hôtesses</a>.</p>
+   <p>Les hôtels lui confient l'<a href="hotels/animation-dynamisation/">animation de leur établissement</a> et leurs <a href="hotels/dejeuner-corpo/">Déjeuners Corpo</a> ; les particuliers, leur <a href="particuliers/mariage/">mariage</a>, la <a href="particuliers/coordination-jour-j/">coordination du jour J</a> ou une <a href="particuliers/anniversaire-fete-privee/">fête privée</a>.</p>
+ </div>
+ <div class="seo-faq"><h2 class="label fade">Questions fréquentes sur l'agence</h2>{faq(qs)}<div class="actions fade" style="margin-top:28px"><a class="link" href="faq/">Toutes les questions</a></div></div>
+ </div>
+</div></section>
+{cta(title="Parlons de <em>votre événement</em>&nbsp;?", dark=True, devis="devis/")}'''
+    page("", "Agence événementielle Nîmes, Aix, Marseille, Saint-Tropez | MH Event",
+         "MH Event, agence événementielle à Nîmes, Aix-en-Provence, Marseille, Saint-Tropez, Montpellier, Avignon et Arles : séminaires, team building, soirées, hôtels, mariages. Devis gratuit.",
+         body, bodycls="home", jsonld=[AGENCY, {"@context": "https://schema.org", "@type": "WebSite", "name": "MH Event", "url": DOMAIN}, faq_ld(qs)])
 
 # ================================================================ ENTREPRISES
 def entreprises():

@@ -285,10 +285,7 @@ def page(path, title, desc, body, crumbs=None, tab=None, light=False, bodycls=""
     cls = f' class="{bodycls}"' if bodycls else ""
     cur = path
     t0 = tab
-    hdr = header(light)
-    if path == "":
-        hdr = hdr.replace('  <div class="hdr-r">', '  <p class="hdr-tag"><span class="ht-t">Agence événementielle</span><span class="ht-c">Nîmes · Aix-en-Provence · Marseille · Saint-Tropez · Montpellier · Avignon · Arles</span></p>\n  <div class="hdr-r">', 1)
-    out = (head(title, desc, path, head_extra) + f"\n<body{cls}>\n" + hdr + "\n" + after +
+    out = (head(title, desc, path, head_extra) + f"\n<body{cls}>\n" + header(light) + "\n" + after +
            f'<main id="main">\n{bc}{body}\n</main>\n' + footer() + "\n" + menu(cur) + "\n" + tabbar(t0) + "\n" + CHAT +
            f'\n<script src="assets/js/mh.js?v={_v("assets/js/mh.js")}" defer></script>\n<script src="assets/js/chat.js?v={_v("assets/js/chat.js")}" defer></script>\n</body>\n</html>\n')
     out = out.replace('assets/video/hero.mp4"', f'assets/video/hero.mp4?v={_v("assets/video/hero.mp4")}"').replace('assets/img/hero-poster.jpg"', f'assets/img/hero-poster.jpg?v={_v("assets/img/hero-poster.jpg")}"')
