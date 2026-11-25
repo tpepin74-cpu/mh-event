@@ -516,7 +516,7 @@ def hotels():
         title="Animation et événements pour hôtels | MH Event",
         desc="MH Event fait vivre les hôtels : soirées vitrines toute l'année, soirées séminaires à vendre, Déjeuner Corpo et séminaires découverte, à Marseille, Aix et Nîmes.",
         crumb="Hôtels", tab="hotels", kicker="Hôtels", devis="Soirée en hôtel",
-        hero=("hotel-evenement-spectacle-peinture-live-hotel-euromed-odalys", "Soirée live painting dans un hôtel de Marseille"),
+        hero=("hotel-lobby-luxe", "Hall d'un hôtel de luxe éclairé en soirée"),
         h1="Faire vivre <em>votre</em> hôtel", lead="Un bar qui se remplit, une clientèle locale qui revient, des contrats MICE qui suivent.",
         k2="La spécialité de MH Event", h2="Un lieu <em>de vie</em>",
         intro="Votre hôtel n'est plus seulement un lieu où l'on dort : c'est une adresse où l'on sort, où l'on se réunit, où l'on revient. MH Event conçoit et anime vos événements toute l'année.",
