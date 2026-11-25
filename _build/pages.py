@@ -137,7 +137,7 @@ def home():
 <nav class="snav" aria-label="Sections de la page"><ol>{"".join(f'<li><a href="#{i}"><span>{t}</span></a></li>' for i, t in [("suite","Vos besoins"),("problematiques","Vos problématiques"),("solutions","Nos solutions"),("confiance","Ils nous font confiance"),("intervention","Où nous intervenons"),("questions","Vos questions")])}</ol></nav>
 <section class="sec you" id="suite"><div class="wrap">
  <div class="band">
-  <div class="band-t"><p class="label">Vos besoins</p><h2 class="band-h">Vous cherchez une agence événementielle <em>qui ne laisse rien au hasard.</em></h2><p class="lead">Dirigeant, responsable RH ou communication, directeur d'hôtel, futurs mariés : vous avez un événement à réussir à Nîmes, Aix-en-Provence, Marseille ou Saint-Tropez, et pas le droit à l'erreur.</p><p class="band-k">Il vous faut une agence qui comprenne vos enjeux, pas un catalogue.</p></div>
+  <div class="band-t"><p class="label">Vos besoins</p><h2 class="band-h">Vous souhaitez organiser un événement <em>à votre image.</em></h2></div>
   <div class="band-m"><video class="lazy-v" muted loop playsinline preload="none" poster="assets/img/besoins-poster.webp" width="640" height="800" aria-hidden="true"><source data-src="assets/video/besoins.mp4" type="video/mp4"></video></div>
  </div>
  {doors([
