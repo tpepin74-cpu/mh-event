@@ -203,9 +203,9 @@ def entreprises():
     hub_page("entreprises/", dict(
         title="Événements d'entreprise à Aix, Marseille, Nîmes | MH Event",
         desc="Séminaires, soirées, Christmas party, inaugurations, team building et hôtesses : MH Event organise vos événements d'entreprise en Provence et dans le Gard.",
-        crumb="Entreprises", tab="entreprises", kicker="Entreprises", devis="Séminaire",
+        crumb="Entreprises", tab="entreprises", kicker="", devis="Séminaire",
         hero=("seminaire-seminaire-groupe-entreprise-sourire-discussion", "Séminaire d'entreprise en plein air", "50% 40%"),
-        h1="Événements <em>d'entreprise</em>", lead="Vous fixez le cap. MH Event s'occupe de tout le reste.",
+        h1="Entreprises", lead='<span class="hsub">Événements <em>d\'entreprise</em></span>Vous fixez le cap. MH Event s\'occupe de tout le reste.',
         k2="Une seule interlocutrice", h2="De A <em>à</em> Z",
         intro="Conception, lieu, prestataires, équipes d'accueil et pilotage le jour J : des devis clairs, des plannings tenus, à Aix-en-Provence, Marseille, Nîmes et partout dans le Sud.",
         duo=[("seminaire-mh-event-organisation-seminaire-montpellier", "Séminaire sous chapiteau près de Montpellier"), ("lancement-inauguration-machine-industrielle-societe-entent-vitrolles-paca", "Inauguration de la machine PULSE chez ENTENT")],
