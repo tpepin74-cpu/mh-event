@@ -353,7 +353,7 @@ def bleed(name, alt, label="", title="", link=None, pos=None):
         cap = f'<div class="cap on-dark"><p class="label">{label}</p><h2 class="t-h2">{title}</h2>{lk}</div>'
     return f'<section class="bleed{" shade" if title else ""}">{i}{cap}</section>'
 
-def cta(title="Et si on en <em>parlait</em>&nbsp;?", lead="Une idée précise ou une envie encore floue&nbsp;: racontez-la. Mathilde vous rappelle sous 24 à 48&nbsp;h.", dark=False, devis="devis.html"):
+def cta(title="Et si on organisait <em>votre futur événement</em>&nbsp;?", lead="Une idée précise ou une envie encore floue&nbsp;: racontez-la. Mathilde vous rappelle sous 24 à 48&nbsp;h.", dark=False, devis="devis.html"):
     return f'''<section class="sec{" bg-cypres on-dark" if dark else ""}"><div class="wrap cta">
  <p class="label fade">Devis gratuit · réponse sous 48 h</p><h2 class="t-xl fade">{title}</h2><p class="lead fade">{lead}</p>
  <div class="actions fade"><a class="btn" href="{devis}">Demander un devis</a><a class="btn line" href="{TEL}">{PHONE}</a></div>
