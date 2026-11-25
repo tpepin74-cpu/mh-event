@@ -1022,7 +1022,7 @@ body.menu-open .rdv-fab{opacity:0;pointer-events:none}
 /* ===== fin de l'essai ===== */
 /* ===== ESSAI « MH qui relie les deux photos » (retirer ce bloc pour revenir en arrière) ===== */
 .duo{isolation:isolate;--py:0px}
-.duo::before,.duo::after{content:"MH";position:absolute;left:46%;top:58%;z-index:-1;font:300 clamp(240px,31vw,520px)/.8 var(--serif);letter-spacing:-.04em;white-space:nowrap;pointer-events:none;transform:translate(-50%,calc(-50% + var(--py)))}
+.duo::before,.duo::after{content:"MH";position:absolute;left:47%;top:36%;z-index:-1;font:300 clamp(240px,31vw,520px)/.8 var(--serif);letter-spacing:-.04em;white-space:nowrap;pointer-events:none;transform:translate(-50%,calc(-50% + var(--py)))}
 .duo::before{color:transparent;-webkit-text-stroke:1.2px var(--bordeaux);opacity:.5}
 .duo::after{z-index:3;color:transparent;-webkit-text-stroke:1.2px rgba(246,241,232,.9);opacity:.95}
 .duo.rev::before,.duo.rev::after{left:54%}
