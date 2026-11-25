@@ -107,13 +107,16 @@ def home():
  <a class="hero-down" href="#suite" aria-label="Découvrir la suite">{DOWN}</a>
 </section>'''
 
-    pains = [
-        ("« Je n'ai pas le temps de tout coordonner. »", "Lieu, traiteur, artistes, horaires, invités : l'organisation déborde vite sur votre vrai métier."),
-        ("« Toutes les agences proposent la même chose. »", "Des formules sur catalogue, qui ne parlent ni de votre marque, ni de vos invités, ni de votre histoire."),
-        ("« Je ne sais jamais qui fait quoi. »", "Un commercial vend, un chef de projet exécute, et personne ne décroche le jour J quand il faut décider vite."),
-        ("« Le budget finit toujours par déraper. »", "Des devis flous, des options découvertes trop tard, des suppléments que personne n'avait annoncés."),
+    fears = [
+        ("Perdre", "son temps", "« Je vais encore devoir tout gérer moi-même. »"),
+        ("Le déjà-vu", "", "« Encore une soirée qui ressemble à toutes les autres. »"),
+        ("Le silence", "le jour J", "« Au moment critique, personne ne répondra. »"),
+        ("Le dérapage", "du budget", "« La facture n'aura rien à voir avec le devis. »"),
+        ("Votre image", "en jeu", "« Devant mes invités, je n'ai pas le droit à l'erreur. »"),
     ]
-    pains_html = '<ol class="pains">' + "".join(f'<li class="fade"><span class="n">{i:02d}</span><p class="q">{q}</p><p>{t}</p></li>' for i, (q, t) in enumerate(pains, 1)) + '</ol>'
+    pains_html = '<ol class="fears">' + "".join(
+        f'<li class="fear fade"><span class="fn">{i:02d}</span><p class="fw"><span class="fw-m"><span class="fw-i"><b>{w}</b></span></span>{f" <i>{w2}</i>" if w2 else ""}</p><p class="fq">{q}</p></li>'
+        for i, (w, w2, q) in enumerate(fears, 1)) + '</ol>'
 
     picks = [e for e in EVENTS if e["slug"] in ("golden-night-golden-tulip-marseille", "diner-gala-pasino-aix-en-provence", "mariage-domaine-aix-en-provence")]
     qs = [
@@ -133,9 +136,10 @@ def home():
  ])}
 </div></section>
 
-<section class="sec bg-pierre"><div class="wrap">
- {head_block("Ce que l'on entend souvent", "Trouver la bonne agence événementielle, <em>c'est souvent</em>…", "Avant de nous appeler, nos clients nous racontent presque toujours les mêmes difficultés.", center=True)}
+<section class="sec pb bg-bordeaux on-dark"><div class="wrap">
+ <div class="pb-h"><p class="label fade">Choisir une agence événementielle</p><h2 class="pb-t fade">Vos <em>problématiques</em></h2><p class="pb-l fade">On les connaît par cœur. Ce sont les craintes que l'on entend à chaque premier rendez-vous.</p></div>
  {pains_html}
+ <p class="pb-end fade">Ces peurs sont légitimes. <em>C'est précisément pour les faire disparaître que MH Event existe.</em></p>
 </div></section>
 
 <section class="sec"><div class="wrap intro">
