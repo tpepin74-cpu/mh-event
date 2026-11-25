@@ -872,3 +872,8 @@ body.snav-on .snav{opacity:1;pointer-events:auto}
 .anim .pf:nth-child(2) .cur{transition-delay:.25s}.anim .pf:nth-child(3) .cur{transition-delay:.5s}
 .anim .pf:nth-child(2).on .pf-n{transition-delay:1.15s}.anim .pf:nth-child(3).on .pf-n{transition-delay:1.4s}
 @media (max-width:860px){.prof{grid-template-columns:1fr}.pf{aspect-ratio:4/5}}
+/* Vignettes problématiques : mot barré d'un trait doré, comme avant */
+.acc-w span{position:relative;justify-self:start}
+.acc-w span::after{content:"";position:absolute;left:-2%;right:-2%;top:50%;height:clamp(2px,.22vw,3px);background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.acc-i.on .acc-w span::after{transform:scaleX(1);transition:transform .9s var(--ease-io) 1.7s}
+.pbv .pb-end{color:var(--ink)}.pbv .pb-end em{color:var(--bordeaux)}
