@@ -983,3 +983,11 @@ body.snav-on .snav{opacity:1;pointer-events:auto}
 .js .hx.in .hx-r{opacity:1;transform:none;transition-delay:.6s}
 @media (max-width:860px){.hx{grid-template-columns:40px 1fr;row-gap:16px}.hx-ar{display:none}.hx-r{grid-column:2}}
 @media (prefers-reduced-motion:reduce){.js .hx .hx-n,.js .hx .hx-a,.js .hx .hx-ar,.js .hx .hx-r{opacity:1;transform:none}}
+/* Fil d'Ariane en bordeaux + sous-titre de hero */
+.bc{display:inline-flex;align-items:center;gap:10px;background:var(--bordeaux);color:var(--pierre)!important;padding:9px 14px}
+.bc a,.bc span{color:var(--pierre)!important}
+.bc .sep{color:var(--or)!important}
+.hsub{display:block;margin:0 0 14px;font:italic 400 clamp(24px,2.6vw,40px)/1.15 var(--serif);color:var(--pierre)}
+.hsub em{font-style:italic}
+.bc{text-shadow:none!important}.bc a,.bc .sep{opacity:1}
+.bc{right:auto!important;width:max-content;max-width:calc(100% - 2*var(--gut))}

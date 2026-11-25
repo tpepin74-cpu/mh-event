@@ -306,7 +306,7 @@ def hero_photo(name, alt, label, title, lead="", crumbs=None, pos=None, short=Tr
     ld = f'<p class="lead">{lead}</p>' if lead else ""
     return f'''<section class="hero{" short" if short else ""}">
  <div class="hero-media">{i}</div>
- <div class="hero-body">{cr}<p class="label">{label}</p><h1 class="t-xl">{title}</h1>{ld}{actions}</div>
+ <div class="hero-body">{cr}{f'<p class="label">{label}</p>' if label else ""}<h1 class="t-xl">{title}</h1>{ld}{actions}</div>
  <a class="hero-down" href="#suite" aria-label="Découvrir la suite">{DOWN}</a>
 </section>'''
 

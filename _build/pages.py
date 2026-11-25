@@ -515,9 +515,9 @@ def hotels():
     hub_page("hotels/", dict(
         title="Animation et événements pour hôtels | MH Event",
         desc="MH Event fait vivre les hôtels : soirées vitrines toute l'année, soirées séminaires à vendre, Déjeuner Corpo et séminaires découverte, à Marseille, Aix et Nîmes.",
-        crumb="Hôtels", tab="hotels", kicker="Hôtels", devis="Soirée en hôtel",
+        crumb="Hôtels", tab="hotels", kicker="", devis="Soirée en hôtel",
         hero=("hotel-lobby-luxe", "Hall d'un hôtel de luxe éclairé en soirée"),
-        h1="Faire vivre <em>votre</em> hôtel", lead="Un bar qui se remplit, une clientèle locale qui revient, des contrats MICE qui suivent.",
+        h1="Hôtels", lead='<span class="hsub">Faire vivre <em>votre</em> hôtel</span>Un bar qui se remplit, une clientèle locale qui revient, des contrats MICE qui suivent.',
         k2="La spécialité de MH Event", h2="Un lieu <em>de vie</em>",
         intro="Votre hôtel n'est plus seulement un lieu où l'on dort : c'est une adresse où l'on sort, où l'on se réunit, où l'on revient. MH Event conçoit et anime vos événements toute l'année.",
         duo=[("hotel-soiree-saxophone-lounge-hotel-marseille-dynamisation", "Soirée saxophone Lounge en hôtel"), ("hotel-pianiste-soiree-opera-hotel-blanc", "Pianiste lors d'une soirée Opéra et champagne")],
