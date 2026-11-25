@@ -161,3 +161,16 @@
     b.textContent=(0).toFixed(dec).replace(".",",")+suf; o.observe(b);
   });
 })();
+
+/* ---------- Accueil : problématiques en défilement fixe (une crainte par écran) ---------- */
+(function(){
+  var fx=document.querySelector(".fx"); if(!fx) return;
+  var sl=[].slice.call(fx.querySelectorAll(".fx-s")), bg=[].slice.call(fx.querySelectorAll(".fx-bg")), dots=[].slice.call(fx.querySelectorAll(".fx-dots li")), bar=fx.querySelector(".fx-bar i");
+  var n=sl.length, cur=0, tick=false;
+  function set(i){ if(i===cur) return; sl[cur].classList.remove("on"); sl[cur].classList.add("out"); var prev=sl[cur]; setTimeout(function(){ prev.classList.remove("out") },700);
+    bg[cur].classList.remove("on"); if(dots[cur]) dots[cur].classList.remove("on"); cur=i; sl[i].classList.add("on"); bg[i].classList.add("on"); if(dots[i]) dots[i].classList.add("on") }
+  function upd(){ tick=false; var r=fx.getBoundingClientRect(), h=fx.offsetHeight-window.innerHeight; var p=Math.max(0,Math.min(1,-r.top/(h||1)));
+    set(Math.min(n-1,Math.floor(p*n*0.9999))); if(bar) bar.style.transform="scaleX("+p+")" }
+  window.addEventListener("scroll",function(){ if(!tick){ tick=true; requestAnimationFrame(upd) } },{passive:true});
+  window.addEventListener("resize",upd); upd();
+})();
