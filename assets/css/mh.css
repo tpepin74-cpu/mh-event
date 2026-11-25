@@ -991,3 +991,21 @@ body.snav-on .snav{opacity:1;pointer-events:auto}
 .hsub em{font-style:italic}
 .bc{text-shadow:none!important}.bc a,.bc .sep{opacity:1}
 .bc{right:auto!important;width:max-content;max-width:calc(100% - 2*var(--gut))}
+/* ---------- Prise de rendez-vous : bandeau et bouton flottant ---------- */
+.rdv-band{background:var(--bordeaux);color:var(--pierre);padding:clamp(34px,4vw,56px) 0}
+.rdv-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px 40px}
+.rdv-t{margin:0;font:400 clamp(24px,2.4vw,36px)/1.15 var(--serif);text-transform:uppercase;letter-spacing:.04em}
+.rdv-t em{display:block;font-style:italic;text-transform:none;letter-spacing:0;color:var(--or)}
+.rdv-a{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.rdv-band .btn{background:var(--pierre);border-color:var(--pierre);color:var(--bordeaux)}
+.rdv-band .btn:hover{background:transparent;color:var(--pierre)}
+.rdv-band .btn.line{background:transparent;color:var(--pierre)}
+.rdv-band .btn.line:hover{background:var(--pierre);color:var(--bordeaux)}
+.rdv-tel{font-size:14px;color:rgba(246,241,232,.85);border-bottom:1px solid rgba(201,164,92,.6);padding-bottom:3px}
+.rdv-fab{position:fixed;left:clamp(14px,2vw,28px);bottom:calc(var(--safe-b) + 18px);z-index:70;display:inline-flex;align-items:center;gap:10px;padding:13px 18px;background:var(--bordeaux);color:var(--pierre);font:500 10.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;box-shadow:0 10px 30px rgba(20,12,15,.25);opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .5s var(--ease),transform .6s var(--ease),background .3s ease}
+.rdv-fab span{width:7px;height:7px;background:var(--or);transform:rotate(45deg)}
+.rdv-fab:hover{background:var(--figue)}
+body.rdv-on .rdv-fab{opacity:1;transform:none;pointer-events:auto}
+body.menu-open .rdv-fab{opacity:0;pointer-events:none}
+@media (max-width:760px){.rdv-fab{bottom:calc(var(--tab) + var(--safe-b) + 14px);left:12px;padding:11px 14px;font-size:9.5px}.rdv-in{flex-direction:column;align-items:flex-start}}
+@media (max-width:760px){.rdv-fab{bottom:calc(var(--tab) + var(--safe-b) + 44px)}}

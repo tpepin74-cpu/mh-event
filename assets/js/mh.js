@@ -275,3 +275,12 @@
   var o=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); o.unobserve(e.target) } }) },{rootMargin:"0px 0px -15% 0px"});
   rows.forEach(function(r){ o.observe(r) });
 })();
+
+/* ---------- Prise de rendez-vous : bouton flottant + sujet prérempli ---------- */
+(function(){
+  var b=document.body, fab=document.querySelector(".rdv-fab");
+  if(fab){ var t=false; var upd=function(){ t=false; var y=window.scrollY, nearEnd=(window.innerHeight+y)>=(document.documentElement.scrollHeight-220); b.classList.toggle("rdv-on",y>window.innerHeight*.7&&!nearEnd) };
+    window.addEventListener("scroll",function(){ if(!t){ t=true; requestAnimationFrame(upd) } },{passive:true}); upd() }
+  var suj=document.getElementById("c-suj");
+  if(suj&&/[?&]sujet=rdv/.test(location.search)&&!suj.value){ suj.value="Prise de rendez-vous (sur place ou en visio)"; var m=document.getElementById("c-msg"); if(m&&!m.value) m.placeholder="Vos disponibilités et quelques mots sur votre projet." }
+})();

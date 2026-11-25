@@ -269,6 +269,11 @@ def faq_ld(qs):
     return {"@context": "https://schema.org", "@type": "FAQPage",
             "mainEntity": [{"@type": "Question", "name": re.sub("<[^>]+>", "", q), "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}} for q, a in qs]}
 
+RDV_BAND = ('<section class="rdv-band"><div class="wrap rdv-in"><p class="rdv-t">Un événement en tête ? <em>Parlons-en de vive voix.</em></p>'
+            '<div class="rdv-a"><a class="btn" href="contact/?sujet=rdv">Prendre rendez-vous</a><a class="btn line" href="devis/">Demander un devis</a>'
+            f'<a class="rdv-tel" href="{TEL}">ou appelez le {PHONE}</a></div></div></section>')
+RDV_FAB = '<a class="rdv-fab" href="contact/?sujet=rdv"><span aria-hidden="true"></span>Prendre rendez-vous</a>'
+
 def page(path, title, desc, body, crumbs=None, tab=None, light=False, bodycls="", extra_head="", after="", jsonld=None, tone="dark"):
     """path : adresse en dossier ('' = accueil, 'entreprises/seminaire/')."""
     fname = path if path.endswith(".html") else (path + "index.html" if path else "index.html")
@@ -285,8 +290,15 @@ def page(path, title, desc, body, crumbs=None, tab=None, light=False, bodycls=""
     cls = f' class="{bodycls}"' if bodycls else ""
     cur = path
     t0 = tab
+    skip_rdv = path in ("contact/", "devis/", "mentions-legales/") or fname == "404.html"
+    if not skip_rdv and path != "" and 'id="suite"' in body:
+        i = body.index('id="suite"'); j = body.find("</section>", i)
+        if j > 0:
+            j += len("</section>")
+            body = body[:j] + RDV_BAND + body[j:]
+    fab = "" if skip_rdv else RDV_FAB
     out = (head(title, desc, path, head_extra) + f"\n<body{cls}>\n" + header(light) + "\n" + after +
-           f'<main id="main">\n{bc}{body}\n</main>\n' + footer() + "\n" + menu(cur) + "\n" + tabbar(t0) + "\n" + CHAT +
+           f'<main id="main">\n{bc}{body}\n</main>\n' + footer() + "\n" + fab + menu(cur) + "\n" + tabbar(t0) + "\n" + CHAT +
            f'\n<script src="assets/js/mh.js?v={_v("assets/js/mh.js")}" defer></script>\n<script src="assets/js/chat.js?v={_v("assets/js/chat.js")}" defer></script>\n</body>\n</html>\n')
     out = out.replace('assets/video/hero.mp4"', f'assets/video/hero.mp4?v={_v("assets/video/hero.mp4")}"').replace('assets/img/hero-poster.jpg"', f'assets/img/hero-poster.jpg?v={_v("assets/img/hero-poster.jpg")}"')
     out = relink(out, prefix)
