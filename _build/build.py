@@ -1,3 +1,4 @@
+import re
 # -*- coding: utf-8 -*-
 """Génère le site statique MH Event V2 (pages HTML à la racine du dépôt).
 Lancer depuis la racine :  python3 _build/build.py"""
@@ -33,8 +34,14 @@ def ph(name, alt, shape="p", sizes="(min-width:960px) 45vw, 100vw", eager=False,
     return f'<div class="ph {shape}">{i}</div>'
 
 def duo(front, alt_f, back, alt_b, rev=False):
-    return (f'<div class="duo{" rev" if rev else ""}"><div class="b">{img(back, alt_b, "(min-width:960px) 30vw, 62vw")}<span class="mh-l mh-h" aria-hidden="true">H</span></div>'
-            f'<div class="f">{img(front, alt_f, "(min-width:960px) 34vw, 68vw")}<span class="mh-l mh-m" aria-hidden="true">M</span></div></div>')
+    pid = "mhp-" + re.sub(r"[^a-z0-9]", "", back)[:24]
+    mh = (f'<svg class="mh-svg" viewBox="0 0 1443 1443" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
+          f'<defs><pattern id="{pid}" width="1" height="1" patternContentUnits="objectBoundingBox">'
+          f'<image href="{IMG}/{back}-m.webp" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice"/></pattern></defs>'
+          f'<path class="mh-M" d="M47 110H159L651 950V1186L175 370V1368H47Z"/>'
+          f'<path class="mh-H" fill="url(#{pid})" d="M651 619H737V983H1250V619H1335V1436H1250V1059H737V1436H651Z"/></svg>')
+    return (f'<div class="duo mhd{" rev" if rev else ""}"><div class="b">{img(back, alt_b, "(min-width:960px) 30vw, 62vw")}</div>'
+            f'<div class="f">{img(front, alt_f, "(min-width:960px) 34vw, 68vw")}</div>{mh}</div>')
 
 def esc(s):
     return H.escape(s, quote=True)
