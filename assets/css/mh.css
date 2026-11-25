@@ -914,3 +914,31 @@ body.snav-on .snav{opacity:1;pointer-events:auto}
 .sol-t em{font-style:normal;color:var(--bordeaux);display:inline}
 .pbs-c{font:400 clamp(20px,2vw,30px)/1.3 var(--serif);color:var(--ink);max-width:760px}
 .pbs-c em{display:block;font-style:italic;color:var(--bordeaux)}
+/* ---------- Nos solutions : bandeau vidéo + solutions interactives ---------- */
+.solv{position:relative;height:clamp(420px,78vh,760px);overflow:hidden;display:grid;place-items:center;background:var(--figue)}
+.solv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 3s var(--ease)}
+.solv::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(20,12,15,.55),rgba(20,12,15,.25))}
+.solv-o{position:relative;z-index:2;display:grid;justify-items:center;gap:clamp(12px,2vh,22px);text-align:center;padding:0 var(--gut)}
+.solv-o .label{color:var(--or)}
+.solv-t{margin:0;font:400 clamp(48px,10vw,170px)/.9 var(--serif);text-transform:uppercase;letter-spacing:.05em;color:var(--pierre);text-shadow:0 4px 40px rgba(20,12,15,.45)}
+.solv.on video{transform:scale(1)}
+.anim .solv .label{opacity:0;letter-spacing:.8em;transition:opacity 1s ease .2s,letter-spacing 1.6s var(--ease) .2s}
+.anim .solv.on .label{opacity:1;letter-spacing:.32em}
+.anim .solv-t .si{transform:translateY(60%) scale(1.6);opacity:0;filter:blur(12px);transition:transform 1.3s var(--ease) calc(.35s + var(--i)*60ms),opacity .9s ease calc(.35s + var(--i)*60ms),filter 1.1s ease calc(.35s + var(--i)*60ms)}
+.anim .solv-t.on .si{transform:none;opacity:1;filter:none}
+.anim .solv-t .sw{overflow:visible}
+.sola{list-style:none;margin:clamp(28px,3vw,44px) 0 0;padding:0;border-top:1px solid var(--line)}
+.sa{position:relative;display:grid;grid-template-columns:clamp(54px,6vw,92px) 1fr;gap:clamp(14px,2vw,28px);align-items:start;padding:clamp(20px,2.4vw,30px) 0;border-bottom:1px solid var(--line);cursor:pointer;outline:none}
+.sa-n{font:300 clamp(30px,3.6vw,58px)/.9 var(--serif);color:var(--line);transition:color .6s ease,transform .8s var(--ease);transform-origin:left}
+.sa-t{margin:0;font:400 clamp(19px,1.6vw,25px)/1.2 var(--serif);text-transform:uppercase;letter-spacing:.07em;color:var(--txt);transition:color .5s ease}
+.sa-d{margin:0;max-height:0;opacity:0;overflow:hidden;color:var(--txt);line-height:1.7;transform:translateY(-8px);transition:max-height .8s var(--ease),opacity .6s ease,transform .8s var(--ease),margin .6s var(--ease)}
+.sa.on .sa-n{color:var(--or);transform:scale(1.12)}
+.sa.on .sa-t{color:var(--bordeaux)}
+.sa.on .sa-d{max-height:140px;opacity:1;transform:none;margin-top:10px}
+.sa:hover:not(.on) .sa-t{color:var(--bordeaux)}
+.sa:focus-visible{box-shadow:inset 3px 0 0 var(--or)}
+.sa-p{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--bordeaux);transform:scaleX(0);transform-origin:left}
+.sola.run .sa.on .sa-p{animation:accP var(--sa-t,4.8s) linear forwards}
+.sola.hold .sa.on .sa-p{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.sola.run .sa.on .sa-p{animation:none}}
+.intro .txt .sola{margin-top:0}

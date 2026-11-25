@@ -151,6 +151,7 @@
   q(".door .ph, .card .ph, .intro figure .ph, .vg .tile").forEach(function(p){ p.classList.add("cur"); var w=p.parentElement; w._cur=p; io.observe(w) });
   q(".pf").forEach(function(pf){ var m=pf.querySelector(".pf-m"), t=pf.querySelector(".pf-t"); m.classList.add("cur"); split(t,"word"); var o2=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ pf.classList.add("on"); m.classList.add("on"); t.classList.add("on"); o2.disconnect() } },{threshold:.25}); o2.observe(pf) });
   /* Listes : cascade */
+  q(".solv").forEach(function(v){ var t=v.querySelector(".solv-t"); split(t,"char"); var ob=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ v.classList.add("on"); t.classList.add("on"); ob.disconnect() } },{threshold:.35}); ob.observe(v) });
   q(".band").forEach(function(b){ var h=b.querySelector(".band-h"); if(h){ split(h,"word") } var w=b.parentElement.parentElement; w._cur=b; io.observe(w); var ob=new MutationObserver(function(){ if(b.classList.contains("on")&&h){ h.classList.add("on"); ob.disconnect() } }); ob.observe(b,{attributes:true,attributeFilter:["class"]}) });
   q(".doors, .cards, .vign, .rows, .cityg, .faq, .figs, .logos").forEach(function(l){ l.classList.add("casc"); [].forEach.call(l.children,function(c,i){ c.style.setProperty("--k",i%6) }); io.observe(l) });
 
@@ -188,7 +189,7 @@
     document.body.classList.toggle("snav-on",act>=0&&!document.body.classList.contains("menu-open"));
     var r=nav.getBoundingClientRect(), x=r.left+r.width/2, y=r.top+r.height/2, dark=false;
     nav.style.pointerEvents="none"; var el=document.elementFromPoint(x,y); nav.style.pointerEvents="";
-    while(el&&el!==document.body){ if(el.classList&&(el.classList.contains("on-dark")||el.classList.contains("fx")||el.classList.contains("fx-st")||el.classList.contains("cta-band")||el.tagName==="FOOTER")){ dark=true; break } el=el.parentElement }
+    while(el&&el!==document.body){ if(el.classList&&(el.classList.contains("on-dark")||el.classList.contains("fx")||el.classList.contains("fx-st")||el.classList.contains("solv")||el.classList.contains("cta-band")||el.tagName==="FOOTER")){ dark=true; break } el=el.parentElement }
     nav.classList.toggle("light",dark);
   }
   window.addEventListener("scroll",function(){ if(!tick){ tick=true; requestAnimationFrame(upd) } },{passive:true});
@@ -245,4 +246,24 @@
   }
   window.addEventListener("scroll",function(){ if(!tick){ tick=true; requestAnimationFrame(upd) } },{passive:true});
   window.addEventListener("resize",upd); upd();
+})();
+
+/* ---------- Accueil : solutions 01-04 interactives (auto, survol, clic, clavier) ---------- */
+(function(){
+  var ol=document.querySelector(".sola"); if(!ol) return;
+  var it=[].slice.call(ol.querySelectorAll(".sa")), cur=0, T=4800, timer=null, inView=false;
+  var RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  ol.style.setProperty("--sa-t",T+"ms");
+  function set(i){ if(i===cur) return; it[cur].classList.remove("on"); it[cur].setAttribute("aria-expanded","false"); cur=i; it[i].classList.add("on"); it[i].setAttribute("aria-expanded","true");
+    if(ol.classList.contains("run")){ ol.classList.remove("run"); void ol.offsetWidth; ol.classList.add("run") } }
+  function stop(){ if(timer){ clearInterval(timer); timer=null } }
+  function start(){ stop(); if(RM||!inView) return; ol.classList.add("run"); ol.classList.remove("hold"); timer=setInterval(function(){ set((cur+1)%it.length) },T) }
+  it.forEach(function(el,i){
+    el.addEventListener("mouseenter",function(){ if(window.matchMedia("(hover:hover)").matches){ set(i); stop(); ol.classList.add("hold") } });
+    el.addEventListener("click",function(){ set(i); start() });
+    el.addEventListener("focus",function(){ set(i); stop(); ol.classList.add("hold") });
+    el.addEventListener("keydown",function(e){ if(e.key==="ArrowDown"){ e.preventDefault(); it[(i+1)%it.length].focus() } if(e.key==="ArrowUp"){ e.preventDefault(); it[(i-1+it.length)%it.length].focus() } });
+  });
+  ol.addEventListener("mouseleave",start);
+  if("IntersectionObserver" in window){ new IntersectionObserver(function(es){ inView=es[0].isIntersecting; if(inView) start(); else stop() },{threshold:.4}).observe(ol) }
 })();

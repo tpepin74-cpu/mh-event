@@ -145,19 +145,15 @@ def home():
 
 {pains_html}
 
-<section class="sec sol" id="solutions"><div class="wrap">
- <div class="sol-h"><h2 class="t-xl sol-t">Nos <em>solutions</em></h2></div>
-</div><div class="wrap intro">
+<section class="sol" id="solutions">
+ <div class="solv"><video class="lazy-v" muted loop playsinline preload="none" poster="assets/img/solutions-poster.webp" aria-hidden="true"><source data-src="assets/video/solutions.mp4" type="video/mp4"></video>
+  <div class="solv-o"><p class="label">Notre réponse</p><h2 class="solv-t">Nos solutions</h2></div></div>
+ <div class="sec"><div class="wrap intro">
  <figure class="fade">{ph("mathilde-portrait-mathilde-heyral-mh-event", "Mathilde Heyral, fondatrice de MH Event", "p")}<figcaption>Mathilde Heyral, fondatrice</figcaption></figure>
- <div class="txt">{head_block("Une seule interlocutrice", "Une agence événementielle à taille humaine, <em>tout sur mesure</em>", "Danseuse classique, cheffe hôtesse au Grand Prix de France de F1, juriste : Mathilde a construit MH Event pour répondre précisément à ces difficultés.")}
-  {rows([
-    ("Vous déléguez tout", "Lieu, prestataires, planning, accueil : Mathilde coordonne et vous tient informé, sans vous noyer."),
-    ("Rien n'est sur catalogue", "Thème, scénographie, artistes, tenues des hôtesses : chaque événement est pensé pour votre public."),
-    ("Une seule personne, du début à la fin", "Celle qui écoute votre projet est celle qui le pilote le jour J."),
-    ("Un budget clair dès le départ", "Devis gratuit, détaillé poste par poste, sans engagement et sans surprise."),
-  ])}
+ <div class="txt"><ol class="sola"><li class="sa on" tabindex="0" aria-expanded="true"><span class="sa-n">01</span><div class="sa-b"><h3 class="sa-t">Vous déléguez tout</h3><p class="sa-d">Lieu, prestataires, planning, accueil : Mathilde coordonne tout et vous tient informé, sans vous noyer.</p></div><b class="sa-p" aria-hidden="true"></b></li><li class="sa" tabindex="0" aria-expanded="false"><span class="sa-n">02</span><div class="sa-b"><h3 class="sa-t">Rien n'est sur catalogue</h3><p class="sa-d">Thème, scénographie, artistes, tenues des hôtesses : chaque événement est pensé pour votre public.</p></div><b class="sa-p" aria-hidden="true"></b></li><li class="sa" tabindex="0" aria-expanded="false"><span class="sa-n">03</span><div class="sa-b"><h3 class="sa-t">Une seule personne, du début à la fin</h3><p class="sa-d">Celle qui écoute votre projet est celle qui le pilote le jour J.</p></div><b class="sa-p" aria-hidden="true"></b></li><li class="sa" tabindex="0" aria-expanded="false"><span class="sa-n">04</span><div class="sa-b"><h3 class="sa-t">Un budget clair dès le départ</h3><p class="sa-d">Devis gratuit, détaillé poste par poste, sans engagement et sans surprise.</p></div><b class="sa-p" aria-hidden="true"></b></li></ol>
   <p class="sig fade">Mathilde Heyral</p></div>
-</div></section>
+ </div></div>
+</section>
 
 <section class="sec flush"><div class="wrap">
  <div class="stack center" style="margin-bottom:clamp(48px,6vw,88px)"><p class="label fade">Nos solutions</p><h2 class="t-h2 fade">Les prestations de notre agence <em>événementielle</em></h2></div>
