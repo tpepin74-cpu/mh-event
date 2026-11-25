@@ -99,7 +99,7 @@ def home():
     hero = f'''<section class="hero hero-v hero-home" aria-labelledby="h-title">
  <div class="hero-media"><video autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg" aria-hidden="true"><source src="assets/video/hero.mp4" type="video/mp4"></video></div>
  <div class="hero-body"><div class="hh">
-  <h1 class="hh-h" id="h-title"><span class="hh-t"><span>Agence</span> <span>événementielle</span></span> <span class="hh-c">{"".join(f'<span>{c}</span>' for c in CITIES)}</span></h1>
+  <h1 class="hh-h" id="h-title"><span class="hh-t"><span>Agence</span> <span>événementielle</span></span> <span class="hh-c">{"".join(f'<span>{c}<i class="sr">{", " if k < len(CITIES)-1 else ""}</i></span>' for k, c in enumerate(CITIES))}</span></h1>
   <p class="lead">Séminaires, team building, journées bien-être, soirées, hôtels et mariages.</p>
   <div class="entries"><a class="btn green" href="entreprises/">Une entreprise</a><a class="btn green" href="hotels/">Un hôtel</a><a class="btn green" href="particuliers/">Un particulier</a></div>
  </div></div>

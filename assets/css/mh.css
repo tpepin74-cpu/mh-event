@@ -670,3 +670,4 @@ body.home.hero-in .hdr .logo{opacity:1;pointer-events:auto}
 .cityg a,.seo .prose a{color:var(--bordeaux);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 .seo .prose h2{margin-top:0}
 .seo-faq h2.label{margin:0}
+.hh-c .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
