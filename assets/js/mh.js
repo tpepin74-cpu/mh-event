@@ -265,5 +265,5 @@
     el.addEventListener("keydown",function(e){ if(e.key==="ArrowDown"){ e.preventDefault(); it[(i+1)%it.length].focus() } if(e.key==="ArrowUp"){ e.preventDefault(); it[(i-1+it.length)%it.length].focus() } });
   });
   ol.addEventListener("mouseleave",start);
-  if("IntersectionObserver" in window){ new IntersectionObserver(function(es){ inView=es[0].isIntersecting; if(inView) start(); else stop() },{threshold:.4}).observe(ol) }
+  if("IntersectionObserver" in window){ new IntersectionObserver(function(es){ inView=es[0].isIntersecting; if(inView){ ol.classList.add("in"); start() } else stop() },{threshold:.3}).observe(ol) }
 })();
