@@ -151,7 +151,7 @@
   q(".door .ph, .card .ph, .intro figure .ph, .vg .tile").forEach(function(p){ p.classList.add("cur"); var w=p.parentElement; w._cur=p; io.observe(w) });
   q(".pf").forEach(function(pf){ var m=pf.querySelector(".pf-m"), t=pf.querySelector(".pf-t"); m.classList.add("cur"); split(t,"word"); var o2=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ pf.classList.add("on"); m.classList.add("on"); t.classList.add("on"); o2.disconnect() } },{threshold:.25}); o2.observe(pf) });
   /* Listes : cascade */
-  q(".band").forEach(function(b){ var w=b.parentElement.parentElement; w._cur=b; io.observe(w) });
+  q(".band").forEach(function(b){ var h=b.querySelector(".band-h"); if(h){ split(h,"word") } var w=b.parentElement.parentElement; w._cur=b; io.observe(w); var ob=new MutationObserver(function(){ if(b.classList.contains("on")&&h){ h.classList.add("on"); ob.disconnect() } }); ob.observe(b,{attributes:true,attributeFilter:["class"]}) });
   q(".doors, .cards, .vign, .rows, .cityg, .faq, .figs, .logos").forEach(function(l){ l.classList.add("casc"); [].forEach.call(l.children,function(c,i){ c.style.setProperty("--k",i%6) }); io.observe(l) });
 
   /* Chiffres clés : compteur */

@@ -877,3 +877,19 @@ body.snav-on .snav{opacity:1;pointer-events:auto}
 .acc-w span::after{content:"";position:absolute;left:-2%;right:-2%;top:50%;height:clamp(2px,.22vw,3px);background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
 .acc-i.on .acc-w span::after{transform:scaleX(1);transition:transform .9s var(--ease-io) 1.7s}
 .pbv .pb-end{color:var(--ink)}.pbv .pb-end em{color:var(--bordeaux)}
+/* ---------- Bandeau besoins : centré, compact, enchaîné avec les images ---------- */
+.you{padding-top:clamp(56px,7vw,110px)}
+.band{margin:0 0 clamp(36px,4vw,60px)}
+.band-t{margin:0 auto;padding:0;justify-items:center;text-align:center;max-width:1000px;gap:clamp(12px,1.4vw,18px)}
+.band-h{font-size:clamp(30px,3.7vw,62px);line-height:1.05}
+.band-h em{display:inline}
+.anim .band .band-t>*{transform:translateY(24px)}
+.anim .band.on .band-t>*{transform:none}
+.anim .band-h .si{transition-delay:calc(.15s + var(--i)*80ms)}
+.anim .pf .cur{transition-delay:.6s}
+.anim .pf:nth-child(2) .cur{transition-delay:.8s}.anim .pf:nth-child(3) .cur{transition-delay:1s}
+.anim .pf-t .si{transition-delay:calc(1.5s + var(--i)*110ms)}
+.anim .pf:nth-child(2) .pf-t .si{transition-delay:calc(1.7s + var(--i)*110ms)}.anim .pf:nth-child(3) .pf-t .si{transition-delay:calc(1.9s + var(--i)*110ms)}
+.anim .pf.on .pf-n{transition-delay:1.4s}.anim .pf:nth-child(2).on .pf-n{transition-delay:1.6s}.anim .pf:nth-child(3).on .pf-n{transition-delay:1.8s}
+.anim .pf.on .pf-l{transition-delay:2.2s}
+.prof .pf{aspect-ratio:3/3.6}
