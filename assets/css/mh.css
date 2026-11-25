@@ -696,3 +696,32 @@ body.home.hero-in .hdr .logo{opacity:1;pointer-events:auto}
 .pb-end em{display:block;font-style:italic;color:var(--or)}
 @media (max-width:760px){.fear{grid-template-columns:34px 1fr;row-gap:12px}.fq{grid-column:2;transform:translateY(10px)}}
 @media (prefers-reduced-motion:reduce){.fw-i,.fq{transform:none;opacity:1}}
+/* ---------- Accueil : animations d'entrée ---------- */
+.anim .split .sw{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.anim .split .si{display:inline-block;transform:translateY(110%) rotate(4deg);transform-origin:0 100%;opacity:0;transition:transform 1.1s var(--ease) calc(var(--i)*70ms),opacity .6s ease calc(var(--i)*70ms)}
+.anim .split.on .si{transform:none;opacity:1}
+.anim .hh-t .si{transform:translateY(100%);transition:transform 1.2s var(--ease) calc(var(--i)*45ms),opacity .8s ease calc(var(--i)*45ms)}
+.anim .hh-t .sw{padding-bottom:.12em;margin-bottom:-.12em}
+.anim .hh-c>span{opacity:0;transform:translateY(10px);animation:hcIn .9s var(--ease) forwards;animation-delay:calc(1.1s + var(--i)*110ms)}
+.anim.ld-first .hh-c>span{animation-delay:calc(2.1s + var(--i)*110ms)}
+.anim .hh .lead,.anim .hh .entries{opacity:0;animation:hcIn 1s var(--ease) forwards;animation-delay:1.9s}
+.anim .hh .entries{animation-delay:2.15s}
+.anim.ld-first .hh .lead{animation-delay:2.9s}.anim.ld-first .hh .entries{animation-delay:3.15s}
+@keyframes hcIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.anim .pb-t .si{transform:translateY(-110%) scale(1.4);transition:transform 1.3s var(--ease) calc(.5s + var(--i)*55ms),opacity .9s ease calc(.5s + var(--i)*55ms)}
+.anim .pb-t>span:first-child,.anim .pb-t{opacity:1}
+.anim .pb-t:not(.on){letter-spacing:.2em}
+.anim .pb-t{transition:letter-spacing 2.2s var(--ease)}
+.anim .quote blockquote .si{transition-duration:1.4s;transition-delay:calc(var(--i)*55ms)}
+.anim .cur{clip-path:inset(100% 0 0 0);transition:clip-path 1.5s var(--ease-io)}
+.anim .cur img{transform:scale(1.18);transition:transform 2.2s var(--ease)}
+.anim .cur.on{clip-path:inset(0 0 0 0)}
+.anim .cur.on img{transform:none}
+.anim .casc>*{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease) calc(var(--k)*120ms),transform 1.2s var(--ease) calc(var(--k)*120ms)}
+.anim .casc.on>*{opacity:1;transform:none}
+.anim .casc .cur{transition-delay:calc(var(--k,0)*120ms + .1s)}
+.anim .rule::before,.anim .rule::after{transform:scaleX(0);transition:transform 1.2s var(--ease-io) .3s}
+.anim .rule::before{transform-origin:right}.anim .rule::after{transform-origin:left}
+.anim .rule.in::before,.anim .rule.in::after{transform:scaleX(1)}
+.anim .label.fade{letter-spacing:.6em;transition:opacity .9s var(--ease),transform .9s var(--ease),letter-spacing 1.6s var(--ease)}
+.anim .label.fade.in{letter-spacing:.32em}
