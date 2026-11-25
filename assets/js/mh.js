@@ -267,3 +267,11 @@
   ol.addEventListener("mouseleave",start);
   if("IntersectionObserver" in window){ new IntersectionObserver(function(es){ inView=es[0].isIntersecting; if(inView){ ol.classList.add("in"); start() } else stop() },{threshold:.3}).observe(ol) }
 })();
+
+/* ---------- Page Hôtels : attentes / réponses révélées ligne par ligne ---------- */
+(function(){
+  var rows=[].slice.call(document.querySelectorAll(".hx")); if(!rows.length) return;
+  if(!("IntersectionObserver" in window)||window.matchMedia("(prefers-reduced-motion: reduce)").matches){ rows.forEach(function(r){ r.classList.add("in") }); return }
+  var o=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); o.unobserve(e.target) } }) },{rootMargin:"0px 0px -15% 0px"});
+  rows.forEach(function(r){ o.observe(r) });
+})();
