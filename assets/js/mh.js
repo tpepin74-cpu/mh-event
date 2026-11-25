@@ -284,3 +284,11 @@
   var suj=document.getElementById("c-suj");
   if(suj&&/[?&]sujet=rdv/.test(location.search)&&!suj.value){ suj.value="Prise de rendez-vous (sur place ou en visio)"; var m=document.getElementById("c-msg"); if(m&&!m.value) m.placeholder="Vos disponibilités et quelques mots sur votre projet." }
 })();
+
+/* ESSAI matière derrière les duos : apparition */
+(function(){
+  var d=[].slice.call(document.querySelectorAll(".duo")); if(!d.length) return;
+  if(!("IntersectionObserver" in window)){ d.forEach(function(x){ x.classList.add("mat-on") }); return }
+  var o=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("mat-on"); o.unobserve(e.target) } }) },{threshold:.2});
+  d.forEach(function(x){ o.observe(x) });
+})();

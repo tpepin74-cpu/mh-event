@@ -1020,3 +1020,17 @@ body.menu-open .rdv-fab{opacity:0;pointer-events:none}
 .hero .stack::before,.hero .stack::after,.bleed .stack::before,.bleed .stack::after{display:none}
 .js .stack::before,.js .pbs-in::before,.js .hxs-h::before,.js .band-t::before,.js .sol-h::before,.js .wrap.cta::before{transition:opacity 1.2s ease,transform 1.4s var(--ease)}
 /* ===== fin de l'essai ===== */
+/* ===== ESSAI « effet matière derrière les duos de photos » (retirer ce bloc pour revenir en arrière) ===== */
+.duo{isolation:isolate}
+.duo::before{content:"";position:absolute;z-index:-1;left:12%;top:16%;right:-5%;bottom:-7%;
+ background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .2  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+  linear-gradient(135deg,#E9DFCF 0%,#DCCDB3 100%);
+ opacity:.75}
+.duo::after{content:"";position:absolute;z-index:-1;left:calc(12% + 18px);top:calc(16% + 18px);right:calc(-5% + 18px);bottom:calc(-7% + 18px);border:1px solid rgba(201,164,92,.55);pointer-events:none}
+.duo.rev::before{left:-5%;right:12%}
+.duo.rev::after{left:calc(-5% + 18px);right:calc(12% + 18px)}
+.js .duo::before{transform:translate(18px,18px);opacity:0;transition:transform 1.6s var(--ease),opacity 1.2s ease}
+.js .duo.mat-on::before{transform:none;opacity:.75}
+@media (max-width:760px){.duo::before{left:6%;right:-3%}.duo::after{display:none}}
+/* ===== fin de l'essai matière ===== */
