@@ -725,3 +725,4 @@ body.home.hero-in .hdr .logo{opacity:1;pointer-events:auto}
 .anim .rule.in::before,.anim .rule.in::after{transform:scaleX(1)}
 .anim .label.fade{letter-spacing:.6em;transition:opacity .9s var(--ease),transform .9s var(--ease),letter-spacing 1.6s var(--ease)}
 .anim .label.fade.in{letter-spacing:.32em}
+.hero-home .hero-media{position:absolute}.hero-home .hero-media::after{content:"";position:absolute;inset:0;background:rgba(10,6,8,.3);pointer-events:none}
