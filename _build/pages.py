@@ -108,24 +108,26 @@ def home():
 </section>'''
 
     fears = [
-        ("Perdre", "son temps", "« Je vais encore devoir tout gérer moi-même. »", "mathilde-img-9513"),
-        ("Le déjà-vu", "", "« Encore une soirée qui ressemble à toutes les autres. »", "hotel-live-painting-raphael-federici-saxophoniste"),
-        ("Le silence", "le jour J", "« Au moment critique, personne ne répondra. »", "mariage-ceremonie-mariage-juillet-2025"),
-        ("Le dérapage", "du budget", "« La facture n'aura rien à voir avec le devis. »", "afterwork-soiree-entrepeneurs-encheres-pasino-aix"),
-        ("Votre image", "en jeu", "« Devant mes invités, je n'ai pas le droit à l'erreur. »", "institution-discours-scene-scenographie-golfe-saint-tropez"),
+        ("Perdre", "son temps", "« Je vais encore devoir tout gérer moi-même. »", "pb-temps"),
+        ("Le déjà-vu", "", "« Encore une soirée qui ressemble à toutes les autres. »", "pb-deja-vu"),
+        ("Le silence", "le jour J", "« Au moment critique, personne ne répondra. »", "pb-silence"),
+        ("Le dérapage", "du budget", "« La facture n'aura rien à voir avec le devis. »", "pb-budget"),
+        ("Votre image", "en jeu", "« Devant mes invités, je n'ai pas le droit à l'erreur. »", "pb-image"),
     ]
     nf = len(fears)
     fx_bg = "".join(f'<div class="fx-bg{" on" if i == 0 else ""}">{img(im, "", "100vw")}</div>' for i, (_, _, _, im) in enumerate(fears))
     fx_sl = "".join(
-        f'<li class="fx-s{" on" if i == 0 else ""}"><p class="fx-n">Problématique {i+1:02d}</p><p class="fx-w"><span class="fx-m"><span class="fx-i">{w}</span></span>{f"<i>{w2}</i>" if w2 else ""}</p><p class="fx-q">{q}</p></li>'
+        f'<li class="fx-s{" on" if i == 0 else ""}"><p class="fx-w"><span class="fx-m"><span class="fx-i">{w}</span></span>{f"<i>{w2}</i>" if w2 else ""}</p><p class="fx-q">{q}</p></li>'
         for i, (w, w2, q, _) in enumerate(fears))
     fx_dots = "".join(f'<li{" class=\"on\"" if i == 0 else ""}><span>{i+1:02d}</span></li>' for i in range(nf))
-    pains_html = f'''<div class="fx" style="--n:{nf}"><div class="fx-st">
+    pains_html = f'''<section class="fx" id="problematiques" style="--n:{nf}" aria-labelledby="pb-t"><div class="fx-st">
+ <div class="fx-h"><p class="label">Choisir une agence événementielle</p><h2 class="fx-t" id="pb-t">Vos <em>problématiques</em></h2></div>
+ <div class="fx-p">
  <div class="fx-bgs" aria-hidden="true">{fx_bg}</div>
  <ol class="fx-list">{fx_sl}</ol>
- <ol class="fx-dots" aria-hidden="true">{fx_dots}</ol>
  <div class="fx-bar" aria-hidden="true"><i></i></div>
-</div></div>'''
+ </div>
+</div></section>'''
 
     picks = [e for e in EVENTS if e["slug"] in ("golden-night-golden-tulip-marseille", "diner-gala-pasino-aix-en-provence", "mariage-domaine-aix-en-provence")]
     qs = [
@@ -146,9 +148,6 @@ def home():
  ])}
 </div></section>
 
-<section class="sec pb bg-bordeaux on-dark" id="problematiques"><div class="wrap">
- <div class="pb-h"><p class="label fade">Choisir une agence événementielle</p><h2 class="pb-t fade">Vos <em>problématiques</em></h2><p class="pb-l fade">On les connaît par cœur. Ce sont les craintes que l'on entend à chaque premier rendez-vous.</p></div>
-</div></section>
 {pains_html}
 <section class="sec pb pb-out bg-bordeaux on-dark"><div class="wrap">
  <p class="pb-end fade">Ces peurs sont légitimes. <em>C'est précisément pour les faire disparaître que MH Event existe.</em></p>

@@ -186,7 +186,7 @@
     document.body.classList.toggle("snav-on",act>=0&&!document.body.classList.contains("menu-open"));
     var r=nav.getBoundingClientRect(), x=r.left+r.width/2, y=r.top+r.height/2, dark=false;
     nav.style.pointerEvents="none"; var el=document.elementFromPoint(x,y); nav.style.pointerEvents="";
-    while(el&&el!==document.body){ if(el.classList&&(el.classList.contains("on-dark")||el.classList.contains("fx")||el.classList.contains("cta-band")||el.tagName==="FOOTER")){ dark=true; break } el=el.parentElement }
+    while(el&&el!==document.body){ if(el.classList&&(el.classList.contains("on-dark")||el.classList.contains("fx")||el.classList.contains("fx-st")||el.classList.contains("cta-band")||el.tagName==="FOOTER")){ dark=true; break } el=el.parentElement }
     nav.classList.toggle("light",dark);
   }
   window.addEventListener("scroll",function(){ if(!tick){ tick=true; requestAnimationFrame(upd) } },{passive:true});
