@@ -174,3 +174,21 @@
   window.addEventListener("scroll",function(){ if(!tick){ tick=true; requestAnimationFrame(upd) } },{passive:true});
   window.addEventListener("resize",upd); upd();
 })();
+
+/* ---------- Accueil : fil d'Ariane vertical (section active, couleur sur fonds sombres) ---------- */
+(function(){
+  var nav=document.querySelector(".snav"); if(!nav) return;
+  var links=[].slice.call(nav.querySelectorAll("a")), secs=links.map(function(a){ return document.getElementById(a.getAttribute("href").slice(1)) });
+  var tick=false;
+  function upd(){ tick=false; var mid=window.innerHeight*.45, act=-1;
+    secs.forEach(function(s,i){ if(s&&s.getBoundingClientRect().top<=mid) act=i });
+    links.forEach(function(a,i){ a.classList.toggle("on",i===act) });
+    document.body.classList.toggle("snav-on",act>=0&&!document.body.classList.contains("menu-open"));
+    var r=nav.getBoundingClientRect(), x=r.left+r.width/2, y=r.top+r.height/2, dark=false;
+    nav.style.pointerEvents="none"; var el=document.elementFromPoint(x,y); nav.style.pointerEvents="";
+    while(el&&el!==document.body){ if(el.classList&&(el.classList.contains("on-dark")||el.classList.contains("fx")||el.classList.contains("cta-band")||el.tagName==="FOOTER")){ dark=true; break } el=el.parentElement }
+    nav.classList.toggle("light",dark);
+  }
+  window.addEventListener("scroll",function(){ if(!tick){ tick=true; requestAnimationFrame(upd) } },{passive:true});
+  window.addEventListener("resize",upd); upd();
+})();

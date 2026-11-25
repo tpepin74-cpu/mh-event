@@ -745,3 +745,18 @@ body.home.hero-in .hdr .logo{opacity:1;pointer-events:auto}
 .fx-bar i{position:absolute;inset:0;background:var(--or);transform-origin:left;transform:scaleX(0)}
 @media (max-width:760px){.fx-i{font-size:10.4vw}.fx-dots{display:none}.fx-s{top:46%}.fx-bgs::after{background:rgba(20,12,15,.62)}}
 @media (prefers-reduced-motion:reduce){.fx-bg img{transform:none!important}}
+/* ---------- Accueil : fil d'Ariane vertical des sections ---------- */
+.snav{position:fixed;left:clamp(14px,2.2vw,40px);top:50%;transform:translateY(-50%);z-index:60;opacity:0;pointer-events:none;transition:opacity .6s var(--ease),color .5s ease;color:var(--bordeaux)}
+body.snav-on .snav{opacity:1;pointer-events:auto}
+.snav ol{list-style:none;margin:0;padding:0;display:grid;gap:6px;position:relative}
+.snav ol::before{content:"";position:absolute;left:3px;top:6px;bottom:6px;width:1px;background:currentColor;opacity:.25}
+.snav a{position:relative;display:flex;align-items:flex-start;gap:12px;padding:6px 0;color:inherit;text-decoration:none}
+.snav a::before{content:"";flex:none;width:7px;height:7px;margin-top:0;border:1px solid currentColor;transform:rotate(45deg) scale(.7);background:var(--bg-snav,#F6F1E8);transition:transform .5s var(--ease),background .5s ease}
+.snav span{writing-mode:vertical-rl;transform:rotate(180deg);font:500 9.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;white-space:nowrap;max-height:0;overflow:hidden;opacity:0;transition:max-height .7s var(--ease),opacity .5s ease}
+.snav a.on::before{transform:rotate(45deg) scale(1);background:currentColor}
+.snav a.on span{max-height:240px;opacity:1;margin-top:8px}
+.snav a:hover span{max-height:240px;opacity:.7}
+.snav a{flex-direction:column;align-items:flex-start}
+.snav.light{color:var(--or)}
+.snav.light a::before{--bg-snav:transparent}
+@media (max-width:1099px){.snav{display:none}}
