@@ -1020,14 +1020,11 @@ body.menu-open .rdv-fab{opacity:0;pointer-events:none}
 .hero .stack::before,.hero .stack::after,.bleed .stack::before,.bleed .stack::after{display:none}
 .js .stack::before,.js .pbs-in::before,.js .hxs-h::before,.js .band-t::before,.js .sol-h::before,.js .wrap.cta::before{transition:opacity 1.2s ease,transform 1.4s var(--ease)}
 /* ===== fin de l'essai ===== */
-/* ===== ESSAI « MH graphique » : grand M plein sur la photo, H rempli par la seconde photo (retirer ce bloc pour revenir en arrière) ===== */
-.duo.mhd{aspect-ratio:1/1}
-.duo.mhd .f{left:3.6%;top:7.3%;width:42.9%;height:74.9%;aspect-ratio:auto;z-index:1}
-.duo.mhd .b{display:none}
-.mh-svg{position:absolute;inset:0;width:100%;height:100%;z-index:2;overflow:visible;pointer-events:none}
-.mh-M{fill:var(--bordeaux)}
-.mh-H{stroke:none}
+/* ===== ESSAI « MH graphique » : M et H blancs découpés sur les deux photos d'origine (retirer ce bloc pour revenir en arrière) ===== */
+.mh-svg{position:absolute;inset:0;width:100%;height:100%;z-index:3;overflow:visible;pointer-events:none}
+.mh-M,.mh-H{fill:#F6F1E8}
+.duo.rev .mh-svg{transform:scaleX(-1)}
 .js .mhd .mh-M{opacity:0;transform:translateY(-40px);transition:opacity 1.2s ease,transform 1.6s var(--ease)}
 .js .mhd .mh-H{opacity:0;transform:translateY(40px);transition:opacity 1.4s ease .35s,transform 1.8s var(--ease) .35s}
-.js .mhd.mat-on .mh-M,.js .mhd.mat-on .mh-H{opacity:1;transform:none}
+.js .mhd.mat-on .mh-M,.js .mhd.mat-on .mh-H{opacity:.94;transform:none}
 /* ===== fin de l'essai MH ===== */

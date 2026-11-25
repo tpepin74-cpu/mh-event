@@ -34,12 +34,9 @@ def ph(name, alt, shape="p", sizes="(min-width:960px) 45vw, 100vw", eager=False,
     return f'<div class="ph {shape}">{i}</div>'
 
 def duo(front, alt_f, back, alt_b, rev=False):
-    pid = "mhp-" + re.sub(r"[^a-z0-9]", "", back)[:24]
-    mh = (f'<svg class="mh-svg" viewBox="0 0 1443 1443" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
-          f'<defs><pattern id="{pid}" width="1" height="1" patternContentUnits="objectBoundingBox">'
-          f'<image href="{IMG}/{back}-m.webp" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice"/></pattern></defs>'
-          f'<path class="mh-M" d="M47 110H159L651 950V1186L175 370V1368H47Z"/>'
-          f'<path class="mh-H" fill="url(#{pid})" d="M651 619H737V983H1250V619H1335V1436H1250V1059H737V1436H651Z"/></svg>')
+    mh = ('<svg class="mh-svg" viewBox="0 0 1000 860" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
+          '<path class="mh-M" d="M22 34H112L602 598V702L97 250V842H22Z"/>'
+          '<path class="mh-H" d="M602 330H664V556H896V330H958V846H896V614H664V846H602Z"/></svg>')
     return (f'<div class="duo mhd{" rev" if rev else ""}"><div class="b">{img(back, alt_b, "(min-width:960px) 30vw, 62vw")}</div>'
             f'<div class="f">{img(front, alt_f, "(min-width:960px) 34vw, 68vw")}</div>{mh}</div>')
 
