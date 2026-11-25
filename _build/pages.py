@@ -108,18 +108,18 @@ def home():
 </section>'''
 
     fears = [
-        ("Perdre", "son temps", "« Je vais encore devoir tout gérer moi-même. »", "pb-temps"),
-        ("Le déjà-vu", "", "« Encore une soirée qui ressemble à toutes les autres. »", "pb-deja-vu"),
-        ("Le silence", "le jour J", "« Au moment critique, personne ne répondra. »", "pb-silence"),
-        ("Le dérapage", "du budget", "« La facture n'aura rien à voir avec le devis. »", "pb-budget"),
-        ("Votre image", "en jeu", "« Devant mes invités, je n'ai pas le droit à l'erreur. »", "pb-image"),
+        ("Perdre", "son temps", "«&nbsp;Je vais encore devoir tout gérer moi-même.&nbsp;»", "pb-temps"),
+        ("Le déjà-vu", "", "«&nbsp;Encore une soirée qui ressemble à toutes les autres.&nbsp;»", "pb-deja-vu"),
+        ("Le silence", "le jour J", "«&nbsp;Au moment critique, personne ne répondra.&nbsp;»", "pb-silence"),
+        ("Le dérapage", "du budget", "«&nbsp;La facture n'aura rien à voir avec le devis.&nbsp;»", "pb-budget"),
+        ("Votre image", "en jeu", "«&nbsp;Devant mes invités, je n'ai pas le droit à l'erreur.&nbsp;»", "pb-image"),
     ]
     acc = "".join(
-        f'<li class="acc-i{" on" if i == 0 else ""}" tabindex="0" aria-expanded="{"true" if i == 0 else "false"}">{img(im, "", "(min-width:900px) 60vw, 100vw")}'
+        f'<li class="acc-i{" on" if i == 0 else ""}" tabindex="0" aria-expanded="{"true" if i == 0 else "false"}"><span class="acc-n" aria-hidden="true"></span>'
         f'<span class="acc-v" aria-hidden="true">{w}</span>'
         f'<div class="acc-c"><p class="acc-w"><span>{w}</span>{f" <i>{w2}</i>" if w2 else ""}</p><p class="acc-q">{q}</p></div><b class="acc-p" aria-hidden="true"></b></li>'
         for i, (w, w2, q, im) in enumerate(fears))
-    pains_html = f'''<section class="sec pbv bg-figue on-dark" id="problematiques" aria-labelledby="pb-t"><div class="wrap">
+    pains_html = f'''<section class="sec pbv" id="problematiques" aria-labelledby="pb-t"><div class="wrap">
  <div class="pbv-h"><p class="label fade">Choisir une agence événementielle</p><h2 class="t-xl" id="pb-t">Nous connaissons <em>vos problématiques</em></h2><p class="lead fade">Ce sont les craintes que l'on entend à chaque premier rendez-vous.</p></div>
  <ul class="acc">{acc}</ul>
  <p class="pb-end fade">Ces craintes, nous les connaissons par cœur. <em>Et nous avons les solutions.</em></p>
@@ -138,7 +138,6 @@ def home():
 <section class="sec you" id="suite"><div class="wrap">
  <div class="band">
   <div class="band-t"><p class="label">Vos besoins</p><h2 class="band-h">Vous souhaitez organiser un événement <em>à votre image.</em></h2></div>
-  <div class="band-m"><video class="lazy-v" muted loop playsinline preload="none" poster="assets/img/besoins-poster.webp" width="640" height="800" aria-hidden="true"><source data-src="assets/video/besoins.mp4" type="video/mp4"></video></div>
  </div>
  {doors([
    ("entreprises/", "afterwork-soiree-entrepeneurs-encheres-pasino-aix", "Dîner de gala au Pasino d'Aix-en-Provence", "Événements d'entreprise", "Fédérer vos équipes, remercier vos clients, marquer une inauguration, sans y passer vos soirées."),

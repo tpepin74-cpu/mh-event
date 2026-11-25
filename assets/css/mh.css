@@ -820,3 +820,23 @@ body.snav-on .snav{opacity:1;pointer-events:auto}
  .acc-w span{white-space:normal;font-size:11vw}
 }
 @media (prefers-reduced-motion:reduce){.acc.run .acc-i.on .acc-p{animation:none}}
+
+/* ---------- Sobre : bandeau et problématiques sans fond ni image ---------- */
+.band{display:block;min-height:0;margin:0 0 clamp(72px,9vw,140px);background:none;color:var(--ink);overflow:visible}
+.band-t{padding:clamp(20px,3vw,40px) 0 0;max-width:1100px}
+.band-t .label{color:var(--bordeaux)}
+.band-h{color:var(--ink)}
+.band-h em{color:var(--bordeaux)}
+.anim .band{clip-path:none}
+.acc{height:clamp(340px,48vh,460px)}
+.acc-i{border:1px solid var(--line);background:transparent;transition:flex-grow 1.1s var(--ease),border-color .6s ease,background .6s ease}
+.acc-i::after{display:none}
+.acc-i.on{border-color:var(--bordeaux)}
+.acc-v{color:var(--txt)}
+.acc-w span{color:var(--bordeaux)}
+.acc-w i{color:var(--or)}
+.acc-q{color:var(--ink)}
+.acc-p{background:var(--bordeaux)}
+.acc-i:hover:not(.on) .acc-v{color:var(--bordeaux)}
+@media (max-width:760px){.acc{height:auto}.acc-i.on{height:min(340px,60vh)}}
+.pbv-h .t-xl em{color:var(--bordeaux)}
