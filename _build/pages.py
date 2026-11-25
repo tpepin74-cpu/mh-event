@@ -120,7 +120,7 @@ def home():
         f'<div class="acc-c"><p class="acc-w"><span>{w}</span>{f" <i>{w2}</i>" if w2 else ""}</p><p class="acc-q">{q}</p></div><b class="acc-p" aria-hidden="true"></b></li>'
         for i, (w, w2, q, im) in enumerate(fears))
     pains_html = f'''<section class="sec pbv" id="problematiques" aria-labelledby="pb-t"><div class="wrap">
- <div class="pbv-h"><p class="label fade">Choisir une agence événementielle</p><h2 class="t-xl" id="pb-t">Nous connaissons <em>vos problématiques</em></h2><p class="lead fade">Ce sont les craintes que l'on entend à chaque premier rendez-vous.</p></div>
+ <div class="pbv-h"><p class="label fade">Choisir une agence événementielle</p><h2 class="t-xl" id="pb-t">Plusieurs <em>problématiques</em></h2><p class="lead fade">Ce sont les craintes que l'on entend à chaque premier rendez-vous.</p></div>
  <ul class="acc">{acc}</ul>
  <p class="pb-end fade">Ces craintes, nous les connaissons par cœur. <em>Et nous avons les solutions.</em></p>
 </div></section>'''
