@@ -1022,11 +1022,11 @@ body.menu-open .rdv-fab{opacity:0;pointer-events:none}
 /* ===== fin de l'essai ===== */
 /* ===== ESSAI « effet matière terre derrière les duos de photos » (retirer ce bloc pour revenir en arrière) ===== */
 .duo{isolation:isolate}
-.duo::before{content:"";position:absolute;z-index:-1;left:12%;top:16%;right:-5%;bottom:-7%;background:url(../img/texture-terre.webp) center/cover;opacity:.78}
-.duo::after{content:"";position:absolute;z-index:-1;left:calc(12% + 18px);top:calc(16% + 18px);right:calc(-5% + 18px);bottom:calc(-7% + 18px);border:1px solid rgba(246,241,232,.55);pointer-events:none}
+.duo::before{content:"";position:absolute;z-index:-1;left:12%;top:16%;right:-5%;bottom:-7%;background:url(../img/texture-terre.webp?v=2) center/cover;opacity:1}
+.duo::after{content:"";position:absolute;z-index:-1;left:calc(12% + 18px);top:calc(16% + 18px);right:calc(-5% + 18px);bottom:calc(-7% + 18px);border:1px solid rgba(201,164,92,.6);pointer-events:none}
 .duo.rev::before{left:-5%;right:12%}
 .duo.rev::after{left:calc(-5% + 18px);right:calc(12% + 18px)}
 .js .duo::before{transform:translate(18px,18px);opacity:0;transition:transform 1.6s var(--ease),opacity 1.2s ease}
-.js .duo.mat-on::before{transform:none;opacity:.78}
+.js .duo.mat-on::before{transform:none;opacity:1}
 @media (max-width:760px){.duo::before{left:6%;right:-3%}.duo::after{display:none}}
 /* ===== fin de l'essai matière ===== */
