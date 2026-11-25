@@ -100,7 +100,6 @@ def home():
  <div class="hero-body">
   <h1 class="hero-logo" id="h-title"><img src="assets/img/logo-pierre.webp" width="1000" height="626" alt="MH Event, agence événementielle à Nîmes, Aix-en-Provence, Marseille et Saint-Tropez"></h1>
   <div class="hero-cta">
-   <p class="hero-kicker">Agence événementielle</p>
    <p class="lead">Séminaires, team building, journées bien-être, soirées et mariages.</p>
    <div class="entries"><a class="btn green" href="entreprises/">Une entreprise</a><a class="btn green" href="particuliers/">Un particulier</a><a class="btn green" href="hotels/">Un hôtel</a></div>
   </div>

@@ -627,8 +627,11 @@ body.ev main .link:hover{color:var(--ev-fg)}
 .vg .plate,.vg .st{z-index:2}
 @media (hover:hover){.vg:hover .tile>img{transform:none;filter:none}.vg:hover .tile::after{opacity:.08}}
 @media (hover:none){.vg .tile::after{opacity:.5}}
-/* ---------- Hero accueil : mention « Agence événementielle » ---------- */
-.hero-v .hero-logo{top:44%}
-.hero-v .hero-cta{top:calc(44% + clamp(200px,24vw,340px)*.313 + clamp(20px,3vh,36px))}
-.hero-kicker{margin:0;font:400 clamp(24px,2.7vw,40px)/1.1 var(--serif);text-transform:uppercase;letter-spacing:.16em;color:var(--pierre);text-shadow:0 2px 18px rgba(20,12,15,.45)}
-@media (max-width:760px){.hero-v .hero-logo{top:38%}.hero-v .hero-cta{top:calc(38% + min(52vw,240px)*.313 + 22px)}.hero-kicker{font-size:clamp(19px,5.6vw,24px);letter-spacing:.12em}}
+/* ---------- En-tête accueil : « Agence événementielle » + villes ---------- */
+.hdr-in{position:relative}
+.hdr-tag{position:absolute;left:50%;top:calc(22px + var(--safe-t,0px));transform:translateX(-50%);width:max-content;max-width:calc(100% - 2*var(--gut) - 420px);margin:0;display:grid;justify-items:center;gap:10px;text-align:center;pointer-events:none;opacity:0;transition:opacity .4s var(--ease)}
+body.hero-in .hdr-tag{opacity:1}
+.ht-t{font:400 clamp(26px,3vw,46px)/1 var(--serif);text-transform:uppercase;letter-spacing:.12em;color:var(--pierre);text-shadow:0 2px 18px rgba(20,12,15,.45);white-space:nowrap}
+.ht-c{text-wrap:balance;font:500 clamp(9.5px,.8vw,11.5px)/1.5 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--pierre);text-shadow:0 1px 10px rgba(20,12,15,.5)}
+.hdr.solid .hdr-tag{opacity:0}
+@media (max-width:760px){.hdr-tag{gap:6px;top:14px;max-width:calc(100vw - 200px)}.ht-t{font-size:clamp(15px,4.4vw,20px);letter-spacing:.1em;white-space:normal}.ht-c{font-size:8.5px;letter-spacing:.16em}}
