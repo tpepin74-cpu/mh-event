@@ -139,11 +139,7 @@ def home():
  <div class="band">
   <div class="band-t"><p class="label">Vos besoins</p><h2 class="band-h">Vous souhaitez organiser un événement <em>à votre image.</em></h2></div>
  </div>
- {doors([
-   ("entreprises/", "afterwork-soiree-entrepeneurs-encheres-pasino-aix", "Dîner de gala au Pasino d'Aix-en-Provence", "Événements d'entreprise", "Fédérer vos équipes, remercier vos clients, marquer une inauguration, sans y passer vos soirées."),
-   ("hotels/", "hotel-pianiste-soiree-opera-hotel-blanc", "Soirée Opéra et champagne en hôtel", "Animation d'hôtels", "Remplir vos salons, attirer une clientèle locale et faire parler de votre établissement."),
-   ("particuliers/", "mariage-maries-danse-ouverture-bal-mariage-gard", "Ouverture de bal d'un mariage dans le Gard", "Mariages &amp; fêtes privées", "Un mariage ou une fête qui vous ressemble, que vous vivez au lieu de la gérer."),
- ])}
+ <div class="prof"><a class="pf" href="entreprises/"><div class="pf-m">{img("seminaire-seminaire-groupe-entreprise-sourire-discussion", "Échanges entre collaborateurs lors d'un événement d'entreprise en plein air", "(min-width:860px) 33vw, 100vw")}</div><div class="pf-c"><span class="pf-n">01</span><h3 class="pf-t">Événements <em>d'entreprise</em></h3><p>Fédérer vos équipes, remercier vos clients, marquer une inauguration.</p><span class="pf-l">Découvrir</span></div></a><a class="pf" href="hotels/"><div class="pf-m">{img("hotel-chanteur-opera-soiree-hotel-mh-event", "Chanteur lyrique lors d'une soirée en hôtel", "(min-width:860px) 33vw, 100vw")}</div><div class="pf-c"><span class="pf-n">02</span><h3 class="pf-t">Animation <em>d'hôtels</em></h3><p>Remplir vos salons et faire parler de votre établissement.</p><span class="pf-l">Découvrir</span></div></a><a class="pf" href="particuliers/"><div class="pf-m">{img("mariage-shooting-mariage-couple-sourire-domaine-montpellier", "Jeunes mariés souriants dans l'allée d'un domaine près de Montpellier", "(min-width:860px) 33vw, 100vw")}</div><div class="pf-c"><span class="pf-n">03</span><h3 class="pf-t">Mariages <em>&amp; fêtes privées</em></h3><p>Une fête qui vous ressemble, que vous vivez au lieu de la gérer.</p><span class="pf-l">Découvrir</span></div></a></div>
 </div></section>
 
 {pains_html}
