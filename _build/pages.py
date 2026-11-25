@@ -795,13 +795,13 @@ def agence():
  ])}
 </div></section>
 {cta_band("Un projet ? Mathilde vous répond personnellement.", "devis/")}
-<section class="sec flush"><div class="strip">{"".join(ph(n, a, "", "(min-width:760px) 28vw, 70vw") for n, a in [
-  ("mathilde-mathilde-heyral-mh-event", "Mathilde Heyral lors d'un événement"),
-  ("mathilde-conference-table-ronde-evenementiel-marseille", "Mathilde Heyral lors d'une table ronde à Marseille"),
-  ("mathilde-img-9084", "Mathilde Heyral en marinière"),
-  ("mathilde-mathilde-heyral-ceo", "Mathilde Heyral en réunion"),
-  ("mathilde-img-9750", "Mathilde Heyral et son équipe"),
-  ("mathilde-portrait-mathilde-heyral-seo-mh-event", "Portrait de Mathilde Heyral"),
+<section class="sec flush"><div class="wrap"><div class="stack center" style="margin-bottom:clamp(40px,5vw,72px)"><p class="label fade">L'équipe</p><h2 class="t-h2 fade">Les Angelines, <em>sur le terrain</em></h2><p class="lead fade">Hôtes, hôtesses et équipes d'accueil, sélectionnés et formés par Mathilde, habillés selon l'univers de chaque événement.</p></div></div><div class="strip">{"".join(ph(n, a, "", "(min-width:760px) 28vw, 70vw") for n, a in [
+  ("hotesses-equipe-mh-event-hotesses-animatrices", "L'équipe d'hôtesses MH Event"),
+  ("hotesses-hotesses-mh-event-pasino-aix-tenues-noires", "Hôtesses MH Event en tenue noire au Pasino d'Aix"),
+  ("hotesses-hotesses-mh-event-tenue-marin", "Équipe MH Event en marinières à Saint-Tropez"),
+  ("hotesses-hotesses-soiree-reseau-entreprendre-marseille", "Hôtesses lors d'une soirée Réseau Entreprendre à Marseille"),
+  ("hotesses-hote-hotesse-evenement-gepa-aix-mars-2026", "Hôte et hôtesse à l'accueil d'un événement GEPA à Aix"),
+  ("hotesses-702fe5a0-dd3e-4cf4-9ede-d07c6874c02f", "Hôtesses MH Event à l'accueil d'un salon"),
 ])}</div></section>
 {cta(devis="devis/")}'''
     page("agence/", "L'agence MH Event et Mathilde Heyral, sa fondatrice",
