@@ -1009,3 +1009,14 @@ body.rdv-on .rdv-fab{opacity:1;transform:none;pointer-events:auto}
 body.menu-open .rdv-fab{opacity:0;pointer-events:none}
 @media (max-width:760px){.rdv-fab{bottom:calc(var(--tab) + var(--safe-b) + 14px);left:12px;padding:11px 14px;font-size:9.5px}.rdv-in{flex-direction:column;align-items:flex-start}}
 @media (max-width:760px){.rdv-fab{bottom:calc(var(--tab) + var(--safe-b) + 44px)}}
+/* ===== ESSAI « logo avant les titres » (retirer ce bloc pour revenir en arrière) ===== */
+.stack,.pbs-in,.hxs-h,.band-t,.sol-h,.wrap.cta{position:relative;isolation:isolate}
+.stack::before,.pbs-in::before,.hxs-h::before,.band-t::before,.sol-h::before,.wrap.cta::before{content:"";display:block;width:clamp(54px,4.6vw,72px);aspect-ratio:1000/626;background:url(../img/logo-bordeaux.webp) center/contain no-repeat;margin:0 0 clamp(10px,1.4vw,18px);opacity:.92}
+.stack.center::before,.pbs-in::before,.hxs-h::before,.band-t::before,.sol-h::before,.wrap.cta::before{margin-inline:auto}
+.stack::after,.pbs-in::after,.hxs-h::after,.band-t::after,.sol-h::after,.wrap.cta::after{content:"";position:absolute;z-index:-1;left:50%;top:50%;width:min(620px,80vw);aspect-ratio:1000/626;transform:translate(-50%,-50%);background:url(../img/logo-bordeaux.webp) center/contain no-repeat;opacity:.05;filter:blur(7px);pointer-events:none}
+.stack:not(.center)::after{left:30%}
+.on-dark .stack::before,.on-dark.wrap.cta::before,.bg-cypres .wrap.cta::before,.on-dark .wrap.cta::before{background-image:url(../img/logo-pierre.webp)}
+.on-dark .stack::after,.on-dark .wrap.cta::after{background-image:url(../img/logo-pierre.webp);opacity:.07}
+.hero .stack::before,.hero .stack::after,.bleed .stack::before,.bleed .stack::after{display:none}
+.js .stack::before,.js .pbs-in::before,.js .hxs-h::before,.js .band-t::before,.js .sol-h::before,.js .wrap.cta::before{transition:opacity 1.2s ease,transform 1.4s var(--ease)}
+/* ===== fin de l'essai ===== */
