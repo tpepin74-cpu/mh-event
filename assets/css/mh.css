@@ -1020,15 +1020,14 @@ body.menu-open .rdv-fab{opacity:0;pointer-events:none}
 .hero .stack::before,.hero .stack::after,.bleed .stack::before,.bleed .stack::after{display:none}
 .js .stack::before,.js .pbs-in::before,.js .hxs-h::before,.js .band-t::before,.js .sol-h::before,.js .wrap.cta::before{transition:opacity 1.2s ease,transform 1.4s var(--ease)}
 /* ===== fin de l'essai ===== */
-/* ===== ESSAI « MH qui relie les deux photos » (retirer ce bloc pour revenir en arrière) ===== */
-.duo{isolation:isolate;--py:0px}
-.duo::before,.duo::after{content:"MH";position:absolute;left:47%;top:36%;z-index:-1;font:300 clamp(240px,31vw,520px)/.8 var(--serif);letter-spacing:-.04em;white-space:nowrap;pointer-events:none;transform:translate(-50%,calc(-50% + var(--py)))}
-.duo::before{color:transparent;-webkit-text-stroke:1.2px var(--bordeaux);opacity:.5}
-.duo::after{z-index:3;color:transparent;-webkit-text-stroke:1.2px rgba(246,241,232,.9);opacity:.95}
-.duo.rev::before,.duo.rev::after{left:54%}
-.js .duo::before,.js .duo::after{opacity:0;letter-spacing:.12em;transition:opacity 1.6s ease,letter-spacing 2.2s var(--ease)}
-.js .duo.mat-on::before{opacity:.75;letter-spacing:-.04em}
-.js .duo.mat-on::after{opacity:.95;letter-spacing:-.04em}
-@media (max-width:760px){.duo::before,.duo::after{font-size:62vw}}
-@media (prefers-reduced-motion:reduce){.duo{--py:0px!important}}
+/* ===== ESSAI « MH qui relie les deux photos » : M dans le haut de la grande photo, H dans la seconde (retirer ce bloc pour revenir en arrière) ===== */
+.mh-l{position:absolute;z-index:2;pointer-events:none;font:300 1px/.78 var(--serif);color:transparent;-webkit-text-stroke:1.2px rgba(246,241,232,.92);letter-spacing:0}
+.duo .f .mh-m{left:6%;top:4%;font-size:clamp(150px,17vw,300px)}
+.duo .b .mh-h{right:8%;top:5%;font-size:clamp(130px,14vw,250px)}
+.duo.rev .f .mh-m{left:auto;right:6%}
+.duo.rev .b .mh-h{right:auto;left:8%}
+.js .mh-l{opacity:0;transform:translateY(-24px);transition:opacity 1.6s ease,transform 1.8s var(--ease)}
+.js .duo.mat-on .mh-m{opacity:1;transform:none;transition-delay:.2s}
+.js .duo.mat-on .mh-h{opacity:1;transform:none;transition-delay:.6s}
+@media (max-width:760px){.duo .f .mh-m{font-size:36vw}.duo .b .mh-h{font-size:28vw}}
 /* ===== fin de l'essai MH ===== */

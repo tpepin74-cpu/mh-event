@@ -33,8 +33,8 @@ def ph(name, alt, shape="p", sizes="(min-width:960px) 45vw, 100vw", eager=False,
     return f'<div class="ph {shape}">{i}</div>'
 
 def duo(front, alt_f, back, alt_b, rev=False):
-    return (f'<div class="duo{" rev" if rev else ""}"><div class="b">{img(back, alt_b, "(min-width:960px) 30vw, 62vw")}</div>'
-            f'<div class="f">{img(front, alt_f, "(min-width:960px) 34vw, 68vw")}</div></div>')
+    return (f'<div class="duo{" rev" if rev else ""}"><div class="b">{img(back, alt_b, "(min-width:960px) 30vw, 62vw")}<span class="mh-l mh-h" aria-hidden="true">H</span></div>'
+            f'<div class="f">{img(front, alt_f, "(min-width:960px) 34vw, 68vw")}<span class="mh-l mh-m" aria-hidden="true">M</span></div></div>')
 
 def esc(s):
     return H.escape(s, quote=True)
