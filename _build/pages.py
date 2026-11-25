@@ -123,12 +123,8 @@ def home():
  <p class="label pbs-l">Choisir une agence événementielle</p>
  <h2 class="pbs-t" id="pb-t"><span>Plusieurs</span> <span>problématiques</span></h2>
  <p class="pbs-w">{"".join(f'<span class="pw"><b>{w}</b>{f" <i>{w2}</i>" if w2 else ""}</span>' for (w, w2, q, im) in fears)}</p>
- <p class="lead pbs-c">Ce sont les craintes que l'on entend à chaque premier rendez-vous.</p>
-</div></div></section>
-<section class="sec pbv"><div class="wrap">
- <ul class="acc">{acc}</ul>
- <p class="pb-end fade">Ces craintes, nous les connaissons par cœur. <em>Et nous avons les solutions.</em></p>
-</div></section>'''
+ <p class="pbs-c">Ces craintes, nous les connaissons par cœur. <em>Et nous avons les solutions.</em></p>
+</div></div></section>'''
 
     picks = [e for e in EVENTS if e["slug"] in ("golden-night-golden-tulip-marseille", "diner-gala-pasino-aix-en-provence", "mariage-domaine-aix-en-provence")]
     qs = [
@@ -149,9 +145,11 @@ def home():
 
 {pains_html}
 
-<section class="sec" id="solutions"><div class="wrap intro">
+<section class="sec sol" id="solutions"><div class="wrap">
+ <div class="sol-h"><h2 class="t-xl sol-t">Nos <em>solutions</em></h2></div>
+</div><div class="wrap intro">
  <figure class="fade">{ph("mathilde-portrait-mathilde-heyral-mh-event", "Mathilde Heyral, fondatrice de MH Event", "p")}<figcaption>Mathilde Heyral, fondatrice</figcaption></figure>
- <div class="txt">{head_block("Nos solutions", "Une agence événementielle à taille humaine, <em>tout sur mesure</em>", "Danseuse classique, cheffe hôtesse au Grand Prix de France de F1, juriste : Mathilde a construit MH Event pour répondre précisément à ces difficultés.")}
+ <div class="txt">{head_block("Une seule interlocutrice", "Une agence événementielle à taille humaine, <em>tout sur mesure</em>", "Danseuse classique, cheffe hôtesse au Grand Prix de France de F1, juriste : Mathilde a construit MH Event pour répondre précisément à ces difficultés.")}
   {rows([
     ("Vous déléguez tout", "Lieu, prestataires, planning, accueil : Mathilde coordonne et vous tient informé, sans vous noyer."),
     ("Rien n'est sur catalogue", "Thème, scénographie, artistes, tenues des hôtesses : chaque événement est pensé pour votre public."),

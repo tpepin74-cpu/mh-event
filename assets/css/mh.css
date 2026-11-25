@@ -908,3 +908,9 @@ body.snav-on .snav{opacity:1;pointer-events:auto}
 .pbs-c{margin:0;color:var(--txt);will-change:opacity}
 .pbs + .pbv{padding-top:clamp(24px,4vw,60px)}
 @media (max-width:760px){.pbs{height:210svh}.pbs-w{flex-direction:column;align-items:center;gap:14px}.pw+.pw::before{display:none}.pw b{font-size:8vw}.pw i{font-size:5vw}}
+/* Titre « Nos solutions » à la taille de « Plusieurs problématiques » */
+.sol-h{display:grid;justify-items:center;text-align:center;margin-bottom:clamp(56px,7vw,110px)}
+.sol-t{margin:0;font:400 clamp(40px,7.4vw,126px)/.92 var(--serif)!important;text-transform:uppercase;letter-spacing:.04em;color:var(--bordeaux)}
+.sol-t em{font-style:normal;color:var(--bordeaux);display:inline}
+.pbs-c{font:400 clamp(20px,2vw,30px)/1.3 var(--serif);color:var(--ink);max-width:760px}
+.pbs-c em{display:block;font-style:italic;color:var(--bordeaux)}
