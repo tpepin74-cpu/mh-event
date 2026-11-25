@@ -33,10 +33,17 @@ def ph(name, alt, shape="p", sizes="(min-width:960px) 45vw, 100vw", eager=False,
         i = i.replace("<img ", f'<img style="object-position:{pos}" ', 1)
     return f'<div class="ph {shape}">{i}</div>'
 
+_MH_N = [0]
 def duo(front, alt_f, back, alt_b, rev=False):
-    mh = ('<svg class="mh-svg" viewBox="0 0 1000 860" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
-          '<path class="mh-M" d="M-62 -62H34L648 700V800L-10 46V826H-62Z"/>'
-          '<path class="mh-H" d="M506 232H558V540H1004V232H1056V902H1004V596H558V902H506Z"/></svg>')
+    _MH_N[0] += 1
+    cid = f"mhc{_MH_N[0]}"
+    dM = "M-62 -62H34L648 700V800L-10 46V826H-62Z"
+    dH = "M506 232H558V540H1004V232H1056V902H1004V596H558V902H506Z"
+    tf = 'transform="matrix(0.000833333,0,0,0.000943396,0.0833333,0.0943396)"'
+    mh = (f'<svg class="mh-svg" viewBox="0 0 1000 860" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
+          f'<defs><clipPath id="{cid}" clipPathUnits="objectBoundingBox"><path {tf} d="{dM}"/><path {tf} d="{dH}"/></clipPath></defs>'
+          f'<path class="mh-M" d="{dM}"/><path class="mh-H" d="{dH}"/></svg>'
+          f'<div class="mh-glass" style="clip-path:url(#{cid})" aria-hidden="true"></div>')
     return (f'<div class="duo mhd{" rev" if rev else ""}"><div class="b">{img(back, alt_b, "(min-width:960px) 30vw, 62vw")}</div>'
             f'<div class="f">{img(front, alt_f, "(min-width:960px) 34vw, 68vw")}</div>{mh}</div>')
 
