@@ -119,8 +119,13 @@ def home():
         f'<span class="acc-v" aria-hidden="true">{w}</span>'
         f'<div class="acc-c"><p class="acc-w"><span>{w}</span>{f" <i>{w2}</i>" if w2 else ""}</p><p class="acc-q">{q}</p></div><b class="acc-p" aria-hidden="true"></b></li>'
         for i, (w, w2, q, im) in enumerate(fears))
-    pains_html = f'''<section class="sec pbv" id="problematiques" aria-labelledby="pb-t"><div class="wrap">
- <div class="pbv-h"><p class="label fade">Choisir une agence événementielle</p><h2 class="t-xl" id="pb-t">Plusieurs <em>problématiques</em></h2><p class="lead fade">Ce sont les craintes que l'on entend à chaque premier rendez-vous.</p></div>
+    pains_html = f'''<section class="pbs" id="problematiques" aria-labelledby="pb-t"><div class="pbs-st"><div class="wrap pbs-in">
+ <p class="label pbs-l">Choisir une agence événementielle</p>
+ <h2 class="pbs-t" id="pb-t"><span>Plusieurs</span> <span>problématiques</span></h2>
+ <p class="pbs-w">{"".join(f'<span class="pw"><b>{w}</b>{f" <i>{w2}</i>" if w2 else ""}</span>' for (w, w2, q, im) in fears)}</p>
+ <p class="lead pbs-c">Ce sont les craintes que l'on entend à chaque premier rendez-vous.</p>
+</div></div></section>
+<section class="sec pbv"><div class="wrap">
  <ul class="acc">{acc}</ul>
  <p class="pb-end fade">Ces craintes, nous les connaissons par cœur. <em>Et nous avons les solutions.</em></p>
 </div></section>'''

@@ -893,3 +893,18 @@ body.snav-on .snav{opacity:1;pointer-events:auto}
 .anim .pf.on .pf-n{transition-delay:1.4s}.anim .pf:nth-child(2).on .pf-n{transition-delay:1.6s}.anim .pf:nth-child(3).on .pf-n{transition-delay:1.8s}
 .anim .pf.on .pf-l{transition-delay:2.2s}
 .prof .pf{aspect-ratio:3/3.6}
+/* ---------- Problématiques : introduction révélée au défilement ---------- */
+.pbs{position:relative;height:230vh;height:230svh}
+.pbs-st{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center;overflow:hidden}
+.pbs-in{display:grid;justify-items:center;text-align:center;gap:clamp(18px,3vh,34px)}
+.pbs-l{color:var(--bordeaux)}
+.pbs-t{margin:0;display:grid;justify-items:center;font:400 clamp(40px,7.4vw,126px)/.92 var(--serif);text-transform:uppercase;letter-spacing:.04em;color:var(--bordeaux)}
+.pbs-t span{display:block;will-change:transform,opacity,letter-spacing}
+.pbs-w{margin:clamp(6px,2vh,24px) 0 0;max-width:1180px;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:clamp(10px,1.6vh,18px) 0}
+.pw{display:inline-flex;align-items:baseline;gap:.35em;white-space:nowrap;will-change:transform,opacity,filter}
+.pw+.pw::before{content:"";align-self:center;width:7px;height:7px;margin:0 clamp(16px,2.2vw,34px);background:var(--or);transform:rotate(45deg)}
+.pw b{font:400 clamp(24px,3vw,50px)/1 var(--serif);text-transform:uppercase;letter-spacing:.04em;color:var(--ink)}
+.pw i{font:italic 400 clamp(18px,2vw,32px)/1 var(--serif);color:var(--or)}
+.pbs-c{margin:0;color:var(--txt);will-change:opacity}
+.pbs + .pbv{padding-top:clamp(24px,4vw,60px)}
+@media (max-width:760px){.pbs{height:210svh}.pbs-w{flex-direction:column;align-items:center;gap:14px}.pw+.pw::before{display:none}.pw b{font-size:8vw}.pw i{font-size:5vw}}

@@ -224,3 +224,25 @@
   acc.addEventListener("mouseleave",start);
   if("IntersectionObserver" in window){ new IntersectionObserver(function(es){ inView=es[0].isIntersecting; if(inView){ acc.classList.add("in"); start() } else stop() },{threshold:.3}).observe(acc) } else { acc.classList.add("in") }
 })();
+
+/* ---------- Accueil : « Plusieurs problématiques » révélé au défilement ---------- */
+(function(){
+  var sec=document.querySelector(".pbs"); if(!sec) return;
+  var RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var lab=sec.querySelector(".pbs-l"), t=[].slice.call(sec.querySelectorAll(".pbs-t span")), w=[].slice.call(sec.querySelectorAll(".pw")), c=sec.querySelector(".pbs-c");
+  if(RM){ sec.style.height="auto"; return }
+  function cl(x){ return x<0?0:x>1?1:x }
+  function ease(x){ return 1-Math.pow(1-x,3) }
+  function k(p,a,b){ return ease(cl((p-a)/(b-a))) }
+  var tick=false;
+  function upd(){ tick=false;
+    var r=sec.getBoundingClientRect(), vh=window.innerHeight, total=sec.offsetHeight-vh;
+    var p=cl((-r.top+vh*.55)/(total+vh*.55));
+    var a=k(p,0,.14); lab.style.opacity=a; lab.style.letterSpacing=(0.32+(1-a)*.5)+"em";
+    t.forEach(function(el,i){ var q=k(p,.04+i*.06,.26+i*.06); el.style.opacity=q; el.style.transform="translateY("+((1-q)*70)+"px)"; el.style.letterSpacing=(0.04+(1-q)*.35)+"em" });
+    w.forEach(function(el,i){ var s=.36+i*.1, q=k(p,s,s+.14); el.style.opacity=q; el.style.transform="translateY("+((1-q)*40)+"px) scale("+(0.92+q*.08)+")"; el.style.filter="blur("+((1-q)*10).toFixed(1)+"px)" });
+    var cq=k(p,.88,1); c.style.opacity=cq; c.style.transform="translateY("+((1-cq)*16)+"px)";
+  }
+  window.addEventListener("scroll",function(){ if(!tick){ tick=true; requestAnimationFrame(upd) } },{passive:true});
+  window.addEventListener("resize",upd); upd();
+})();
