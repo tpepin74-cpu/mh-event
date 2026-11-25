@@ -191,7 +191,11 @@ def home():
  <div class="seo-faq" id="questions"><h2 class="label fade">Questions fréquentes sur l'agence</h2>{faq(qs)}<div class="actions fade" style="margin-top:28px"><a class="link" href="faq/">Toutes les questions</a></div></div>
  </div>
 </div></section>
-{cta(title="Parlons de <em>votre événement</em>&nbsp;?", dark=True, devis="devis/")}'''
+{cta(title="Parlons de <em>votre événement</em>&nbsp;?", dark=True, devis="devis/")}
+<section class="sec team"><div class="wrap">
+ {head_block("L'agence", "Une agence événementielle à taille humaine, <em>tout sur mesure</em>", "Créée par Mathilde Heyral, danseuse classique, cheffe hôtesse au Grand Prix de France de F1 et juriste, pour répondre précisément à vos craintes.", center=True)}
+ <div class="actions center fade" style="margin-top:28px;justify-content:center"><a class="btn line" href="agence/">Découvrir l'agence et l'équipe</a></div>
+</div></section>'''
     page("", "Agence événementielle Nîmes, Aix, Marseille, Saint-Tropez | MH Event",
          "MH Event, agence événementielle à Nîmes, Aix-en-Provence, Marseille, Saint-Tropez, Montpellier, Avignon et Arles : séminaires, team building, soirées, hôtels, mariages. Devis gratuit.",
          body, bodycls="home", jsonld=[AGENCY, {"@context": "https://schema.org", "@type": "WebSite", "name": "MH Event", "url": DOMAIN}, faq_ld(qs)])

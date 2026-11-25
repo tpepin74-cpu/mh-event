@@ -942,3 +942,4 @@ body.snav-on .snav{opacity:1;pointer-events:auto}
 .sola.hold .sa.on .sa-p{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){.sola.run .sa.on .sa-p{animation:none}}
 .intro .txt .sola{margin-top:0}
+.team{padding-block:clamp(72px,8vw,120px)}.team .stack{max-width:820px;margin-inline:auto}
