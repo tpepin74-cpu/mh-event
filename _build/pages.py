@@ -135,7 +135,7 @@ def home():
         ("Proposez-vous une organisation complète ou à la carte ?", "Les deux : une organisation clé en main, ou seulement les prestations dont vous avez besoin (lieu, hôtesses, animation, coordination)."),
     ]
     body = hero + f'''
-<nav class="snav" aria-label="Sections de la page"><ol>{"".join(f'<li><a href="#{i}"><span>{t}</span></a></li>' for i, t in [("suite","Vos besoins"),("problematiques","Vos problématiques"),("solutions","Nos solutions"),("confiance","Ils nous font confiance"),("intervention","Où nous intervenons"),("questions","Vos questions")])}</ol></nav>
+<nav class="snav" aria-label="Sections de la page"><ol>{"".join(f'<li><a href="#{i}"><span>{t}</span></a></li>' for i, t in [("suite","Vos besoins"),("problematiques","Vos problématiques"),("solutions","Nos solutions"),("prestations","Nos prestations"),("confiance","Ils nous font confiance"),("intervention","Où nous intervenons"),("questions","Vos questions")])}</ol></nav>
 <section class="sec you" id="suite"><div class="wrap">
  <div class="band">
   <div class="band-t"><p class="label">Vos besoins</p><h2 class="band-h">Vous souhaitez organiser un événement <em>à votre image.</em></h2></div>
@@ -153,8 +153,8 @@ def home():
  </div></div>
 </section>
 
-<section class="sec flush"><div class="wrap">
- <div class="stack center" style="margin-bottom:clamp(48px,6vw,88px)"><p class="label fade">Nos solutions</p><h2 class="t-h2 fade">Les prestations de notre agence <em>événementielle</em></h2></div>
+<section class="sec flush" id="prestations"><div class="wrap">
+ <div class="stack center" style="margin-bottom:clamp(48px,6vw,88px)"><p class="label fade">Nos prestations</p><h2 class="t-h2 fade">Les prestations de notre agence <em>événementielle</em></h2></div>
  {cards([
    ("entreprises/seminaire/", "seminaire-mh-event-organisation-seminaire-montpellier", "Séminaire sous chapiteau près de Montpellier", "Séminaires", "Lieu, hébergement, programme et temps forts, clés en main."),
    ("entreprises/team-building/", "tb-team-building-marche-des-senteurs-mh-event-avril-2026", "La Marche des senteurs dans les calanques", "Team building", "Quinze activités, du littoral aux manades de Camargue."),
