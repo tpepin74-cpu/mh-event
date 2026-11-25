@@ -627,3 +627,8 @@ body.ev main .link:hover{color:var(--ev-fg)}
 .vg .plate,.vg .st{z-index:2}
 @media (hover:hover){.vg:hover .tile>img{transform:none;filter:none}.vg:hover .tile::after{opacity:.08}}
 @media (hover:none){.vg .tile::after{opacity:.5}}
+/* ---------- Hero accueil : mention « Agence événementielle » ---------- */
+.hero-v .hero-logo{top:44%}
+.hero-v .hero-cta{top:calc(44% + clamp(200px,24vw,340px)*.313 + clamp(20px,3vh,36px))}
+.hero-kicker{margin:0;font:400 clamp(24px,2.7vw,40px)/1.1 var(--serif);text-transform:uppercase;letter-spacing:.16em;color:var(--pierre);text-shadow:0 2px 18px rgba(20,12,15,.45)}
+@media (max-width:760px){.hero-v .hero-logo{top:38%}.hero-v .hero-cta{top:calc(38% + min(52vw,240px)*.313 + 22px)}.hero-kicker{font-size:clamp(19px,5.6vw,24px);letter-spacing:.12em}}
