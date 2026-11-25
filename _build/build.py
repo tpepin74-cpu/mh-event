@@ -35,8 +35,8 @@ def ph(name, alt, shape="p", sizes="(min-width:960px) 45vw, 100vw", eager=False,
 
 def duo(front, alt_f, back, alt_b, rev=False):
     mh = ('<svg class="mh-svg" viewBox="0 0 1000 860" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
-          '<path class="mh-M" d="M22 34H112L602 598V702L97 250V842H22Z"/>'
-          '<path class="mh-H" d="M602 330H664V556H896V330H958V846H896V614H664V846H602Z"/></svg>')
+          '<path class="mh-M" d="M-96 -70H18L640 690V830L-2 70V900H-96Z"/>'
+          '<path class="mh-H" d="M624 190H704V500H964V190H1044V950H964V570H704V950H624Z"/></svg>')
     return (f'<div class="duo mhd{" rev" if rev else ""}"><div class="b">{img(back, alt_b, "(min-width:960px) 30vw, 62vw")}</div>'
             f'<div class="f">{img(front, alt_f, "(min-width:960px) 34vw, 68vw")}</div>{mh}</div>')
 

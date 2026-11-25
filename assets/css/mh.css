@@ -1020,11 +1020,14 @@ body.menu-open .rdv-fab{opacity:0;pointer-events:none}
 .hero .stack::before,.hero .stack::after,.bleed .stack::before,.bleed .stack::after{display:none}
 .js .stack::before,.js .pbs-in::before,.js .hxs-h::before,.js .band-t::before,.js .sol-h::before,.js .wrap.cta::before{transition:opacity 1.2s ease,transform 1.4s var(--ease)}
 /* ===== fin de l'essai ===== */
-/* ===== ESSAI « MH graphique » : M et H blancs découpés sur les deux photos d'origine (retirer ce bloc pour revenir en arrière) ===== */
-.mh-svg{position:absolute;inset:0;width:100%;height:100%;z-index:3;overflow:visible;pointer-events:none}
-.mh-M,.mh-H{fill:#F6F1E8}
-.duo.rev .mh-svg{transform:scaleX(-1)}
-.js .mhd .mh-M{opacity:0;transform:translateY(-40px);transition:opacity 1.2s ease,transform 1.6s var(--ease)}
-.js .mhd .mh-H{opacity:0;transform:translateY(40px);transition:opacity 1.4s ease .35s,transform 1.8s var(--ease) .35s}
-.js .mhd.mat-on .mh-M,.js .mhd.mat-on .mh-H{opacity:.94;transform:none}
+/* ===== ESSAI « MH graphique » : M et H derrière les deux photos, ton beige de la charte (retirer ce bloc pour revenir en arrière) ===== */
+.duo.mhd{isolation:isolate}
+.mh-svg{position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:visible;pointer-events:none;transform:translateY(var(--py,0px))}
+.duo.mhd .f{z-index:1}.duo.mhd .b{z-index:2}
+.mh-M,.mh-H{fill:#DCCDB3}
+.duo.rev .mh-svg{transform:scaleX(-1) translateY(var(--py,0px))}
+.js .mhd .mh-M{opacity:0;transform:translateY(-50px);transition:opacity 1.4s ease,transform 1.8s var(--ease)}
+.js .mhd .mh-H{opacity:0;transform:translateY(50px);transition:opacity 1.5s ease .35s,transform 2s var(--ease) .35s}
+.js .mhd.mat-on .mh-M,.js .mhd.mat-on .mh-H{opacity:1;transform:none}
+@media (max-width:760px){.mh-svg{transform:scale(.92)}}
 /* ===== fin de l'essai MH ===== */
